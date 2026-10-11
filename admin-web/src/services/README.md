@@ -1,0 +1,3 @@
+# 服务层
+
+AdminServices在启动时注入ContestRepository、FeedbackRepository、PublicityRepository和SessionService；页面不依赖Mock实现或HTTP传输。

@@ -1,0 +1,219 @@
+{
+  "query": {
+    "keyword": "",
+    "category": null,
+    "status": null,
+    "month": null,
+    "monthMode": "reg",
+    "sort": "-updatedAt"
+  },
+  "items": [
+    {
+      "contestId": "DEMO-10",
+      "name": "【演示】校园赛事 10",
+      "category": "综合",
+      "scopeType": "校内赛事",
+      "contestStatus": "评审中",
+      "regEnd": "2026-10-20",
+      "regEndHasTime": false,
+      "organizationName": "演示主办单位（非官方）",
+      "applicableScope": {
+        "colleges": [],
+        "majors": [],
+        "grades": [],
+        "degrees": [],
+        "campuses": [],
+        "applicableNote": "以原通知为准（演示）"
+      },
+      "completeness": "完整",
+      "level": "校赛"
+    },
+    {
+      "contestId": "DEMO-11",
+      "name": "【演示】校园赛事 11",
+      "category": "学科竞赛",
+      "scopeType": "校内赛事",
+      "contestStatus": "公示中",
+      "regEnd": "2026-10-20T17:00:00+08:00",
+      "regEndHasTime": true,
+      "organizationName": "演示主办单位（非官方）",
+      "applicableScope": {
+        "colleges": [],
+        "majors": [],
+        "grades": [],
+        "degrees": [],
+        "campuses": [],
+        "applicableNote": "以原通知为准（演示）"
+      },
+      "completeness": "完整",
+      "level": "校赛"
+    },
+    {
+      "contestId": "DEMO-12",
+      "name": "【演示】校园赛事 12",
+      "category": "创新创业",
+      "scopeType": "校内赛事",
+      "contestStatus": "已结束",
+      "regEnd": "2026-08-20",
+      "regEndHasTime": false,
+      "organizationName": "演示主办单位（非官方）",
+      "applicableScope": {
+        "colleges": [],
+        "majors": [],
+        "grades": [],
+        "degrees": [],
+        "campuses": [],
+        "applicableNote": "以原通知为准（演示）"
+      },
+      "completeness": "待补充",
+      "level": "校赛"
+    },
+    {
+      "contestId": "DEMO-13",
+      "name": "【演示】校园赛事 13",
+      "category": "文体活动",
+      "scopeType": "校内赛事",
+      "contestStatus": "已结束",
+      "regEnd": "2026-08-20",
+      "regEndHasTime": false,
+      "organizationName": "演示主办单位（非官方）",
+      "applicableScope": {
+        "colleges": [],
+        "majors": [],
+        "grades": [],
+        "degrees": [],
+        "campuses": [],
+        "applicableNote": "以原通知为准（演示）"
+      },
+      "completeness": "完整",
+      "level": "校赛"
+    },
+    {
+      "contestId": "DEMO-14",
+      "name": "【演示】校园赛事 14",
+      "category": "技能竞赛",
+      "scopeType": "校内赛事",
+      "contestStatus": "已结束",
+      "regEnd": "2026-08-20",
+      "regEndHasTime": false,
+      "organizationName": "演示主办单位（非官方）",
+      "applicableScope": {
+        "colleges": [],
+        "majors": [],
+        "grades": [],
+        "degrees": [],
+        "campuses": [],
+        "applicableNote": "以原通知为准（演示）"
+      },
+      "completeness": "完整",
+      "level": "校赛"
+    },
+    {
+      "contestId": "DEMO-9",
+      "name": "【演示】校园赛事 9",
+      "category": "技能竞赛",
+      "scopeType": "校内赛事",
+      "contestStatus": "报名中",
+      "regEnd": "2026-10-20T17:00:00+08:00",
+      "regEndHasTime": true,
+      "organizationName": "演示主办单位（非官方）",
+      "applicableScope": {
+        "colleges": [],
+        "majors": [],
+        "grades": [],
+        "degrees": [],
+        "campuses": [],
+        "applicableNote": "以原通知为准（演示）"
+      },
+      "completeness": "待补充",
+      "level": "校赛"
+    },
+    {
+      "contestId": "DEMO-8",
+      "name": "【演示】校园赛事 8",
+      "category": "文体活动",
+      "scopeType": "校内赛事",
+      "contestStatus": "报名中",
+      "regEnd": "2026-10-20",
+      "regEndHasTime": false,
+      "organizationName": "演示主办单位（非官方）",
+      "applicableScope": {
+        "colleges": [],
+        "majors": [],
+        "grades": [],
+        "degrees": [],
+        "campuses": [],
+        "applicableNote": "以原通知为准（演示）"
+      },
+      "completeness": "完整",
+      "level": "校赛"
+    },
+    {
+      "contestId": "DEMO-7",
+      "name": "【演示】校园赛事 7",
+      "category": "创新创业",
+      "scopeType": "校内赛事",
+      "contestStatus": "报名中",
+      "regEnd": "2026-10-20T17:00:00+08:00",
+      "regEndHasTime": true,
+      "organizationName": "演示主办单位（非官方）",
+      "applicableScope": {
+        "colleges": [],
+        "majors": [],
+        "grades": [],
+        "degrees": [],
+        "campuses": [],
+        "applicableNote": "以原通知为准（演示）"
+      },
+      "completeness": "完整",
+      "level": "校赛"
+    },
+    {
+      "contestId": "DEMO-6",
+      "name": "【演示】校园赛事 6",
+      "category": "学科竞赛",
+      "scopeType": "校内赛事",
+      "contestStatus": "报名中",
+      "regEnd": "2026-10-20",
+      "regEndHasTime": false,
+      "organizationName": "演示主办单位（非官方）",
+      "applicableScope": {
+        "colleges": [],
+        "majors": [],
+        "grades": [],
+        "degrees": [],
+        "campuses": [],
+        "applicableNote": "以原通知为准（演示）"
+      },
+      "completeness": "待补充",
+      "level": "校赛"
+    },
+    {
+      "contestId": "DEMO-5",
+      "name": "【演示】校园赛事 5",
+      "category": "综合",
+      "scopeType": "校内赛事",
+      "contestStatus": "报名中",
+      "regEnd": "2026-10-20T17:00:00+08:00",
+      "regEndHasTime": true,
+      "organizationName": "演示主办单位（非官方）",
+      "applicableScope": {
+        "colleges": [],
+        "majors": [],
+        "grades": [],
+        "degrees": [],
+        "campuses": [],
+        "applicableNote": "以原通知为准（演示）"
+      },
+      "completeness": "完整",
+      "level": "校赛"
+    }
+  ],
+  "total": 14,
+  "page": 1,
+  "hasMore": true,
+  "loading": false,
+  "loadingMore": false,
+  "error": "",
+  "moreError": ""
+}

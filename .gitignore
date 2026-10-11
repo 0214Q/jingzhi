@@ -1,0 +1,26 @@
+node_modules/
+dist/
+.env
+.env.local
+.env.*.local
+*.hap
+*.hsp
+.hvigor/
+.idea/
+build/
+local.properties
+*.p12
+*.p7b
+
+# === 补充忽略规则（首次推送整理） ===
+oh_modules/
+.workbuddy/
+.vscode/
+.DS_Store
+Thumbs.db
+
+# Windows 误拷贝的副本目录（如 "build - 副本" / "src - 副本"）
+**/*副本*/
+
+# 本地备份目录
+catalog-ui-backup-*/

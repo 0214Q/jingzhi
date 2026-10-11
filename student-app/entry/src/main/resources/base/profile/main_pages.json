@@ -1,0 +1,11 @@
+{
+  "src": [
+    "pages/Login",
+    "pages/Index",
+    "pages/ContestList",
+    "pages/ContestDetail",
+    "pages/My",
+    "pages/Favorites",
+    "pages/Feedback"
+  ]
+}

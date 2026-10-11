@@ -1,0 +1,324 @@
+{
+  "AuthRepository": [
+    [
+      "login",
+      "input: LoginRequest",
+      "LoginResult",
+      "POST /auth/login"
+    ],
+    [
+      "logout",
+      "",
+      "void",
+      "POST /auth/logout"
+    ],
+    [
+      "getCurrentUser",
+      "",
+      "User",
+      "GET /auth/me"
+    ]
+  ],
+  "ContestRepository": [
+    [
+      "listPublished",
+      "filter: ContestFilter",
+      "ContestPage",
+      "GET /contests"
+    ],
+    [
+      "getPublicVersion",
+      "contestId: string",
+      "PublicContest",
+      "GET /contests/:id"
+    ],
+    [
+      "getPublicAuditLog",
+      "contestId: string, changeType?: ChangeType",
+      "PublicAuditLog[]",
+      "GET /contests/:id/audit-logs"
+    ],
+    [
+      "getPublicity",
+      "contestId: string",
+      "PublicityResult",
+      "GET /contests/:id/publicity"
+    ],
+    [
+      "getMonths",
+      "filter: ContestFilter",
+      "string[]",
+      "GET /contests/months"
+    ],
+    [
+      "listManaged",
+      "filter: ContestFilter",
+      "ManagedContestPage",
+      "GET /manage/contests"
+    ],
+    [
+      "getManaged",
+      "contestId: string",
+      "ManagedContest",
+      "GET /manage/contests/:id"
+    ],
+    [
+      "createDraft",
+      "input: CreateDraftRequest",
+      "DraftResult",
+      "POST /manage/contests"
+    ],
+    [
+      "updateDraft",
+      "contestId: string, versionId: string, input: UpdateDraftRequest, lock: ConcurrencyHeaders",
+      "DraftResult",
+      "PUT /manage/contests/:id/versions/:vid"
+    ],
+    [
+      "deriveVersion",
+      "contestId: string, input: DeriveVersionRequest, lock: ConcurrencyHeaders",
+      "DraftResult",
+      "POST /manage/contests/:id/versions"
+    ],
+    [
+      "submitReview",
+      "contestId: string, versionId: string, lock: ConcurrencyHeaders",
+      "SubmitReviewResult",
+      "POST /manage/contests/:id/versions/:vid/submit"
+    ],
+    [
+      "reviewApprove",
+      "contestId: string, input: ApproveReviewRequest",
+      "ApproveReviewResult",
+      "POST /manage/review/:id/approve"
+    ],
+    [
+      "reviewReject",
+      "contestId: string, input: RejectReviewRequest",
+      "RejectReviewResult",
+      "POST /manage/review/:id/reject"
+    ],
+    [
+      "listPending",
+      "filter: ContestFilter",
+      "PendingReviewPage",
+      "GET /manage/review/pending"
+    ],
+    [
+      "listVersions",
+      "contestId: string, page: PageQuery",
+      "VersionPage",
+      "GET /manage/contests/:id/versions"
+    ],
+    [
+      "getVersion",
+      "contestId: string, versionId: string",
+      "ContestVersion",
+      "GET /manage/contests/:id/versions/:vid"
+    ],
+    [
+      "getInternalAuditLog",
+      "contestId: string, changeType?: ChangeType",
+      "AuditLog[]",
+      "GET /manage/contests/:id/audit-logs"
+    ],
+    [
+      "restoreVersion",
+      "contestId: string, versionId: string, input: DeriveVersionRequest, lock: ConcurrencyHeaders",
+      "DraftResult",
+      "POST /manage/contests/:id/versions/:vid/restore"
+    ],
+    [
+      "takedown",
+      "contestId: string, input: TakedownRequest",
+      "Contest",
+      "POST /manage/contests/:id/takedown"
+    ],
+    [
+      "restorePublication",
+      "contestId: string",
+      "Contest",
+      "POST /manage/contests/:id/restore"
+    ]
+  ],
+  "PublicityRepository": [
+    [
+      "create",
+      "input: CreatePublicityRequest",
+      "Publicity",
+      "POST /manage/publicity"
+    ],
+    [
+      "update",
+      "publicityId: string, input: UpdatePublicityRequest, lock: ConcurrencyHeaders",
+      "Publicity",
+      "PUT /manage/publicity/:id"
+    ],
+    [
+      "submitReview",
+      "publicityId: string, lock: ConcurrencyHeaders",
+      "Publicity",
+      "POST /manage/publicity/:id/submit"
+    ],
+    [
+      "reviewApprove",
+      "publicityId: string, lock: ConcurrencyHeaders",
+      "Publicity",
+      "POST /manage/review/publicity/:id/approve"
+    ],
+    [
+      "reviewReject",
+      "publicityId: string, input: RejectReasonRequest, lock: ConcurrencyHeaders",
+      "Publicity",
+      "POST /manage/review/publicity/:id/reject"
+    ],
+    [
+      "withdraw",
+      "publicityId: string, input: ReasonRequest, lock: ConcurrencyHeaders",
+      "void",
+      "DELETE /manage/publicity/:id"
+    ],
+    [
+      "listPending",
+      "page: PageQuery",
+      "PublicityPage",
+      "GET /manage/review/publicity/pending"
+    ]
+  ],
+  "FavoriteRepository": [
+    [
+      "listMine",
+      "page: PageQuery",
+      "FavoritePage",
+      "GET /favorites"
+    ],
+    [
+      "add",
+      "input: CreateFavoriteRequest",
+      "Favorite",
+      "POST /favorites"
+    ],
+    [
+      "remove",
+      "contestId: string",
+      "void",
+      "DELETE /favorites/:contestId"
+    ]
+  ],
+  "FeedbackRepository": [
+    [
+      "create",
+      "input: CreateFeedbackRequest",
+      "Feedback",
+      "POST /feedback"
+    ],
+    [
+      "listMine",
+      "page: PageQuery",
+      "FeedbackPage",
+      "GET /feedback/mine"
+    ],
+    [
+      "listManaged",
+      "filter: FeedbackFilter",
+      "FeedbackPage",
+      "GET /manage/feedback"
+    ],
+    [
+      "handle",
+      "feedbackId: string, input: HandleFeedbackRequest",
+      "Feedback",
+      "PATCH /manage/feedback/:id/handle"
+    ]
+  ],
+  "NotificationRepository": [
+    [
+      "listMine",
+      "filter: NotificationFilter",
+      "NotificationPage",
+      "GET /notifications"
+    ],
+    [
+      "markRead",
+      "notificationId: string",
+      "void",
+      "PATCH /notifications/:id/read"
+    ],
+    [
+      "getSettings",
+      "",
+      "NotificationSetting",
+      "GET /user/notification-settings"
+    ],
+    [
+      "updateSettings",
+      "input: UpdateNotificationSettings",
+      "NotificationSetting",
+      "PATCH /user/notification-settings"
+    ],
+    [
+      "registerDevice",
+      "input: RegisterDeviceRequest",
+      "void",
+      "POST /user/devices"
+    ],
+    [
+      "pushTest",
+      "",
+      "void",
+      "POST /notifications/push-test (dev/test only)"
+    ]
+  ],
+  "ImportRepository": [
+    [
+      "downloadTemplate",
+      "",
+      "FileResource",
+      "GET /manage/import/template"
+    ],
+    [
+      "upload",
+      "input: UploadFile",
+      "ImportUploadResult",
+      "POST /manage/import/upload"
+    ],
+    [
+      "preview",
+      "taskId: string",
+      "ImportPreviewResult",
+      "POST /manage/import/preview?taskId"
+    ],
+    [
+      "submit",
+      "taskId: string",
+      "ImportSubmitResult",
+      "POST /manage/import/submit?taskId"
+    ],
+    [
+      "getReport",
+      "taskId: string",
+      "ImportReport",
+      "GET /manage/import/:taskId/report"
+    ]
+  ],
+  "AttachmentRepository": [
+    [
+      "upload",
+      "contestId: string | null, type: string, input: UploadFile",
+      "Attachment",
+      "POST /manage/attachments"
+    ],
+    [
+      "get",
+      "attachmentId: string",
+      "Attachment",
+      "GET /manage/attachments/:id"
+    ],
+    [
+      "remove",
+      "attachmentId: string",
+      "void",
+      "DELETE /manage/attachments/:id"
+    ]
+  ]
+}

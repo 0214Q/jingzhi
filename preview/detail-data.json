@@ -1,0 +1,646 @@
+[
+  {
+    "id": "DEMO-3",
+    "detail": {
+      "contestId": "DEMO-3",
+      "schoolId": "HENU",
+      "publishedVersionId": "DEMO-3-v1",
+      "contestStatus": "报名中",
+      "takedown": null,
+      "data": {
+        "name": "【演示】校园赛事 3",
+        "category": "文体活动",
+        "scopeType": "校内赛事",
+        "edition": "演示2026",
+        "level": "校赛",
+        "applicableScope": {
+          "colleges": [],
+          "majors": [],
+          "grades": [],
+          "degrees": [],
+          "campuses": [],
+          "applicableNote": "以原通知为准（演示）"
+        },
+        "entryType": "团队整理",
+        "sourceTitle": "演示通知（不是真实河大通知）",
+        "sourceOrg": "演示单位",
+        "sourceUrl": "https://example.invalid/demo/3",
+        "sourcePublishedAt": "2026-09-01",
+        "collectedAt": "2026-10-01T09:00:00+08:00",
+        "lastVerifiedAt": "2026-10-01",
+        "completeness": "待补充",
+        "regStart": "2026-10-01",
+        "regEnd": "2026-10-20T17:00:00+08:00",
+        "contestStart": "2026-11-01",
+        "contestEnd": "2026-11-02",
+        "publicityTime": null,
+        "contestRequirement": "演示：面向在校学生",
+        "reviewRules": null,
+        "awardSetting": null,
+        "material": null,
+        "entryMethod": "演示：查看原通知，不提供站内报名",
+        "contact": null,
+        "description": "此记录仅用于开发验证，不可用于报名。",
+        "creditApplicable": "否",
+        "creditBasis": null,
+        "creditNote": null,
+        "organizationId": "ORG-DEMO",
+        "attachmentIds": []
+      },
+      "source": {
+        "sourceTitle": "演示通知（不是真实河大通知）",
+        "sourceOrg": "演示单位",
+        "sourceUrl": "https://example.invalid/demo/3",
+        "sourcePublishedAt": "2026-09-01",
+        "collectedAt": "2026-10-01T09:00:00+08:00",
+        "lastVerifiedAt": "2026-10-01"
+      },
+      "publicity": {
+        "current": null,
+        "history": []
+      },
+      "auditLogs": [
+        {
+          "id": "DEMO-3-log",
+          "contestId": "DEMO-3",
+          "versionId": "DEMO-3-v1",
+          "operator": "editor",
+          "time": "2026-10-01T09:00:00+08:00",
+          "field": "created",
+          "oldValue": null,
+          "newValue": "【演示】校园赛事 3",
+          "reason": "演示首录",
+          "changeType": "平台纠错",
+          "visibility": "public"
+        }
+      ],
+      "completeness": "待补充",
+      "incompleteFields": [
+        "reviewRules",
+        "awardSetting"
+      ],
+      "regEndHasTime": true,
+      "organizationName": "演示主办单位（非官方）",
+      "updatedAt": "2026-10-03T11:00:00+08:00"
+    },
+    "sections": [
+      {
+        "key": "basic",
+        "title": "基本信息",
+        "text": "主办方：演示主办单位（非官方）\n赛事届次：演示2026\n层级：校赛\n联系方式：原通知未公布\n简介：此记录仅用于开发验证，不可用于报名。"
+      },
+      {
+        "key": "scope",
+        "title": "适用对象",
+        "text": "学院：以原通知为准\n专业：以原通知为准\n年级：以原通知为准\n学历：以原通知为准\n校区：以原通知为准\n说明：以原通知为准（演示）"
+      },
+      {
+        "key": "schedule",
+        "title": "时间安排",
+        "text": "报名开始：2026.10.01（原文仅日期）\n报名截止：2026.10.20 17:00\n比赛开始：2026.11.01（原文仅日期）\n比赛结束：2026.11.02（原文仅日期）\n公示时间：原通知未公布"
+      },
+      {
+        "key": "requirement",
+        "title": "参赛要求",
+        "text": "演示：面向在校学生\n\n材料要求：原通知未公布"
+      },
+      {
+        "key": "rules",
+        "title": "评审规则",
+        "text": "原通知未公布"
+      },
+      {
+        "key": "award",
+        "title": "奖项与第二课堂",
+        "text": "原通知未公布\n\n第二课堂成绩单（到梦空间）\n是否适用：否\n依据：原通知未公布\n说明：原通知未公布\n以主办方最终认定为准，平台不作加分承诺。"
+      },
+      {
+        "key": "entry",
+        "title": "报名方式",
+        "text": "演示：查看原通知，不提供站内报名\n\n仅展示报名方式，以原通知为准。平台不提供站内报名。"
+      }
+    ],
+    "warning": "待补充：评审规则、奖项设置。原通知未公布的内容不会推测补全。",
+    "logs": [
+      {
+        "id": "DEMO-3-log",
+        "contestId": "DEMO-3",
+        "versionId": "DEMO-3-v1",
+        "operator": "editor",
+        "time": "2026-10-01T09:00:00+08:00",
+        "field": "created",
+        "oldValue": null,
+        "newValue": "【演示】校园赛事 3",
+        "reason": "演示首录",
+        "changeType": "平台纠错",
+        "visibility": "public",
+        "label": "首次发布",
+        "before": "原通知未公布",
+        "after": "【演示】校园赛事 3"
+      }
+    ],
+    "publicity": "当前暂无已公开公示"
+  },
+  {
+    "id": "DEMO-1",
+    "detail": {
+      "contestId": "DEMO-1",
+      "schoolId": "HENU",
+      "publishedVersionId": "DEMO-1-v1",
+      "contestStatus": "报名中",
+      "takedown": null,
+      "data": {
+        "name": "【演示】校园赛事 1",
+        "category": "学科竞赛",
+        "scopeType": "校内赛事",
+        "edition": "演示2026",
+        "level": "校赛",
+        "applicableScope": {
+          "colleges": [],
+          "majors": [],
+          "grades": [],
+          "degrees": [],
+          "campuses": [],
+          "applicableNote": "以原通知为准（演示）"
+        },
+        "entryType": "团队整理",
+        "sourceTitle": "演示通知（不是真实河大通知）",
+        "sourceOrg": "演示单位",
+        "sourceUrl": "https://example.invalid/demo/1",
+        "sourcePublishedAt": "2026-09-01",
+        "collectedAt": "2026-10-01T09:00:00+08:00",
+        "lastVerifiedAt": "2026-10-01",
+        "completeness": "完整",
+        "regStart": "2026-10-01",
+        "regEnd": "2026-10-12T17:00:00+08:00",
+        "contestStart": "2026-11-01",
+        "contestEnd": "2026-11-02",
+        "publicityTime": null,
+        "contestRequirement": "演示：面向在校学生",
+        "reviewRules": "演示评审规则",
+        "awardSetting": "演示一等奖",
+        "material": null,
+        "entryMethod": "演示：查看原通知，不提供站内报名",
+        "contact": null,
+        "description": "此记录仅用于开发验证，不可用于报名。",
+        "creditApplicable": "否",
+        "creditBasis": null,
+        "creditNote": null,
+        "organizationId": "ORG-DEMO",
+        "attachmentIds": []
+      },
+      "source": {
+        "sourceTitle": "演示通知（不是真实河大通知）",
+        "sourceOrg": "演示单位",
+        "sourceUrl": "https://example.invalid/demo/1",
+        "sourcePublishedAt": "2026-09-01",
+        "collectedAt": "2026-10-01T09:00:00+08:00",
+        "lastVerifiedAt": "2026-10-01"
+      },
+      "publicity": {
+        "current": null,
+        "history": []
+      },
+      "auditLogs": [
+        {
+          "id": "DEMO-1-log",
+          "contestId": "DEMO-1",
+          "versionId": "DEMO-1-v1",
+          "operator": "editor",
+          "time": "2026-10-01T09:00:00+08:00",
+          "field": "created",
+          "oldValue": null,
+          "newValue": "【演示】校园赛事 1",
+          "reason": "演示首录",
+          "changeType": "平台纠错",
+          "visibility": "public"
+        },
+        {
+          "id": "DEMO-1-source-change",
+          "contestId": "DEMO-1",
+          "versionId": "DEMO-1-v1",
+          "operator": "editor",
+          "time": "2026-10-02T10:00:00+08:00",
+          "field": "regEnd",
+          "oldValue": "\"2026-10-15T17:00:00+08:00\"",
+          "newValue": "\"2026-10-12T17:00:00+08:00\"",
+          "reason": "【演示】原通知调整截止日",
+          "changeType": "原通知变更",
+          "visibility": "public"
+        },
+        {
+          "id": "DEMO-1-correction",
+          "contestId": "DEMO-1",
+          "versionId": "DEMO-1-v1",
+          "operator": "editor",
+          "time": "2026-10-02T11:00:00+08:00",
+          "field": "name",
+          "oldValue": "\"【演示】校园赛事原名\"",
+          "newValue": "\"【演示】校园赛事 1\"",
+          "reason": "【演示】录入名称纠错",
+          "changeType": "平台纠错",
+          "visibility": "public"
+        }
+      ],
+      "completeness": "完整",
+      "incompleteFields": [],
+      "regEndHasTime": true,
+      "organizationName": "演示主办单位（非官方）",
+      "updatedAt": "2026-10-01T11:00:00+08:00"
+    },
+    "sections": [
+      {
+        "key": "basic",
+        "title": "基本信息",
+        "text": "主办方：演示主办单位（非官方）\n赛事届次：演示2026\n层级：校赛\n联系方式：原通知未公布\n简介：此记录仅用于开发验证，不可用于报名。"
+      },
+      {
+        "key": "scope",
+        "title": "适用对象",
+        "text": "学院：以原通知为准\n专业：以原通知为准\n年级：以原通知为准\n学历：以原通知为准\n校区：以原通知为准\n说明：以原通知为准（演示）"
+      },
+      {
+        "key": "schedule",
+        "title": "时间安排",
+        "text": "报名开始：2026.10.01（原文仅日期）\n报名截止：2026.10.12 17:00\n比赛开始：2026.11.01（原文仅日期）\n比赛结束：2026.11.02（原文仅日期）\n公示时间：原通知未公布"
+      },
+      {
+        "key": "requirement",
+        "title": "参赛要求",
+        "text": "演示：面向在校学生\n\n材料要求：原通知未公布"
+      },
+      {
+        "key": "rules",
+        "title": "评审规则",
+        "text": "演示评审规则"
+      },
+      {
+        "key": "award",
+        "title": "奖项与第二课堂",
+        "text": "演示一等奖\n\n第二课堂成绩单（到梦空间）\n是否适用：否\n依据：原通知未公布\n说明：原通知未公布\n以主办方最终认定为准，平台不作加分承诺。"
+      },
+      {
+        "key": "entry",
+        "title": "报名方式",
+        "text": "演示：查看原通知，不提供站内报名\n\n仅展示报名方式，以原通知为准。平台不提供站内报名。"
+      }
+    ],
+    "warning": "",
+    "logs": [
+      {
+        "id": "DEMO-1-correction",
+        "contestId": "DEMO-1",
+        "versionId": "DEMO-1-v1",
+        "operator": "editor",
+        "time": "2026-10-02T11:00:00+08:00",
+        "field": "name",
+        "oldValue": "\"【演示】校园赛事原名\"",
+        "newValue": "\"【演示】校园赛事 1\"",
+        "reason": "【演示】录入名称纠错",
+        "changeType": "平台纠错",
+        "visibility": "public",
+        "label": "赛事名称",
+        "before": "【演示】校园赛事原名",
+        "after": "【演示】校园赛事 1"
+      },
+      {
+        "id": "DEMO-1-source-change",
+        "contestId": "DEMO-1",
+        "versionId": "DEMO-1-v1",
+        "operator": "editor",
+        "time": "2026-10-02T10:00:00+08:00",
+        "field": "regEnd",
+        "oldValue": "\"2026-10-15T17:00:00+08:00\"",
+        "newValue": "\"2026-10-12T17:00:00+08:00\"",
+        "reason": "【演示】原通知调整截止日",
+        "changeType": "原通知变更",
+        "visibility": "public",
+        "label": "报名截止",
+        "before": "2026-10-15T17:00:00+08:00",
+        "after": "2026-10-12T17:00:00+08:00"
+      },
+      {
+        "id": "DEMO-1-log",
+        "contestId": "DEMO-1",
+        "versionId": "DEMO-1-v1",
+        "operator": "editor",
+        "time": "2026-10-01T09:00:00+08:00",
+        "field": "created",
+        "oldValue": null,
+        "newValue": "【演示】校园赛事 1",
+        "reason": "演示首录",
+        "changeType": "平台纠错",
+        "visibility": "public",
+        "label": "首次发布",
+        "before": "原通知未公布",
+        "after": "【演示】校园赛事 1"
+      }
+    ],
+    "publicity": "当前暂无已公开公示"
+  },
+  {
+    "id": "DEMO-11",
+    "detail": {
+      "contestId": "DEMO-11",
+      "schoolId": "HENU",
+      "publishedVersionId": "DEMO-11-v1",
+      "contestStatus": "公示中",
+      "takedown": null,
+      "data": {
+        "name": "【演示】校园赛事 11",
+        "category": "学科竞赛",
+        "scopeType": "校内赛事",
+        "edition": "演示2026",
+        "level": "校赛",
+        "applicableScope": {
+          "colleges": [],
+          "majors": [],
+          "grades": [],
+          "degrees": [],
+          "campuses": [],
+          "applicableNote": "以原通知为准（演示）"
+        },
+        "entryType": "团队整理",
+        "sourceTitle": "演示通知（不是真实河大通知）",
+        "sourceOrg": "演示单位",
+        "sourceUrl": "https://example.invalid/demo/11",
+        "sourcePublishedAt": "2026-09-01",
+        "collectedAt": "2026-10-01T09:00:00+08:00",
+        "lastVerifiedAt": "2026-10-01",
+        "completeness": "完整",
+        "regStart": "2026-10-01",
+        "regEnd": "2026-10-20T17:00:00+08:00",
+        "contestStart": "2026-11-01",
+        "contestEnd": "2026-11-02",
+        "publicityTime": null,
+        "contestRequirement": "演示：面向在校学生",
+        "reviewRules": "演示评审规则",
+        "awardSetting": "演示一等奖",
+        "material": null,
+        "entryMethod": "演示：查看原通知，不提供站内报名",
+        "contact": null,
+        "description": "此记录仅用于开发验证，不可用于报名。",
+        "creditApplicable": "否",
+        "creditBasis": null,
+        "creditNote": null,
+        "organizationId": "ORG-DEMO",
+        "attachmentIds": []
+      },
+      "source": {
+        "sourceTitle": "演示通知（不是真实河大通知）",
+        "sourceOrg": "演示单位",
+        "sourceUrl": "https://example.invalid/demo/11",
+        "sourcePublishedAt": "2026-09-01",
+        "collectedAt": "2026-10-01T09:00:00+08:00",
+        "lastVerifiedAt": "2026-10-01"
+      },
+      "publicity": {
+        "current": {
+          "winners": [
+            {
+              "name": "演示团队甲（虚构）",
+              "award": "演示一等奖",
+              "workTitle": "演示作品",
+              "organizationName": "演示学院"
+            }
+          ],
+          "rule": "【演示】修订后的评审办法",
+          "standard": null
+        },
+        "history": [
+          {
+            "id": "DEMO-PUB-11",
+            "contestId": "DEMO-11",
+            "type": "评审办法",
+            "versionNo": 1,
+            "content": "【演示】已审核评审办法",
+            "publishedAt": "2026-10-01T11:00:00+08:00"
+          }
+        ]
+      },
+      "auditLogs": [
+        {
+          "id": "DEMO-11-log",
+          "contestId": "DEMO-11",
+          "versionId": "DEMO-11-v1",
+          "operator": "editor",
+          "time": "2026-10-01T09:00:00+08:00",
+          "field": "created",
+          "oldValue": null,
+          "newValue": "【演示】校园赛事 11",
+          "reason": "演示首录",
+          "changeType": "平台纠错",
+          "visibility": "public"
+        }
+      ],
+      "completeness": "完整",
+      "incompleteFields": [],
+      "regEndHasTime": true,
+      "organizationName": "演示主办单位（非官方）",
+      "updatedAt": "2026-10-10T11:00:00+08:00"
+    },
+    "sections": [
+      {
+        "key": "basic",
+        "title": "基本信息",
+        "text": "主办方：演示主办单位（非官方）\n赛事届次：演示2026\n层级：校赛\n联系方式：原通知未公布\n简介：此记录仅用于开发验证，不可用于报名。"
+      },
+      {
+        "key": "scope",
+        "title": "适用对象",
+        "text": "学院：以原通知为准\n专业：以原通知为准\n年级：以原通知为准\n学历：以原通知为准\n校区：以原通知为准\n说明：以原通知为准（演示）"
+      },
+      {
+        "key": "schedule",
+        "title": "时间安排",
+        "text": "报名开始：2026.10.01（原文仅日期）\n报名截止：2026.10.20 17:00\n比赛开始：2026.11.01（原文仅日期）\n比赛结束：2026.11.02（原文仅日期）\n公示时间：原通知未公布"
+      },
+      {
+        "key": "requirement",
+        "title": "参赛要求",
+        "text": "演示：面向在校学生\n\n材料要求：原通知未公布"
+      },
+      {
+        "key": "rules",
+        "title": "评审规则",
+        "text": "演示评审规则"
+      },
+      {
+        "key": "award",
+        "title": "奖项与第二课堂",
+        "text": "演示一等奖\n\n第二课堂成绩单（到梦空间）\n是否适用：否\n依据：原通知未公布\n说明：原通知未公布\n以主办方最终认定为准，平台不作加分承诺。"
+      },
+      {
+        "key": "entry",
+        "title": "报名方式",
+        "text": "演示：查看原通知，不提供站内报名\n\n仅展示报名方式，以原通知为准。平台不提供站内报名。"
+      }
+    ],
+    "warning": "",
+    "logs": [
+      {
+        "id": "DEMO-11-log",
+        "contestId": "DEMO-11",
+        "versionId": "DEMO-11-v1",
+        "operator": "editor",
+        "time": "2026-10-01T09:00:00+08:00",
+        "field": "created",
+        "oldValue": null,
+        "newValue": "【演示】校园赛事 11",
+        "reason": "演示首录",
+        "changeType": "平台纠错",
+        "visibility": "public",
+        "label": "首次发布",
+        "before": "原通知未公布",
+        "after": "【演示】校园赛事 11"
+      }
+    ],
+    "publicity": "演示一等奖 · 演示团队甲（虚构）\n作品：演示作品\n单位：演示学院"
+  },
+  {
+    "id": "DEMO-15",
+    "detail": {
+      "contestId": "DEMO-15",
+      "schoolId": "HENU",
+      "publishedVersionId": "DEMO-15-v1",
+      "contestStatus": "已结束",
+      "takedown": {
+        "reason": "演示下架",
+        "at": "2026-10-02T09:00:00+08:00",
+        "by": "admin"
+      },
+      "data": {
+        "name": "【演示】校园赛事 15",
+        "category": "综合",
+        "scopeType": "校内赛事",
+        "edition": "演示2026",
+        "level": "校赛",
+        "applicableScope": {
+          "colleges": [],
+          "majors": [],
+          "grades": [],
+          "degrees": [],
+          "campuses": [],
+          "applicableNote": "以原通知为准（演示）"
+        },
+        "entryType": "团队整理",
+        "sourceTitle": "演示通知（不是真实河大通知）",
+        "sourceOrg": "演示单位",
+        "sourceUrl": "https://example.invalid/demo/15",
+        "sourcePublishedAt": "2026-09-01",
+        "collectedAt": "2026-10-01T09:00:00+08:00",
+        "lastVerifiedAt": "2026-10-01",
+        "completeness": "待补充",
+        "regStart": "2026-08-01",
+        "regEnd": "2026-08-20",
+        "contestStart": "2026-09-01",
+        "contestEnd": "2026-09-02",
+        "publicityTime": null,
+        "contestRequirement": "演示：面向在校学生",
+        "reviewRules": null,
+        "awardSetting": null,
+        "material": null,
+        "entryMethod": "演示：查看原通知，不提供站内报名",
+        "contact": null,
+        "description": "此记录仅用于开发验证，不可用于报名。",
+        "creditApplicable": "否",
+        "creditBasis": null,
+        "creditNote": null,
+        "organizationId": "ORG-DEMO",
+        "attachmentIds": []
+      },
+      "source": {
+        "sourceTitle": "演示通知（不是真实河大通知）",
+        "sourceOrg": "演示单位",
+        "sourceUrl": "https://example.invalid/demo/15",
+        "sourcePublishedAt": "2026-09-01",
+        "collectedAt": "2026-10-01T09:00:00+08:00",
+        "lastVerifiedAt": "2026-10-01"
+      },
+      "publicity": {
+        "current": null,
+        "history": []
+      },
+      "auditLogs": [
+        {
+          "id": "DEMO-15-log",
+          "contestId": "DEMO-15",
+          "versionId": "DEMO-15-v1",
+          "operator": "editor",
+          "time": "2026-10-01T09:00:00+08:00",
+          "field": "created",
+          "oldValue": null,
+          "newValue": "【演示】校园赛事 15",
+          "reason": "演示首录",
+          "changeType": "平台纠错",
+          "visibility": "public"
+        }
+      ],
+      "completeness": "待补充",
+      "incompleteFields": [
+        "reviewRules",
+        "awardSetting"
+      ],
+      "regEndHasTime": false,
+      "organizationName": "演示主办单位（非官方）",
+      "updatedAt": "2026-10-10T11:00:00+08:00"
+    },
+    "sections": [
+      {
+        "key": "basic",
+        "title": "基本信息",
+        "text": "主办方：演示主办单位（非官方）\n赛事届次：演示2026\n层级：校赛\n联系方式：原通知未公布\n简介：此记录仅用于开发验证，不可用于报名。"
+      },
+      {
+        "key": "scope",
+        "title": "适用对象",
+        "text": "学院：以原通知为准\n专业：以原通知为准\n年级：以原通知为准\n学历：以原通知为准\n校区：以原通知为准\n说明：以原通知为准（演示）"
+      },
+      {
+        "key": "schedule",
+        "title": "时间安排",
+        "text": "报名开始：2026.08.01（原文仅日期）\n报名截止：2026.08.20（原文仅日期）\n比赛开始：2026.09.01（原文仅日期）\n比赛结束：2026.09.02（原文仅日期）\n公示时间：原通知未公布"
+      },
+      {
+        "key": "requirement",
+        "title": "参赛要求",
+        "text": "演示：面向在校学生\n\n材料要求：原通知未公布"
+      },
+      {
+        "key": "rules",
+        "title": "评审规则",
+        "text": "原通知未公布"
+      },
+      {
+        "key": "award",
+        "title": "奖项与第二课堂",
+        "text": "原通知未公布\n\n第二课堂成绩单（到梦空间）\n是否适用：否\n依据：原通知未公布\n说明：原通知未公布\n以主办方最终认定为准，平台不作加分承诺。"
+      },
+      {
+        "key": "entry",
+        "title": "报名方式",
+        "text": "演示：查看原通知，不提供站内报名\n\n仅展示报名方式，以原通知为准。平台不提供站内报名。"
+      }
+    ],
+    "warning": "待补充：评审规则、奖项设置。原通知未公布的内容不会推测补全。",
+    "logs": [
+      {
+        "id": "DEMO-15-log",
+        "contestId": "DEMO-15",
+        "versionId": "DEMO-15-v1",
+        "operator": "editor",
+        "time": "2026-10-01T09:00:00+08:00",
+        "field": "created",
+        "oldValue": null,
+        "newValue": "【演示】校园赛事 15",
+        "reason": "演示首录",
+        "changeType": "平台纠错",
+        "visibility": "public",
+        "label": "首次发布",
+        "before": "原通知未公布",
+        "after": "【演示】校园赛事 15"
+      }
+    ],
+    "publicity": "当前暂无已公开公示"
+  }
+]
