@@ -1,3 +1,4 @@
+import { HttpCampusRepository } from './repository/HttpCampusRepository';
 import { HttpCatalogRepository } from './repository/HttpCatalogRepository';
 import { createApp } from 'vue';
 import ElementPlus from 'element-plus';
@@ -10,7 +11,8 @@ import { FetchTransport } from './services/FetchTransport';
 import { Role } from './models/contracts';
 import { adminServices } from './services/AdminServices';
 import { SessionService } from './services/SessionService';
-const transport=new FetchTransport(import.meta.env.VITE_API_BASE_URL || 'http://127.0.0.1:8787',()=>adminServices.getSession().authorizationHeader());
-const session=new SessionService(new HttpAuthRepository(transport),[Role.Value3]);
+const transport=new FetchTransport(import.meta.env.VITE_API_BASE_URL || 'http://127.0.0.1:8787',()=>adminServices.getSession().authorizationHeader(),()=>adminServices.getManagementSchool());
+const session=new SessionService(new HttpAuthRepository(transport),Object.values(Role));
 adminServices.configure(new HttpContestRepository(transport),new HttpFeedbackRepository(transport),new HttpPublicityRepository(transport),session,new HttpCatalogRepository(transport));
+adminServices.configureCampus(new HttpCampusRepository(transport));
 createApp(App).use(router).use(ElementPlus).mount('#app');

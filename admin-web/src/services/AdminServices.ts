@@ -1,7 +1,14 @@
+import type { CampusRepository } from '../repository/CampusRepository';
 import type { CatalogRepository } from '../repository/CatalogRepository';
 import { ContestRepository, FeedbackRepository, PublicityRepository } from '../repository/Repositories';
 import { SessionService } from './SessionService';
 class AdminServices {
+ private managementSchool:string|null=null;
+ setManagementSchool(id:string|null):void{this.managementSchool=id;}
+ getManagementSchool():string|null{return this.managementSchool;}
+ private campus:CampusRepository|null=null;
+ configureCampus(campus:CampusRepository):void{this.campus=campus;}
+ getCampus():CampusRepository{if(!this.campus)throw new Error('高校服务未配置');return this.campus;}
  private catalog:CatalogRepository|null=null;
  private contests:ContestRepository|null=null;
  private feedback:FeedbackRepository|null=null;

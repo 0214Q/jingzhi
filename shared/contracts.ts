@@ -117,6 +117,42 @@ export enum TakedownScope {
   Value1 = "仅公示",
 }
 
+export enum CampusRole {
+  Value0 = "平台管理员",
+  Value1 = "校级管理员",
+  Value2 = "学院负责人",
+}
+
+export enum CampusStatus {
+  Value0 = "启用",
+  Value1 = "停用",
+}
+
+export enum CampusCapability {
+  Value0 = "管理高校",
+  Value1 = "管理学院",
+  Value2 = "管理负责人",
+  Value3 = "分配赛事",
+  Value4 = "查看维护赛事",
+  Value5 = "编辑赛事草稿",
+  Value6 = "提交赛事审核",
+  Value7 = "审核赛事",
+  Value8 = "下架赛事",
+  Value9 = "处理赛事反馈",
+  Value10 = "管理校级管理员",
+  Value11 = "管理平台管理员",
+}
+
+export enum CampusAuditAction {
+  Value0 = "创建高校",
+  Value1 = "修改高校",
+  Value2 = "创建学院",
+  Value3 = "修改学院",
+  Value4 = "授权成员",
+  Value5 = "修改成员",
+  Value6 = "分配赛事",
+}
+
 export interface ApplicableScope {
   colleges: string[];
   majors: string[];
@@ -765,6 +801,219 @@ export interface PublicityPage {
   total: number;
   page: number;
   pageSize: number;
+}
+
+export interface CampusSchool {
+  id: string;
+  name: string;
+  code: string;
+  status: CampusStatus;
+  etag: string;
+  createdAt: string;
+  updatedAt: string;
+}
+
+export interface CampusCollege {
+  id: string;
+  schoolId: string;
+  name: string;
+  code: string;
+  status: CampusStatus;
+  etag: string;
+  createdAt: string;
+  updatedAt: string;
+}
+
+export interface CampusMember {
+  id: string;
+  userId: string;
+  schoolId: string | null;
+  collegeId: string | null;
+  role: CampusRole;
+  displayName: string;
+  duty: string | null;
+  status: CampusStatus;
+  etag: string;
+  createdAt: string;
+  updatedAt: string;
+}
+
+export interface ContestMaintenance {
+  contestId: string;
+  schoolId: string;
+  collegeId: string;
+  responsibleMemberId: string;
+  etag: string;
+  assignedBy: string;
+  assignedAt: string;
+}
+
+export interface CampusActor {
+  userId: string;
+  accountSchoolId: string;
+}
+
+export interface CampusPermissionTarget {
+  schoolId: string | null;
+  collegeId: string | null;
+  contestId: string | null;
+}
+
+export interface CampusPermissionDecision {
+  allowed: boolean;
+  reason: string;
+}
+
+export interface CampusPermissionSnapshot {
+  schools: CampusSchool[];
+  colleges: CampusCollege[];
+  members: CampusMember[];
+  maintenance: ContestMaintenance[];
+}
+
+export interface CampusFilter {
+  schoolId?: string;
+  collegeId?: string;
+  keyword?: string;
+  status?: CampusStatus;
+  page?: number;
+  pageSize?: number;
+}
+
+export interface CampusSchoolPage {
+  list: CampusSchool[];
+  total: number;
+  page: number;
+  pageSize: number;
+}
+
+export interface CampusCollegePage {
+  list: CampusCollege[];
+  total: number;
+  page: number;
+  pageSize: number;
+}
+
+export interface CampusMemberPage {
+  list: CampusMember[];
+  total: number;
+  page: number;
+  pageSize: number;
+}
+
+export interface CreateCampusSchoolRequest {
+  name: string;
+  code: string;
+}
+
+export interface UpdateCampusSchoolRequest {
+  name: string;
+  code: string;
+  status: CampusStatus;
+}
+
+export interface CreateCampusCollegeRequest {
+  schoolId: string;
+  name: string;
+  code: string;
+}
+
+export interface UpdateCampusCollegeRequest {
+  name: string;
+  code: string;
+  status: CampusStatus;
+}
+
+export interface CreateCampusMemberRequest {
+  userId: string;
+  schoolId: string | null;
+  collegeId: string | null;
+  role: CampusRole;
+  displayName: string;
+  duty: string | null;
+}
+
+export interface UpdateCampusMemberRequest {
+  displayName: string;
+  duty: string | null;
+  status: CampusStatus;
+}
+
+export interface AssignContestMaintenanceRequest {
+  schoolId: string;
+  collegeId: string;
+  responsibleMemberId: string;
+}
+
+export interface CampusSchoolTree {
+  school: CampusSchool;
+  colleges: CampusCollegeTree[];
+}
+
+export interface CampusCollegeTree {
+  college: CampusCollege;
+  responsibleMembers: CampusMember[];
+}
+
+export interface CampusAssignmentLock {
+  expectedEtag: string | null;
+}
+
+export interface CampusAuditLog {
+  id: string;
+  actorUserId: string;
+  schoolId: string | null;
+  collegeId: string | null;
+  entityId: string;
+  action: CampusAuditAction;
+  beforeJson: string | null;
+  afterJson: string | null;
+  createdAt: string;
+}
+
+export interface CampusSession {
+  userId: string;
+  schoolId: string;
+  members: CampusMember[];
+  schools: CampusSchool[];
+}
+
+export interface CampusAccountSummary {
+  id: string;
+  schoolId: string;
+}
+
+export interface CampusAccountPage {
+  list: CampusAccountSummary[];
+  total: number;
+  page: number;
+  pageSize: number;
+}
+
+export interface CreateCampusAccountRequest {
+  account: string;
+  password: string;
+  schoolId: string;
+}
+
+export interface CampusMaintenanceItem {
+  contestId: string;
+  schoolId: string;
+  name: string;
+  publishedVersionId: string | null;
+  takedown: boolean;
+  maintenance: ContestMaintenance | null;
+}
+
+export interface CampusMaintenancePage {
+  list: CampusMaintenanceItem[];
+  total: number;
+  page: number;
+  pageSize: number;
+}
+
+export interface CampusMaintenanceResult {
+  maintenance: ContestMaintenance | null;
 }
 
 export interface ApiResponse<T> {

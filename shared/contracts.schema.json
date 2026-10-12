@@ -99,6 +99,38 @@
     "TakedownScope": [
       "全部",
       "仅公示"
+    ],
+    "CampusRole": [
+      "平台管理员",
+      "校级管理员",
+      "学院负责人"
+    ],
+    "CampusStatus": [
+      "启用",
+      "停用"
+    ],
+    "CampusCapability": [
+      "管理高校",
+      "管理学院",
+      "管理负责人",
+      "分配赛事",
+      "查看维护赛事",
+      "编辑赛事草稿",
+      "提交赛事审核",
+      "审核赛事",
+      "下架赛事",
+      "处理赛事反馈",
+      "管理校级管理员",
+      "管理平台管理员"
+    ],
+    "CampusAuditAction": [
+      "创建高校",
+      "修改高校",
+      "创建学院",
+      "修改学院",
+      "授权成员",
+      "修改成员",
+      "分配赛事"
     ]
   },
   "models": {
@@ -676,6 +708,189 @@
       "total": "number",
       "page": "number",
       "pageSize": "number"
+    },
+    "CampusSchool": {
+      "id": "string",
+      "name": "string",
+      "code": "string",
+      "status": "CampusStatus",
+      "etag": "string",
+      "createdAt": "string",
+      "updatedAt": "string"
+    },
+    "CampusCollege": {
+      "id": "string",
+      "schoolId": "string",
+      "name": "string",
+      "code": "string",
+      "status": "CampusStatus",
+      "etag": "string",
+      "createdAt": "string",
+      "updatedAt": "string"
+    },
+    "CampusMember": {
+      "id": "string",
+      "userId": "string",
+      "schoolId": "string | null",
+      "collegeId": "string | null",
+      "role": "CampusRole",
+      "displayName": "string",
+      "duty": "string | null",
+      "status": "CampusStatus",
+      "etag": "string",
+      "createdAt": "string",
+      "updatedAt": "string"
+    },
+    "ContestMaintenance": {
+      "contestId": "string",
+      "schoolId": "string",
+      "collegeId": "string",
+      "responsibleMemberId": "string",
+      "etag": "string",
+      "assignedBy": "string",
+      "assignedAt": "string"
+    },
+    "CampusActor": {
+      "userId": "string",
+      "accountSchoolId": "string"
+    },
+    "CampusPermissionTarget": {
+      "schoolId": "string | null",
+      "collegeId": "string | null",
+      "contestId": "string | null"
+    },
+    "CampusPermissionDecision": {
+      "allowed": "boolean",
+      "reason": "string"
+    },
+    "CampusPermissionSnapshot": {
+      "schools": "CampusSchool[]",
+      "colleges": "CampusCollege[]",
+      "members": "CampusMember[]",
+      "maintenance": "ContestMaintenance[]"
+    },
+    "CampusFilter": {
+      "schoolId?": "string",
+      "collegeId?": "string",
+      "keyword?": "string",
+      "status?": "CampusStatus",
+      "page?": "number",
+      "pageSize?": "number"
+    },
+    "CampusSchoolPage": {
+      "list": "CampusSchool[]",
+      "total": "number",
+      "page": "number",
+      "pageSize": "number"
+    },
+    "CampusCollegePage": {
+      "list": "CampusCollege[]",
+      "total": "number",
+      "page": "number",
+      "pageSize": "number"
+    },
+    "CampusMemberPage": {
+      "list": "CampusMember[]",
+      "total": "number",
+      "page": "number",
+      "pageSize": "number"
+    },
+    "CreateCampusSchoolRequest": {
+      "name": "string",
+      "code": "string"
+    },
+    "UpdateCampusSchoolRequest": {
+      "name": "string",
+      "code": "string",
+      "status": "CampusStatus"
+    },
+    "CreateCampusCollegeRequest": {
+      "schoolId": "string",
+      "name": "string",
+      "code": "string"
+    },
+    "UpdateCampusCollegeRequest": {
+      "name": "string",
+      "code": "string",
+      "status": "CampusStatus"
+    },
+    "CreateCampusMemberRequest": {
+      "userId": "string",
+      "schoolId": "string | null",
+      "collegeId": "string | null",
+      "role": "CampusRole",
+      "displayName": "string",
+      "duty": "string | null"
+    },
+    "UpdateCampusMemberRequest": {
+      "displayName": "string",
+      "duty": "string | null",
+      "status": "CampusStatus"
+    },
+    "AssignContestMaintenanceRequest": {
+      "schoolId": "string",
+      "collegeId": "string",
+      "responsibleMemberId": "string"
+    },
+    "CampusSchoolTree": {
+      "school": "CampusSchool",
+      "colleges": "CampusCollegeTree[]"
+    },
+    "CampusCollegeTree": {
+      "college": "CampusCollege",
+      "responsibleMembers": "CampusMember[]"
+    },
+    "CampusAssignmentLock": {
+      "expectedEtag": "string | null"
+    },
+    "CampusAuditLog": {
+      "id": "string",
+      "actorUserId": "string",
+      "schoolId": "string | null",
+      "collegeId": "string | null",
+      "entityId": "string",
+      "action": "CampusAuditAction",
+      "beforeJson": "string | null",
+      "afterJson": "string | null",
+      "createdAt": "string"
+    },
+    "CampusSession": {
+      "userId": "string",
+      "schoolId": "string",
+      "members": "CampusMember[]",
+      "schools": "CampusSchool[]"
+    },
+    "CampusAccountSummary": {
+      "id": "string",
+      "schoolId": "string"
+    },
+    "CampusAccountPage": {
+      "list": "CampusAccountSummary[]",
+      "total": "number",
+      "page": "number",
+      "pageSize": "number"
+    },
+    "CreateCampusAccountRequest": {
+      "account": "string",
+      "password": "string",
+      "schoolId": "string"
+    },
+    "CampusMaintenanceItem": {
+      "contestId": "string",
+      "schoolId": "string",
+      "name": "string",
+      "publishedVersionId": "string | null",
+      "takedown": "boolean",
+      "maintenance": "ContestMaintenance | null"
+    },
+    "CampusMaintenancePage": {
+      "list": "CampusMaintenanceItem[]",
+      "total": "number",
+      "page": "number",
+      "pageSize": "number"
+    },
+    "CampusMaintenanceResult": {
+      "maintenance": "ContestMaintenance | null"
     }
   },
   "extends": {
