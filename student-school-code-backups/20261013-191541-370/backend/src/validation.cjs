@@ -1,0 +1,8 @@
+const schema=require('../../shared/contracts.schema.json');
+schema.models.AuditLogQuery={ 'changeType?':'ChangeType' };
+const {RepositoryError}=require('../build/RepositoryError');
+function matches(value,type,depth=0){if(depth>12)return false;type=type.trim();if(type.includes('|'))return type.split('|').some(t=>matches(value,t,depth+1));if(type.endsWith('[]'))return Array.isArray(value)&&value.length<=1000&&value.every(v=>matches(v,type.slice(0,-2),depth+1));if(type==='null')return value===null;if(type==='string')return typeof value==='string'&&value.length<=20000;if(type==='number')return typeof value==='number'&&Number.isFinite(value);if(type==='boolean')return typeof value==='boolean';if(schema.enums[type])return schema.enums[type].includes(value);if(schema.models[type])return validModel(value,type,depth+1);return false;}
+function validModel(value,name,depth){if(!value||typeof value!=='object'||Array.isArray(value))return false;const fields=schema.models[name];if(Object.keys(value).some(k=>!Object.keys(fields).some(f=>f.replace(/\?$/,'')===k)))return false;return Object.entries(fields).every(([field,type])=>{const key=field.replace(/\?$/,'');return value[key]===undefined?field.endsWith('?'):matches(value[key],type,depth);});}
+function validate(value,name){if(!validModel(value,name,0))throw new RepositoryError(422,'请求字段或类型无效：'+name);return value;}
+function query(url,name){const q={};for(const [key,value] of url.searchParams){if(key in q)throw new RepositoryError(422,'重复查询参数');if(['page','pageSize','year'].includes(key)){if(!/^\d+$/.test(value))throw new RepositoryError(422,'分页和年份须为整数');q[key]=Number(value);}else q[key]=value;}return validate(q,name);}
+module.exports={validate,query};
