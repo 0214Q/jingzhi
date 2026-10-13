@@ -6,7 +6,7 @@ types=set();lines=[]
 for group in groups:
  for method,args,result,endpoint in repos[group]:types.update(re.findall(r'\b[A-Z]\w*',args+' '+result))
 lines=["/** Generated from repository schema by scripts/sync-http.py. */", "import { "+', '.join(sorted(types))+" } from './contracts';", "import { "+', '.join(groups)+" } from './Repositories';", "import { HttpTransport, queryPair, querySuffix } from './HttpProtocol';", "import { authorizationValue } from './SessionService';",'']
-queryfields={'ContestFilter':['keyword','category','scopeType','entryType','contestStatus','year','month','monthMode','page','pageSize','sort'],'FeedbackFilter':['status','page','pageSize'],'PageQuery':['page','pageSize']}
+queryfields={'ContestFilter':['keyword','category','scopeType','entryType','contestStatus','year','month','monthMode','page','pageSize','sort','datedOnly'],'FeedbackFilter':['status','page','pageSize'],'PageQuery':['page','pageSize']}
 for name,fields in queryfields.items():lines+=['function '+name[0].lower()+name[1:]+'Query(input: '+name+'): string { return querySuffix(['+', '.join("queryPair('"+f+"', input."+f+")" for f in fields)+']); }']
 for group in groups:
  name='Http'+group;lines+=['export class '+name+' implements '+group+' {',' private transport: HttpTransport;']
@@ -17,6 +17,9 @@ for group in groups:
   route=route.replace(':vid',"' + encodeURIComponent(versionId) + '")
   identifier=next((key for key,typ in params if key in ['contestId','publicityId','feedbackId']),None)
   if ':id' in route:route=route.replace(':id',"' + encodeURIComponent("+identifier+") + '")
+  for key,typ in params:
+   route=route.replace(':'+key,"' + encodeURIComponent("+key+") + '")
+  if re.search(r':\w+',route):raise SystemExit('Unresolved HTTP path parameter: '+group+'.'+method+' '+route)
   path="'"+route+"'";body='null';lock='null';anonymous='true' if group=='AuthRepository' and method=='login' else 'false'
   for key,typ in params:
    if typ in queryfields:path+=' + '+typ[0].lower()+typ[1:]+'Query('+key+')'

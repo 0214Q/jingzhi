@@ -68,6 +68,12 @@ export function validate(p: ContestPayload, submit: boolean): void {
   if (![ScopeType.Value0,ScopeType.Value1,ScopeType.Value2].includes(p.scopeType)) errors['scopeType'] = '无效归属';
   if (![EntryType.Value0,EntryType.Value1].includes(p.entryType)) errors['entryType'] = '无效录入主体';
   if (![CreditApplicable.Value0,CreditApplicable.Value1,CreditApplicable.Value2].includes(p.creditApplicable)) errors['creditApplicable'] = '无效第二课堂状态';
+  if (p.schedule) {
+    if (p.schedule.length > 30) errors['schedule'] = '日程最多30项';
+    p.schedule.forEach((s) => {
+      if (!s.stage.trim() || s.stage.length > 100 || !validDate(s.value) || !/^https:\/\/[^\s]+$/.test(s.sourceUrl)) errors['schedule'] = '阶段、具体日期和原通知 HTTPS 链接必填';
+    });
+  }
   const dates: (string | null)[] = [p.regStart,p.regEnd,p.contestStart,p.contestEnd,p.publicityTime,p.sourcePublishedAt,p.lastVerifiedAt || null,p.collectedAt || null];
   const names: string[] = ['regStart','regEnd','contestStart','contestEnd','publicityTime','sourcePublishedAt','lastVerifiedAt','collectedAt'];
   dates.forEach((v: string | null,i: number) => { if (v && !validDate(v)) errors[names[i]] = '无效日期'; });
@@ -100,13 +106,14 @@ export function statusAt(p: ContestPayload, prior: ContestStatus, now: string): 
   const started = (value: string): boolean => value.includes('T') ? Date.parse(now)>=Date.parse(value) : today>=value;
   const ended = (value: string): boolean => value.includes('T') ? Date.parse(now)>Date.parse(value) : today>value;
   if (p.contestEnd && ended(p.contestEnd)) return ContestStatus.Value6;
-  if (p.contestStart && started(p.contestStart) && (!p.contestEnd || !ended(p.contestEnd))) return ContestStatus.Value3;
+  if (p.contestStart && p.contestEnd && started(p.contestStart) && !ended(p.contestEnd)) return ContestStatus.Value3;
   if (p.regEnd && ended(p.regEnd)) return ContestStatus.Value2;
-  if (p.regStart && started(p.regStart)) return ContestStatus.Value1;
+  if (p.regStart && p.regEnd && started(p.regStart)) return ContestStatus.Value1;
   return ContestStatus.Value0;
 }
 
 export function applyInput(p: ContestPayload, input: CreateDraftRequest): void {
+  if (input.schedule !== undefined) p.schedule = copy(input.schedule);
   if (input.name !== undefined) p.name = copy(input.name);
   if (input.category !== undefined) p.category = copy(input.category);
   if (input.scopeType !== undefined) p.scopeType = copy(input.scopeType);

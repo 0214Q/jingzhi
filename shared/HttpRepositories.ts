@@ -4,7 +4,7 @@ import { AuthRepository, ContestRepository, PublicityRepository, FavoriteReposit
 import { HttpTransport, queryPair, querySuffix } from './HttpProtocol';
 import { authorizationValue } from './SessionService';
 
-function contestFilterQuery(input: ContestFilter): string { return querySuffix([queryPair('keyword', input.keyword), queryPair('category', input.category), queryPair('scopeType', input.scopeType), queryPair('entryType', input.entryType), queryPair('contestStatus', input.contestStatus), queryPair('year', input.year), queryPair('month', input.month), queryPair('monthMode', input.monthMode), queryPair('page', input.page), queryPair('pageSize', input.pageSize), queryPair('sort', input.sort)]); }
+function contestFilterQuery(input: ContestFilter): string { return querySuffix([queryPair('keyword', input.keyword), queryPair('category', input.category), queryPair('scopeType', input.scopeType), queryPair('entryType', input.entryType), queryPair('contestStatus', input.contestStatus), queryPair('year', input.year), queryPair('month', input.month), queryPair('monthMode', input.monthMode), queryPair('page', input.page), queryPair('pageSize', input.pageSize), queryPair('sort', input.sort), queryPair('datedOnly', input.datedOnly)]); }
 function feedbackFilterQuery(input: FeedbackFilter): string { return querySuffix([queryPair('status', input.status), queryPair('page', input.page), queryPair('pageSize', input.pageSize)]); }
 function pageQueryQuery(input: PageQuery): string { return querySuffix([queryPair('page', input.page), queryPair('pageSize', input.pageSize)]); }
 export class HttpAuthRepository implements AuthRepository {
@@ -126,7 +126,7 @@ export class HttpFavoriteRepository implements FavoriteRepository {
   return this.transport.request<Favorite>('POST', '/favorites', JSON.stringify(input), null, false);
  }
  async remove(contestId: string): Promise<void> {
-  await this.transport.requestVoid('DELETE', '/favorites/:contestId', null, null, false);
+  await this.transport.requestVoid('DELETE', '/favorites/' + encodeURIComponent(contestId) + '', null, null, false);
  }
 }
 

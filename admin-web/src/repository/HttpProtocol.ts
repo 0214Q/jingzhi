@@ -21,7 +21,7 @@ export function responseData<T>(status: number, json: string): T {
  if (response.data === null || response.data === undefined) throw new RepositoryError(502, '服务响应缺少数据');
  return response.data;
 }
-export function queryPair(key: string, value: string | number | undefined): string {
+export function queryPair(key: string, value: string | number | boolean | undefined): string {
  return value === undefined ? '' : encodeURIComponent(key) + '=' + encodeURIComponent(value.toString());
 }
 export function querySuffix(parts: string[]): string { const active: string[] = parts.filter((part: string) => part !== ''); return active.length ? '?' + active.join('&') : ''; }

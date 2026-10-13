@@ -29,6 +29,7 @@ export class MockContestRepository implements ContestRepository {
         return { page: page, pageSize: size };
     }
     private matches(p: ContestPayload, phase: ContestStatus, f: ContestFilter): boolean {
+        if (f.datedOnly && !(p.edition && p.sourceUrl && p.sourceOrg && p.lastVerifiedAt && (p.regStart || p.regEnd || p.contestStart || p.contestEnd || p.schedule?.length))) return false;
         const org = this.store.organizations.find((o) => o.id === p.organizationId);
         if (f.keyword && !(p.name + ' ' + (org?.name || '')).toLowerCase().includes(f.keyword.toLowerCase()))
             return false;
@@ -45,10 +46,10 @@ export class MockContestRepository implements ContestRepository {
         if (f.month) {
             if (!/^\d{4}-(0[1-9]|1[0-2])$/.test(f.month))
                 throw new RepositoryError(422, '月份必须为 YYYY-MM');
-            if (!start || !end || start.slice(0, 7) > f.month || end.slice(0, 7) < f.month)
+            if (start && end ? (start.slice(0, 7) > f.month || end.slice(0, 7) < f.month) : !((start || end)?.startsWith(f.month) || (f.monthMode === 'contest' && p.schedule?.some(s => s.value.startsWith(f.month || '')))))
                 return false;
         }
-        if (f.year && !(start?.startsWith(f.year.toString()) || end?.startsWith(f.year.toString())))
+        if (f.year && !(start?.startsWith(f.year.toString()) || end?.startsWith(f.year.toString()) || (f.monthMode === 'contest' && p.schedule?.some(s => s.value.startsWith(f.year?.toString() || '')))))
             return false;
         return true;
     }
@@ -63,7 +64,7 @@ export class MockContestRepository implements ContestRepository {
             const p = detail.data;
             if (!this.matches(p, detail.contestStatus, filter))
                 continue;
-            rows.push({ contestId: c.contestId, name: p.name, category: p.category, scopeType: p.scopeType, contestStatus: detail.contestStatus, regEnd: p.regEnd, regEndHasTime: detail.regEndHasTime, organizationName: detail.organizationName, applicableScope: detail.data.applicableScope, completeness: detail.completeness, level: p.level });
+            rows.push({ contestId: c.contestId, name: p.name, category: p.category, scopeType: p.scopeType, contestStatus: detail.contestStatus, regEnd: p.regEnd, regEndHasTime: detail.regEndHasTime, organizationName: detail.organizationName, applicableScope: detail.data.applicableScope, completeness: detail.completeness, level: p.level, edition: p.edition, scheduleCaption: p.regEnd ? '报名截止：' + p.regEnd : p.schedule?.length ? p.schedule[0].stage + '：' + p.schedule[0].value : p.contestStart ? '比赛开始：' + p.contestStart : p.regStart ? '报名开始：' + p.regStart : null });
         }
         const sort = filter.sort || 'regEnd';
         if (!['regEnd', '-regEnd', 'reg_end', '-reg_end', 'name', '-name', 'updatedAt', '-updatedAt'].includes(sort))
@@ -138,8 +139,17 @@ export class MockContestRepository implements ContestRepository {
                 continue;
             const start = filter.monthMode === 'contest' ? d.data.contestStart : d.data.regStart;
             const end = filter.monthMode === 'contest' ? d.data.contestEnd : d.data.regEnd;
-            if (!start || !end)
+            if (filter.monthMode === 'contest') {
+                for (const stage of d.data.schedule || []) {
+                    const m: string = stage.value.slice(0, 7);
+                    if (!months.includes(m)) months.push(m);
+                }
+            }
+            if (!start || !end) {
+                const endpoint: string | null = start || end;
+                if (endpoint && !months.includes(endpoint.slice(0, 7))) months.push(endpoint.slice(0, 7));
                 continue;
+            }
             const date = new Date(start.slice(0, 7) + '-01T00:00:00Z');
             const last = end.slice(0, 7);
             for (let i = 0; i < 1200 && date.toISOString().slice(0, 7) <= last; i += 1) {

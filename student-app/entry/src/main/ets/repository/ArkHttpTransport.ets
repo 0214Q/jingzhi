@@ -5,7 +5,8 @@ interface RawResponse { status: number; json: string }
 export class ArkHttpTransport implements HttpTransport {
  private base: string;
  private authorization: () => string | null;
- constructor(base: string, authorization: () => string | null) { this.base = base.replace(/\/$/, ''); this.authorization = authorization; }
+ private studentSchool: () => string | null;
+ constructor(base: string, authorization: () => string | null, studentSchool: () => string | null = () => null) { this.base = base.replace(/\/$/, ''); this.authorization = authorization; this.studentSchool = studentSchool; }
  private requestMethod(method: string): http.RequestMethod {
   switch (method) {
    case 'GET': return http.RequestMethod.GET;
@@ -25,6 +26,8 @@ export class ArkHttpTransport implements HttpTransport {
    const authorization: string | null = override === undefined || override === null ? this.authorization() : override;
    if (!anonymous && authorization !== null) headers['Authorization'] = authorization;
    if (ifMatch !== null && ifMatch !== undefined) headers['If-Match'] = ifMatch;
+   const p: string = path.split('?')[0];
+   if (!anonymous && (p === '/contests' || p.startsWith('/contests/') || p === '/favorites' || p.startsWith('/favorites/') || p === '/feedback' || p === '/feedback/mine')) { const school: string | null = this.studentSchool(); if (school !== null) headers['X-Student-School'] = school; }
    const options: http.HttpRequestOptions = { method: this.requestMethod(method), header: headers, expectDataType: http.HttpDataType.STRING, connectTimeout: 10000, readTimeout: 15000, usingCache: false };
    if (bodyJson !== null && bodyJson !== undefined) options.extraData = bodyJson;
    const response: http.HttpResponse = await task.request(this.base + path, options);
