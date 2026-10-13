@@ -6,6 +6,7 @@
     "pages/ContestDetail",
     "pages/My",
     "pages/Favorites",
-    "pages/Feedback"
+    "pages/Feedback",
+    "pages/SchoolSelection"
   ]
 }

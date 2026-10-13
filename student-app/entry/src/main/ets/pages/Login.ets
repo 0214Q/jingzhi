@@ -30,19 +30,19 @@ struct Login {
   build() {
     Scroll() {
       Column({ space: 20 }) {
-        Text('竞知').fontSize(32).fontWeight(FontWeight.Bold).fontColor('#2C7BE5')
-        Text('河南大学 · 校园赛事信息').fontSize(16).fontColor('#5A6573')
+        Text('竞知').fontSize(32).fontWeight(FontWeight.Bold).fontColor('#1D4ED8')
+        Text('高校赛事信息与参赛目录').fontSize(16).fontColor('#475569')
         Column({ space: 16 }) {
-          Text('学生登录').fontSize(20).fontWeight(FontWeight.Bold).fontColor('#1F2733').width('100%')
-          TextInput({ text: this.account, placeholder: '请输入账号' }).height(48).enabled(!this.state.submitting).onChange((value: string) => { this.account = value; })
-          TextInput({ text: this.password, placeholder: '请输入密码' }).type(InputType.Password).height(48).enabled(!this.state.submitting).onChange((value: string) => { this.password = value; })
-          if (this.state.error !== '') { Text(this.state.error).fontSize(14).fontColor('#E5484D').width('100%') }
-          Button(this.initializing ? '正在准备…' : this.state.submitting ? '登录中…' : '登录').height(48).width('100%').backgroundColor('#2C7BE5').enabled(!this.initializing && !this.state.submitting && this.account.trim().length > 0 && this.password.length > 0).onClick(() => this.login())
-          Text('演示账号：student\n演示密码：demo123').fontSize(12).fontColor('#5A6573').width('100%')
-          Text('当前为本地演示模式，非学校统一身份认证。请勿输入真实学校账号或密码。').fontSize(12).fontColor('#9B4D09').width('100%')
+          Text('学生登录').fontSize(20).fontWeight(FontWeight.Bold).fontColor('#172B46').width('100%')
+          TextInput({ text: this.account, placeholder: '请输入账号' }).fontColor('#172B46').placeholderColor('#52657C').backgroundColor('#F8FAFC').borderRadius(10).border({ width: 1, color: '#D5DFED' }).height(48).enabled(!this.state.submitting).onChange((value: string) => { this.account = value; })
+          TextInput({ text: this.password, placeholder: '请输入密码' }).fontColor('#172B46').placeholderColor('#52657C').backgroundColor('#F8FAFC').borderRadius(10).border({ width: 1, color: '#D5DFED' }).type(InputType.Password).height(48).enabled(!this.state.submitting).onChange((value: string) => { this.password = value; })
+          if (this.state.error !== '') { Text(this.state.error).fontSize(14).fontColor('#B42318').width('100%') }
+          Button(this.initializing ? '正在准备…' : this.state.submitting ? '登录中…' : '登录', { type: ButtonType.Normal }).fontColor(Color.White).backgroundColor('#1D4ED8').borderRadius(11).border({ width: 1, color: '#1D4ED8' }).padding({ left: 12, right: 12 }).height(48).width('100%').backgroundColor('#1D4ED8').enabled(!this.initializing && !this.state.submitting && this.account.trim().length > 0 && this.password.length > 0).onClick(() => this.login())
+          Text('请使用平台提供的学生账号登录。').fontSize(12).fontColor('#475569').width('100%')
+          Text('高校选择在登录后进行，学校统一身份认证尚未接入。').fontSize(12).fontColor('#9B4D09').width('100%')
         }.width('100%').padding(24).backgroundColor(Color.White).borderRadius(16)
-        Text('平台由竞知项目团队维护，平台审核不代表学校官方认证。').fontSize(12).fontColor('#5A6573').width('100%')
+        Text('平台由竞知项目团队维护，平台审核不代表学校官方认证。').fontSize(12).fontColor('#475569').width('100%')
       }.padding(24).width('100%')
-    }.width('100%').height('100%').backgroundColor('#F4F6FA')
+    }.width('100%').height('100%').backgroundColor('#F3F6FC')
   }
 }
