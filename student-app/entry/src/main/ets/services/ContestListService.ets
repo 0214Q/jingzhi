@@ -1,6 +1,7 @@
 import { Category, ContestStatus, ContestSummary, ContestFilter, ContestPage, MonthMode } from '../models/Contracts';
 import { ContestRepository } from '../repository/Repositories';
 export interface ListQuery {
+    datedOnly?: boolean;
     keyword: string;
     category: Category | null;
     status: ContestStatus | null;
@@ -13,6 +14,8 @@ export interface ListState {
     items: ContestSummary[];
     total: number;
     page: number;
+    pageSize: number;
+    totalPages: number;
     hasMore: boolean;
     loading: boolean;
     loadingMore: boolean;
@@ -20,6 +23,7 @@ export interface ListState {
     moreError: string;
 }
 export interface ListRouteParams {
+    datedOnly?: boolean;
     keyword?: string;
     category?: Category;
     status?: ContestStatus;
@@ -28,9 +32,10 @@ export interface ListRouteParams {
     sort?: string;
 }
 export function defaultListQuery(): ListQuery { return { keyword: '', category: null, status: null, month: null, monthMode: MonthMode.Value0, sort: '-updatedAt' }; }
-export function copyQuery(q: ListQuery): ListQuery { return { keyword: q.keyword, category: q.category, status: q.status, month: q.month, monthMode: q.monthMode, sort: q.sort }; }
+export function copyQuery(q: ListQuery): ListQuery { return { datedOnly: q.datedOnly, keyword: q.keyword, category: q.category, status: q.status, month: q.month, monthMode: q.monthMode, sort: q.sort }; }
 export function routeQuery(params: ListRouteParams): ListQuery {
     const q = defaultListQuery();
+    if (typeof params.datedOnly === 'boolean') q.datedOnly = params.datedOnly;
     if (typeof params.keyword === 'string')
         q.keyword = params.keyword;
     if (params.category && [Category.Value0, Category.Value1, Category.Value2, Category.Value3, Category.Value4].includes(params.category))
@@ -51,6 +56,7 @@ export function listTitle(q: ListQuery): string {
 export function emptyText(q: ListQuery): string { return q.month ? '该月暂无符合条件的赛事' : '没有找到符合条件的赛事'; }
 export function toFilter(q: ListQuery, page: number, pageSize: number): ContestFilter {
     const f: ContestFilter = { keyword: q.keyword.trim(), sort: q.sort, page: page, pageSize: pageSize };
+    if (q.datedOnly !== undefined) f.datedOnly = q.datedOnly;
     if (q.category !== null)
         f.category = q.category;
     if (q.status !== null)
@@ -61,77 +67,61 @@ export function toFilter(q: ListQuery, page: number, pageSize: number): ContestF
     }
     return f;
 }
-export function initialListState(): ListState { return { query: defaultListQuery(), items: [], total: 0, page: 0, hasMore: false, loading: false, loadingMore: false, error: '', moreError: '' }; }
-// The controller owns request ordering. Pages only render snapshots and send filter actions.
+export function initialListState(): ListState { return { query: defaultListQuery(), items: [], total: 0, page: 0, pageSize: 10, totalPages: 0, hasMore: false, loading: false, loadingMore: false, error: '', moreError: '' }; }
+export function visiblePageNumbers(page: number, totalPages: number): number[] {
+    const pages: number[] = [];
+    if (totalPages < 1) return pages;
+    const start: number = Math.max(1, Math.min(page - 2, totalPages - 4));
+    for (let value: number = start; value <= Math.min(totalPages, start + 4); value += 1) pages.push(value);
+    return pages;
+}
+// Each page replaces the visible rows. Request generations discard stale replies.
 export class ContestListController {
     private repository: ContestRepository;
     private onChange: (state: ListState) => void;
     private pageSize: number;
     private state: ListState = initialListState();
     private requestId: number = 0;
-    constructor(repository: ContestRepository, onChange: (state: ListState) => void, pageSize: number = 10) { this.repository = repository; this.onChange = onChange; this.pageSize = pageSize; }
+    constructor(repository: ContestRepository, onChange: (state: ListState) => void, pageSize: number = 10) {
+        if (!Number.isInteger(pageSize) || pageSize < 1 || pageSize > 100) throw new Error('无效每页数量');
+        this.repository = repository; this.onChange = onChange; this.pageSize = pageSize;
+    }
     snapshot(): ListState {
-        return { query: copyQuery(this.state.query), items: this.state.items.slice(), total: this.state.total, page: this.state.page, hasMore: this.state.hasMore, loading: this.state.loading, loadingMore: this.state.loadingMore, error: this.state.error, moreError: this.state.moreError };
+        return { query: copyQuery(this.state.query), items: this.state.items.slice(), total: this.state.total, page: this.state.page, pageSize: this.pageSize, totalPages: this.state.totalPages, hasMore: this.state.hasMore, loading: this.state.loading, loadingMore: false, error: this.state.error, moreError: this.state.moreError };
     }
     private emit(): void { this.onChange(this.snapshot()); }
     dispose(): void { this.requestId += 1; }
-    async setQuery(query: ListQuery): Promise<void> {
-        const id = ++this.requestId;
-        this.state = initialListState();
-        this.state.query = copyQuery(query);
-        this.state.loading = true;
-        this.emit();
-        try {
-            const result: ContestPage = await this.repository.listPublished(toFilter(query, 1, this.pageSize));
-            if (id !== this.requestId)
-                return;
-            this.state.items = result.list;
-            this.state.total = result.total;
-            this.state.page = 1;
-            this.state.hasMore = result.list.length > 0 && result.page * result.pageSize < result.total;
-        }
-        catch {
-            if (id !== this.requestId)
-                return;
-            this.state.error = '暂时无法读取赛事，请重试。';
-        }
-        finally {
-            if (id === this.requestId) {
-                this.state.loading = false;
-                this.emit();
-            }
-        }
+    async setQuery(query: ListQuery, page: number = 1): Promise<void> {
+        this.state = initialListState(); this.state.query = copyQuery(query); this.state.pageSize = this.pageSize;
+        await this.fetchPage(Number.isInteger(page) && page > 0 ? page : 1);
     }
-    async refresh(): Promise<void> { await this.setQuery(this.state.query); }
-    async loadMore(): Promise<void> {
-        if (this.state.loading || this.state.loadingMore || !this.state.hasMore)
-            return;
-        const id = this.requestId;
-        const page = this.state.page + 1;
-        this.state.loadingMore = true;
-        this.state.moreError = '';
-        this.emit();
+    private async fetchPage(target: number): Promise<void> {
+        const id: number = ++this.requestId; const query: ListQuery = copyQuery(this.state.query);
+        this.state.loading = true; this.state.error = ''; this.state.moreError = ''; this.emit();
         try {
-            const result: ContestPage = await this.repository.listPublished(toFilter(this.state.query, page, this.pageSize));
-            if (id !== this.requestId)
-                return;
-            for (const item of result.list)
-                if (!this.state.items.some((v: ContestSummary) => v.contestId === item.contestId))
-                    this.state.items.push(item);
-            this.state.page = page;
-            this.state.total = result.total;
-            this.state.hasMore = result.list.length > 0 && result.page * result.pageSize < result.total;
-        }
-        catch {
-            if (id !== this.requestId)
-                return;
-            this.state.moreError = '加载下一页失败，请重试。';
-        }
-        finally {
-            if (id === this.requestId) {
-                this.state.loadingMore = false;
-                this.emit();
-            }
-        }
+            let page: number = target;
+            let result: ContestPage = await this.repository.listPublished(toFilter(query, page, this.pageSize));
+            if (id !== this.requestId) return;
+            // Records may be removed while the user is on the last page.
+            const last: number = Math.max(1, Math.ceil(result.total / this.pageSize));
+            if (page > last) { page = last; result = await this.repository.listPublished(toFilter(query, page, this.pageSize)); }
+            if (id !== this.requestId) return;
+            if (page > Math.max(1, Math.ceil(result.total / this.pageSize))) throw new Error('赛事数量已改变');
+            this.state.items = result.list; this.state.total = result.total; this.state.page = page;
+            this.state.totalPages = Math.ceil(result.total / this.pageSize); this.state.hasMore = page < this.state.totalPages;
+        } catch {
+            if (id !== this.requestId) return;
+            if (this.state.page === 0) this.state.error = '暂时无法读取赛事，请重试。';
+            else this.state.moreError = '读取第 ' + target.toString() + ' 页失败，当前页已保留，请重试。';
+        } finally { if (id === this.requestId) { this.state.loading = false; this.emit(); } }
     }
+    async goToPage(page: number): Promise<void> {
+        if (!Number.isInteger(page) || page < 1 || this.state.totalPages < 1 || page > this.state.totalPages) return;
+        await this.fetchPage(page);
+    }
+    async previousPage(): Promise<void> { if (this.state.page > 1) await this.goToPage(this.state.page - 1); }
+    async nextPage(): Promise<void> { if (this.state.hasMore) await this.goToPage(this.state.page + 1); }
+    async refresh(): Promise<void> { await this.fetchPage(Math.max(1, this.state.page)); }
+    // Retained for older callers; it now navigates instead of appending rows.
+    async loadMore(): Promise<void> { await this.nextPage(); }
 }

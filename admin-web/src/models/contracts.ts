@@ -153,6 +153,12 @@ export enum CampusAuditAction {
   Value6 = "分配赛事",
 }
 
+export enum StudentSchoolState {
+  Value0 = "默认所属高校",
+  Value1 = "已选择高校",
+  Value2 = "需重新选择",
+}
+
 export interface ApplicableScope {
   colleges: string[];
   majors: string[];
@@ -194,6 +200,7 @@ export interface ContestPayload {
   creditNote: string | null;
   organizationId: string;
   attachmentIds: string[];
+  schedule?: ContestScheduleItem[];
 }
 
 export interface Takedown {
@@ -305,6 +312,7 @@ export interface Feedback {
   handler: string | null;
   note: string | null;
   time: string;
+  schoolId?: string;
 }
 
 export interface User {
@@ -421,6 +429,8 @@ export interface ContestSummary {
   applicableScope: ApplicableScope;
   completeness: Completeness;
   level: ContestLevel | null;
+  edition?: string | null;
+  scheduleCaption?: string | null;
 }
 
 export interface PublicContest {
@@ -458,6 +468,7 @@ export interface ContestFilter extends PageQuery {
   page?: number;
   pageSize?: number;
   sort?: string;
+  datedOnly?: boolean;
 }
 
 export interface LoginRequest {
@@ -507,6 +518,7 @@ export interface CreateDraftRequest {
   attachmentIds?: string[];
   changeType: ChangeType;
   reason: string;
+  schedule?: ContestScheduleItem[];
 }
 
 export interface UpdateDraftRequest extends CreateDraftRequest {
@@ -543,6 +555,7 @@ export interface UpdateDraftRequest extends CreateDraftRequest {
   attachmentIds?: string[];
   changeType: ChangeType;
   reason: string;
+  schedule?: ContestScheduleItem[];
 }
 
 export interface DraftResult {
@@ -1014,6 +1027,46 @@ export interface CampusMaintenancePage {
 
 export interface CampusMaintenanceResult {
   maintenance: ContestMaintenance | null;
+}
+
+export interface StudentSchool {
+  id: string;
+  name: string;
+  code: string;
+  status: CampusStatus;
+}
+
+export interface StudentSchoolQuery {
+  keyword?: string;
+  page?: number;
+  pageSize?: number;
+}
+
+export interface StudentSchoolPage {
+  list: StudentSchool[];
+  total: number;
+  page: number;
+  pageSize: number;
+}
+
+export interface StudentSchoolContext {
+  homeSchoolId: string;
+  homeSchool: StudentSchool | null;
+  selectedSchoolId: string | null;
+  selectedSchool: StudentSchool | null;
+  state: StudentSchoolState;
+  etag: string;
+}
+
+export interface SelectStudentSchoolRequest {
+  schoolId: string;
+  expectedEtag: string;
+}
+
+export interface ContestScheduleItem {
+  stage: string;
+  value: string;
+  sourceUrl: string;
 }
 
 export interface ApiResponse<T> {

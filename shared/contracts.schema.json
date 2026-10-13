@@ -131,6 +131,11 @@
       "授权成员",
       "修改成员",
       "分配赛事"
+    ],
+    "StudentSchoolState": [
+      "默认所属高校",
+      "已选择高校",
+      "需重新选择"
     ]
   },
   "models": {
@@ -173,7 +178,8 @@
       "creditBasis": "string | null",
       "creditNote": "string | null",
       "organizationId": "string",
-      "attachmentIds": "string[]"
+      "attachmentIds": "string[]",
+      "schedule?": "ContestScheduleItem[]"
     },
     "Takedown": {
       "reason": "string",
@@ -274,7 +280,8 @@
       "status": "FeedbackStatus",
       "handler": "string | null",
       "note": "string | null",
-      "time": "string"
+      "time": "string",
+      "schoolId?": "string"
     },
     "User": {
       "id": "string",
@@ -376,7 +383,9 @@
       "organizationName": "string",
       "applicableScope": "ApplicableScope",
       "completeness": "Completeness",
-      "level": "ContestLevel | null"
+      "level": "ContestLevel | null",
+      "edition?": "string | null",
+      "scheduleCaption?": "string | null"
     },
     "PublicContest": {
       "contestId": "string",
@@ -410,7 +419,8 @@
       "monthMode?": "MonthMode",
       "page?": "number",
       "pageSize?": "number",
-      "sort?": "string"
+      "sort?": "string",
+      "datedOnly?": "boolean"
     },
     "LoginRequest": {
       "account?": "string",
@@ -456,7 +466,8 @@
       "organizationId?": "string",
       "attachmentIds?": "string[]",
       "changeType": "ChangeType",
-      "reason": "string"
+      "reason": "string",
+      "schedule?": "ContestScheduleItem[]"
     },
     "UpdateDraftRequest": {
       "name?": "string",
@@ -491,7 +502,8 @@
       "organizationId?": "string",
       "attachmentIds?": "string[]",
       "changeType": "ChangeType",
-      "reason": "string"
+      "reason": "string",
+      "schedule?": "ContestScheduleItem[]"
     },
     "DraftResult": {
       "contestId": "string",
@@ -891,6 +903,40 @@
     },
     "CampusMaintenanceResult": {
       "maintenance": "ContestMaintenance | null"
+    },
+    "StudentSchool": {
+      "id": "string",
+      "name": "string",
+      "code": "string",
+      "status": "CampusStatus"
+    },
+    "StudentSchoolQuery": {
+      "keyword?": "string",
+      "page?": "number",
+      "pageSize?": "number"
+    },
+    "StudentSchoolPage": {
+      "list": "StudentSchool[]",
+      "total": "number",
+      "page": "number",
+      "pageSize": "number"
+    },
+    "StudentSchoolContext": {
+      "homeSchoolId": "string",
+      "homeSchool": "StudentSchool | null",
+      "selectedSchoolId": "string | null",
+      "selectedSchool": "StudentSchool | null",
+      "state": "StudentSchoolState",
+      "etag": "string"
+    },
+    "SelectStudentSchoolRequest": {
+      "schoolId": "string",
+      "expectedEtag": "string"
+    },
+    "ContestScheduleItem": {
+      "stage": "string",
+      "value": "string",
+      "sourceUrl": "string"
     }
   },
   "extends": {

@@ -9,6 +9,7 @@ const {FavoriteService,FeedbackService}=require('../build/InteractionRepository'
 const {dispatch}=require('./routes.cjs');
 const {CatalogService}=require('./CatalogService.cjs');
 const {CampusService}=require('./CampusService.cjs');
+const {StudentSchoolService}=require('./StudentSchoolService.cjs');
 const {guardBusiness}=require('./CampusBusinessGuard.cjs');
 const {validate}=require('./validation.cjs');
 const digest=token=>crypto.createHash('sha256').update(token).digest('hex');
@@ -24,7 +25,7 @@ function createServer(options={}){
   const reply=(status,data,message='')=>{res.statusCode=status;res.setHeader('Content-Type','application/json; charset=utf-8');res.end(JSON.stringify({code:status,message,data:data===undefined?null:data,traceId}));};
   try{
    const origin=req.headers.origin;if(origin){if(!origins.has(origin))throw new RepositoryError(403,'不允许的访问来源');res.setHeader('Access-Control-Allow-Origin',origin);res.setHeader('Vary','Origin');res.setHeader('Access-Control-Expose-Headers','X-Request-Id');}
-   if(req.method==='OPTIONS'){res.setHeader('Access-Control-Allow-Methods','GET,POST,PUT,PATCH,DELETE,OPTIONS');res.setHeader('Access-Control-Allow-Headers','Content-Type,Authorization,If-Match,X-Campus-School');res.statusCode=204;res.end();return;}
+   if(req.method==='OPTIONS'){res.setHeader('Access-Control-Allow-Methods','GET,POST,PUT,PATCH,DELETE,OPTIONS');res.setHeader('Access-Control-Allow-Headers','Content-Type,Authorization,If-Match,X-Campus-School,X-Student-School');res.statusCode=204;res.end();return;}
    const url=new URL(req.url,'http://localhost');if(url.pathname==='/health'&&req.method==='GET'){reply(200,{status:'ok',schemaVersion:database.db.prepare('SELECT max(version) AS version FROM schema_migrations').get().version});return;}
    const body=await readBody(req);
    const result=await serialized(async()=>{
@@ -39,7 +40,7 @@ function createServer(options={}){
       const match=(req.headers.authorization||'').match(/^Bearer ([A-Za-z0-9_-]{43})$/);if(!match)throw new RepositoryError(401,'请先登录');const session=database.db.prepare('SELECT s.*,u.data FROM sessions s JOIN users u ON u.id=s.user_id WHERE token_hash=?').get(digest(match[1]));if(!session||session.expires_at<=Date.now())throw new RepositoryError(401,'登录已失效');
       if(url.pathname==='/auth/me'&&req.method==='GET')result=JSON.parse(session.data);
       else if(url.pathname==='/auth/logout'&&req.method==='POST'){database.db.prepare('DELETE FROM sessions WHERE token_hash=?').run(digest(match[1]));result=undefined;}
-      else{const campus=new CampusService(database,JSON.parse(session.data));if(url.pathname.startsWith('/manage/campus/'))result=await campus.dispatch(req.method,url,body,req.headers);else{const store=database.load(),context=new RequestContext();context.user=JSON.parse(session.data);context.expiresAt=session.expires_at;const originalUser={...context.user},versionEtags=new Map(store.versions.map(v=>[v.versionId,v.etag]));guardBusiness(campus,store,context,req.method,url,body,req.headers);const repositories={contests:new ContestService(store,context),publicity:new PublicityService(store,context),favorites:new FavoriteService(store,context),feedback:new FeedbackService(store,context)};repositories.catalog=new CatalogService(store,context,repositories.contests);repositories.catalog.includeManaged=campus.enabled;result=await dispatch(req.method,url,body,req.headers,repositories);if(req.method!=='GET'){for(const v of store.versions)if(v.operator===originalUser.id&&versionEtags.get(v.versionId)!==v.etag)v.operatorRole=originalUser.role;database.save(store);}}}
+      else{const studentSchool=new StudentSchoolService(database,JSON.parse(session.data));const campus=new CampusService(database,JSON.parse(session.data));if(url.pathname.startsWith('/student/'))result=await studentSchool.dispatch(req.method,url,body);else if(url.pathname.startsWith('/manage/campus/'))result=await campus.dispatch(req.method,url,body,req.headers);else{const store=database.load(),context=new RequestContext();context.user=JSON.parse(session.data);context.expiresAt=session.expires_at;const originalUser={...context.user},versionEtags=new Map(store.versions.map(v=>[v.versionId,v.etag]));studentSchool.guard(context,store,req.method,url,req.headers);guardBusiness(campus,store,context,req.method,url,body,req.headers);const repositories={contests:new ContestService(store,context),publicity:new PublicityService(store,context),favorites:new FavoriteService(store,context),feedback:new FeedbackService(store,context)};repositories.catalog=new CatalogService(store,context,repositories.contests);repositories.catalog.includeManaged=campus.enabled;result=await dispatch(req.method,url,body,req.headers,repositories);if(req.method!=='GET'){for(const v of store.versions)if(v.operator===originalUser.id&&versionEtags.get(v.versionId)!==v.etag)v.operatorRole=originalUser.role;database.save(store);}}}
      }
      database.commit();return result;
     }catch(e){database.rollback();throw e;}

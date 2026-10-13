@@ -1,16 +1,16 @@
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
 import { MockRuntime } from '../admin-web/src/repository/MockRuntime';
-import { ContestListController, defaultListQuery, routeQuery, listTitle, toFilter } from '../admin-web/src/services/ContestListService';
+import { ContestListController, defaultListQuery, routeQuery, listTitle, toFilter, visiblePageNumbers } from '../admin-web/src/services/ContestListService';
 import { Category, ContestStatus, MonthMode } from '../admin-web/src/models/contracts';
 import type { ContestPage, ContestSummary } from '../admin-web/src/models/contracts';
 async function setup(){const r=new MockRuntime();await r.auth.login({account:'student',password:'demo123'});return r;}
 function deferred<T>() { let resolve!:(v:T)=>void;let reject!:(e:Error)=>void;const promise=new Promise<T>((a,b)=>{resolve=a;reject=b;});return {promise,resolve,reject}; }
-test('列表分页读取全部公开记录，反复点击加载不会重复追加',async()=>{
+test('列表按页替换记录，重复翻页不会追加上一页',async()=>{
  const runtime=await setup();const controller=new ContestListController(runtime.contests,()=>{});
  await controller.setQuery(defaultListQuery());assert.equal(controller.snapshot().items.length,10);assert.equal(controller.snapshot().total,14);assert.ok(controller.snapshot().hasMore);
- await Promise.all([controller.loadMore(),controller.loadMore()]);assert.equal(controller.snapshot().items.length,14);assert.equal(controller.snapshot().page,2);assert.equal(controller.snapshot().hasMore,false);
- assert.equal(new Set(controller.snapshot().items.map(x=>x.contestId)).size,14);
+ await Promise.all([controller.loadMore(),controller.loadMore()]);assert.equal(controller.snapshot().items.length,4);assert.equal(controller.snapshot().page,2);assert.equal(controller.snapshot().hasMore,false);
+ assert.equal(new Set(controller.snapshot().items.map(x=>x.contestId)).size,4);
 });
 test('分类、状态、关键词、月份和模式联合传入Repository；修改筛选重置分页',async()=>{
  const runtime=await setup();const c=new ContestListController(runtime.contests,()=>{},2);const q=defaultListQuery();
@@ -31,7 +31,7 @@ test('下一页失败保留首屏数据，重试同一页且清除错误',async(
  r.contests.listPublished=async(f)=>{pages.push(f.page!);if(f.page===2&&fail){fail=false;throw new Error('演示下一页失败');}return original(f);};
  const c=new ContestListController(r.contests,()=>{});await c.setQuery(defaultListQuery());await c.loadMore();
  assert.equal(c.snapshot().items.length,10);assert.equal(c.snapshot().page,1);assert.ok(c.snapshot().moreError);assert.equal(c.snapshot().loadingMore,false);
- await c.loadMore();assert.equal(c.snapshot().items.length,14);assert.equal(c.snapshot().moreError,'');assert.deepEqual(pages,[1,2,2]);
+ await c.loadMore();assert.equal(c.snapshot().items.length,4);assert.equal(c.snapshot().moreError,'');assert.deepEqual(pages,[1,2,2]);
 });
 test('快速切换筛选：旧请求后返回也不能覆盖新结果',async()=>{
  const r=await setup();const first=deferred<ContestPage>();const second=deferred<ContestPage>();let calls=0;
@@ -54,4 +54,26 @@ test('路由参数校验，不把无效分类/月份带入查询；首页分类�
  assert.equal(q.category,Category.Value1);assert.equal(q.keyword,'挑战');assert.equal(q.monthMode,MonthMode.Value1);
  const invalid=routeQuery({category:'错误分类' as Category,month:'2026-99',sort:'内部字段'});
  assert.equal(invalid.category,null);assert.equal(invalid.month,null);assert.equal(invalid.sort,'-updatedAt');
+});
+test('页码、上一页和下一页导航；筛选回第一页，越界页不请求',async()=>{
+ const r=await setup();const original=r.contests.listPublished.bind(r.contests);const requests:number[]=[];
+ r.contests.listPublished=async f=>{requests.push(f.page!);return original(f);};
+ const c=new ContestListController(r.contests,()=>{},2);await c.setQuery(defaultListQuery());assert.equal(c.snapshot().totalPages,7);
+ const first=c.snapshot().items.map(x=>x.contestId);await c.goToPage(3);assert.equal(c.snapshot().page,3);assert.equal(c.snapshot().items.length,2);assert.ok(c.snapshot().items.every(x=>!first.includes(x.contestId)));
+ await c.previousPage();assert.equal(c.snapshot().page,2);await c.nextPage();assert.equal(c.snapshot().page,3);
+ const count=requests.length;await c.goToPage(0);await c.goToPage(8);assert.equal(requests.length,count);
+ await c.refresh();assert.equal(c.snapshot().page,3);await c.setQuery(defaultListQuery());assert.equal(c.snapshot().page,1);
+ assert.deepEqual(visiblePageNumbers(1,19),[1,2,3,4,5]);assert.deepEqual(visiblePageNumbers(9,19),[7,8,9,10,11]);assert.deepEqual(visiblePageNumbers(19,19),[15,16,17,18,19]);assert.deepEqual(visiblePageNumbers(1,0),[]);
+});
+test('最后一页记录减少后刷新自动回到有效页',async()=>{
+ const r=await setup();let rows=(await r.contests.listPublished({pageSize:100})).list.slice(0,6);const requests:number[]=[];
+ r.contests.listPublished=async f=>{const page=f.page!;requests.push(page);return {list:rows.slice((page-1)*2,page*2),total:rows.length,page,pageSize:2};};
+ const c=new ContestListController(r.contests,()=>{},2);await c.setQuery(defaultListQuery());await c.goToPage(3);rows=rows.slice(0,1);await c.refresh();
+ assert.equal(c.snapshot().page,1);assert.equal(c.snapshot().totalPages,1);assert.equal(c.snapshot().items.length,1);assert.deepEqual(requests,[1,3,3,1]);
+});
+test('快速点不同页时只显示最后选择页的结果',async()=>{
+ const r=await setup();const c=new ContestListController(r.contests,()=>{},2);await c.setQuery(defaultListQuery());const rows=(await r.contests.listPublished({pageSize:100})).list;const second=deferred<ContestPage>(),third=deferred<ContestPage>();
+ r.contests.listPublished=f=>f.page===2?second.promise:third.promise;
+ const a=c.goToPage(2),b=c.goToPage(3);third.resolve({list:rows.slice(4,6),total:14,page:3,pageSize:2});await b;second.resolve({list:rows.slice(2,4),total:14,page:2,pageSize:2});await a;
+ assert.equal(c.snapshot().page,3);assert.deepEqual(c.snapshot().items.map(x=>x.contestId),rows.slice(4,6).map(x=>x.contestId));
 });

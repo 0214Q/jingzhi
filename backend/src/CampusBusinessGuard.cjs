@@ -14,7 +14,7 @@ function guardBusiness(campus,store,context,method,url,body,headers={}){
   let m;if((m=p.match(/^\/manage\/(?:catalog|contests|review)\/([^/]+)/))&&!p.startsWith('/manage/review/publicity/'))id=decodeURIComponent(m[1]);
   else if((m=p.match(/^\/manage\/(?:publicity|review\/publicity)\/([^/]+)/))){const pub=store.publicity.find(x=>x.publicityId===decodeURIComponent(m[1])||x.id===decodeURIComponent(m[1]));if(!pub)deny();id=pub.contestId;}
   else if(p==='/manage/publicity'&&method==='POST')id=body.contestId;
-  else if((m=p.match(/^\/manage\/feedback\/([^/]+)\/handle$/))){const feedback=store.feedback.find(x=>x.id===decodeURIComponent(m[1]));if(!feedback)deny();action=C.Value9;if(feedback.contestId)id=feedback.contestId;else{const user=store.users.find(u=>u.id===feedback.userId);if(!user)deny();school=user.schoolId;}}
+  else if((m=p.match(/^\/manage\/feedback\/([^/]+)\/handle$/))){const feedback=store.feedback.find(x=>x.id===decodeURIComponent(m[1]));if(!feedback)deny();action=C.Value9;if(feedback.contestId)id=feedback.contestId;else{const user=store.users.find(u=>u.id===feedback.userId);if(!user)deny();school=feedback.schoolId||user.schoolId;}}
   else deny();
   if(id){const contest=store.contests.find(c=>c.contestId===id);if(!contest)deny();school=contest.schoolId;}
   if(p.startsWith('/manage/review/'))action=C.Value7;

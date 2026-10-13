@@ -1,0 +1,1743 @@
+{
+  "formatVersion": 1,
+  "schoolId": "HENU",
+  "verifiedAt": "2026-10-13",
+  "records": [
+    {
+      "key": "lanqiao-18",
+      "matchNames": [
+        "蓝桥杯全国软件和信息技术专业人才大赛"
+      ],
+      "organizer": "蓝桥杯大赛组委会",
+      "request": {
+        "name": "蓝桥杯全国软件和信息技术专业人才大赛",
+        "category": "学科竞赛",
+        "scopeType": "面向河大学生的校外赛事",
+        "edition": "第十八届",
+        "level": "国赛",
+        "applicableScope": {
+          "colleges": [],
+          "majors": [],
+          "grades": [],
+          "degrees": [],
+          "campuses": [],
+          "applicableNote": "报名时具有正式学籍的全日制研究生、本科生或高职高专学生；按专业与赛项选择组别。；河南大学校内组织安排另行确认。"
+        },
+        "entryType": "团队整理",
+        "sourceTitle": "第十八届蓝桥杯个人赛官方报名说明",
+        "sourceOrg": "蓝桥杯大赛组委会",
+        "sourceUrl": "https://dasai.lanqiao.cn/pages/v7/dasai/competition/individual_competition.html",
+        "sourcePublishedAt": null,
+        "lastVerifiedAt": "2026-10-13",
+        "regStart": "2026-10-08T10:00:00+08:00",
+        "regEnd": "2026-12-18T14:00:00+08:00",
+        "contestStart": null,
+        "contestEnd": null,
+        "publicityTime": null,
+        "contestRequirement": "报名时具有正式学籍的全日制研究生、本科生或高职高专学生；按专业与赛项选择组别。",
+        "reviewRules": null,
+        "awardSetting": null,
+        "material": "官方报名所需身份证明、学籍材料及照片按报名系统要求提交，勿上传至本应用。",
+        "entryMethod": "通过主办方官方入口办理；涉及学校统一组织时，先联系所在学院。站内不代报名、不代收费用。",
+        "contact": null,
+        "description": "全国报名窗口：2026-10-08 10:00—2026-12-18 14:00（北京时间）。这是全国截止，河南大学校内截止未核实。省赛及决赛具体日未在该页面明确，不能推测。\n信息核对日期：2026-10-13。未获得正式公告的阶段保留未知；学分、校内截止与资格由学校另行确认。",
+        "creditApplicable": "待确认",
+        "creditBasis": null,
+        "creditNote": "未取得河南大学本年度第二课堂认定依据，请向学院确认。",
+        "organizationId": "",
+        "attachmentIds": [],
+        "changeType": "原通知变更",
+        "reason": "补充正式年度公告与可核对日程，保留未知字段"
+      },
+      "sources": [
+        {
+          "url": "https://dasai.lanqiao.cn/pages/v7/dasai/competition/individual_competition.html",
+          "publishedAt": null
+        },
+        {
+          "url": "https://design.lanqiao.cn/news-detail/3090",
+          "publishedAt": "2026-10-08",
+          "dateMeaning": "第十八届大赛总通知；具体软件/电子个人赛报名日采用主来源页面"
+        }
+      ],
+      "dateEvidence": [
+        {
+          "field": "regStart",
+          "value": "2026-10-08T10:00:00+08:00",
+          "sourceUrl": "https://dasai.lanqiao.cn/pages/v7/dasai/competition/individual_competition.html",
+          "precision": "minute",
+          "timeZone": "Asia/Shanghai"
+        },
+        {
+          "field": "regEnd",
+          "value": "2026-12-18T14:00:00+08:00",
+          "sourceUrl": "https://dasai.lanqiao.cn/pages/v7/dasai/competition/individual_competition.html",
+          "precision": "minute",
+          "timeZone": "Asia/Shanghai"
+        }
+      ],
+      "unknownFields": [
+        "contestStart",
+        "contestEnd"
+      ]
+    },
+    {
+      "key": "cms-math-18",
+      "matchNames": [
+        "全国大学生数学竞赛"
+      ],
+      "organizer": "中国数学会",
+      "request": {
+        "name": "全国大学生数学竞赛",
+        "category": "学科竞赛",
+        "scopeType": "面向河大学生的校外赛事",
+        "edition": "第十八届（2026）",
+        "level": "国赛",
+        "applicableScope": {
+          "colleges": [],
+          "majors": [],
+          "grades": [],
+          "degrees": [],
+          "campuses": [],
+          "applicableNote": "全日制在校大学生；数学、非数学及高职高专组别按官方规则与所学专业确定。；河南大学校内组织安排另行确认。"
+        },
+        "entryType": "团队整理",
+        "sourceTitle": "第十八届全国大学生数学竞赛通知",
+        "sourceOrg": "中国数学会",
+        "sourceUrl": "https://www.cms.org.cn/upload/file/20260702/1782964399222501.pdf",
+        "sourcePublishedAt": "2026-06-10",
+        "lastVerifiedAt": "2026-10-13",
+        "regStart": null,
+        "regEnd": null,
+        "contestStart": null,
+        "contestEnd": null,
+        "publicityTime": null,
+        "contestRequirement": "全日制在校大学生；数学、非数学及高职高专组别按官方规则与所学专业确定。",
+        "reviewRules": null,
+        "awardSetting": null,
+        "material": null,
+        "entryMethod": "通过主办方官方入口办理；涉及学校统一组织时，先联系所在学院。站内不代报名、不代收费用。",
+        "contact": null,
+        "description": "初赛：2026-11-14 09:00—11:30（北京时间）。这里的比赛起止仅指初赛，不代表全部赛程结束。原通知规定2026-10-19日前报名；未将“日前”擅自转换为当天23:59，具体校内截止向学院确认。决赛预计2027年4月，具体日期待正式通知。\n信息核对日期：2026-10-13。未获得正式公告的阶段保留未知；学分、校内截止与资格由学校另行确认。",
+        "creditApplicable": "待确认",
+        "creditBasis": null,
+        "creditNote": "未取得河南大学本年度第二课堂认定依据，请向学院确认。",
+        "organizationId": "",
+        "attachmentIds": [],
+        "changeType": "原通知变更",
+        "reason": "补充正式年度公告与可核对日程，保留未知字段"
+      },
+      "sources": [
+        {
+          "url": "https://www.cms.org.cn/upload/file/20260702/1782964399222501.pdf",
+          "publishedAt": "2026-06-10",
+          "dateMeaning": "通知落款日期"
+        },
+        {
+          "url": "https://www.cms.org.cn/Home/comp/comp_details/id/1449.html",
+          "publishedAt": "2026-07-02",
+          "dateMeaning": "官网页面发布日期"
+        }
+      ],
+      "dateEvidence": [],
+      "unknownFields": [
+        "regStart",
+        "regEnd",
+        "contestEnd",
+        "contestStart"
+      ],
+      "schedule": [
+        {
+          "stage": "初赛开始",
+          "value": "2026-11-14T09:00:00+08:00",
+          "sourceUrl": "https://www.cms.org.cn/upload/file/20260702/1782964399222501.pdf"
+        },
+        {
+          "stage": "初赛结束（非全部赛程结束）",
+          "value": "2026-11-14T11:30:00+08:00",
+          "sourceUrl": "https://www.cms.org.cn/upload/file/20260702/1782964399222501.pdf"
+        }
+      ]
+    },
+    {
+      "key": "comap-2027",
+      "matchNames": [
+        "美国大学生数学建模竞赛"
+      ],
+      "organizer": "COMAP",
+      "request": {
+        "name": "美国大学生数学建模竞赛",
+        "category": "学科竞赛",
+        "scopeType": "面向河大学生的校外赛事",
+        "edition": "2027 MCM/ICM",
+        "level": "国际赛",
+        "applicableScope": {
+          "colleges": [],
+          "majors": [],
+          "grades": [],
+          "degrees": [],
+          "campuses": [],
+          "applicableNote": "同一学校的本科及以下学生，每队1—3人；须有本校教师、职员或学生担任指导联系人员。研究生不满足该赛学生条件。；河南大学校内组织安排另行确认。"
+        },
+        "entryType": "团队整理",
+        "sourceTitle": "2027 MCM/ICM Contest Rules, Registration and Instructions",
+        "sourceOrg": "COMAP",
+        "sourceUrl": "https://www.contest.comap.com/undergraduate/contests/mcm/instructions.php",
+        "sourcePublishedAt": null,
+        "lastVerifiedAt": "2026-10-13",
+        "regStart": null,
+        "regEnd": "2027-01-29T04:00:00+08:00",
+        "contestStart": "2027-01-29T06:00:00+08:00",
+        "contestEnd": "2027-02-02T09:00:00+08:00",
+        "publicityTime": null,
+        "contestRequirement": "同一学校的本科及以下学生，每队1—3人；须有本校教师、职员或学生担任指导联系人员。研究生不满足该赛学生条件。",
+        "reviewRules": null,
+        "awardSetting": null,
+        "material": "英文PDF论文；主论文不超过25页，使用AI时按官方要求披露。",
+        "entryMethod": "通过主办方官方入口办理；涉及学校统一组织时，先联系所在学院。站内不代报名、不代收费用。",
+        "contact": null,
+        "description": "以下为北京时间：报名须在2027-01-29 04:00之前完成；比赛2027-01-29 06:00开始，2027-02-02 09:00结束；论文提交截止2027-02-02 10:00。原文分别为1月28日15:00前、17:00，2月1日20:00、21:00 EST（UTC−05:00），统一换算为UTC+08:00。结果公告日期原文为2027-05-08，未提供具体时刻，因此不作跨时区日期换算。\n信息核对日期：2026-10-13。未获得正式公告的阶段保留未知；学分、校内截止与资格由学校另行确认。",
+        "creditApplicable": "待确认",
+        "creditBasis": null,
+        "creditNote": "未取得河南大学本年度第二课堂认定依据，请向学院确认。",
+        "organizationId": "",
+        "attachmentIds": [],
+        "changeType": "原通知变更",
+        "reason": "补充正式年度公告与可核对日程，保留未知字段"
+      },
+      "sources": [
+        {
+          "url": "https://www.contest.comap.com/undergraduate/contests/mcm/instructions.php",
+          "publishedAt": null
+        }
+      ],
+      "dateEvidence": [
+        {
+          "field": "regEnd",
+          "value": "2027-01-29T04:00:00+08:00",
+          "sourceUrl": "https://www.contest.comap.com/undergraduate/contests/mcm/instructions.php",
+          "precision": "minute",
+          "timeZone": "Asia/Shanghai"
+        },
+        {
+          "field": "contestStart",
+          "value": "2027-01-29T06:00:00+08:00",
+          "sourceUrl": "https://www.contest.comap.com/undergraduate/contests/mcm/instructions.php",
+          "precision": "minute",
+          "timeZone": "Asia/Shanghai"
+        },
+        {
+          "field": "contestEnd",
+          "value": "2027-02-02T09:00:00+08:00",
+          "sourceUrl": "https://www.contest.comap.com/undergraduate/contests/mcm/instructions.php",
+          "precision": "minute",
+          "timeZone": "Asia/Shanghai"
+        }
+      ],
+      "unknownFields": [
+        "regStart"
+      ]
+    },
+    {
+      "key": "cumcm-2026",
+      "matchNames": [
+        "全国大学生数学建模竞赛"
+      ],
+      "organizer": "中国工业与应用数学学会",
+      "request": {
+        "name": "全国大学生数学建模竞赛",
+        "category": "学科竞赛",
+        "scopeType": "面向河大学生的校外赛事",
+        "edition": "2026（已结束的年度赛程）",
+        "level": "国赛",
+        "applicableScope": {
+          "colleges": [],
+          "majors": [],
+          "grades": [],
+          "degrees": [],
+          "campuses": [],
+          "applicableNote": "大学在校学生，按国内官方组别和学校组织要求参赛。；河南大学校内组织安排另行确认。"
+        },
+        "entryType": "团队整理",
+        "sourceTitle": "2026 CUMCM 官方赛程通知",
+        "sourceOrg": "中国工业与应用数学学会",
+        "sourceUrl": "https://www.mcm.edu.cn/html_en/node/0de2e3c659c5e64e9a2c7c3dd52e837c.html",
+        "sourcePublishedAt": "2026-03-26",
+        "lastVerifiedAt": "2026-10-13",
+        "regStart": null,
+        "regEnd": null,
+        "contestStart": "2026-09-10T18:00:00+08:00",
+        "contestEnd": "2026-09-13T20:00:00+08:00",
+        "publicityTime": null,
+        "contestRequirement": "大学在校学生，按国内官方组别和学校组织要求参赛。",
+        "reviewRules": null,
+        "awardSetting": null,
+        "material": "竞赛论文及附件按当年度官方赛题和国内系统要求提交。",
+        "entryMethod": "通过主办方官方入口办理；涉及学校统一组织时，先联系所在学院。站内不代报名、不代收费用。",
+        "contact": null,
+        "description": "2026年度比赛已结束：2026-09-10 18:00至2026-09-13 20:00（北京时间）。不是2027年度报名通知。国内报名入口：https://cumcm.cnki.net 。海外报名截止不适用于河南大学，因此国内报名日期保留未知。\n信息核对日期：2026-10-13。未获得正式公告的阶段保留未知；学分、校内截止与资格由学校另行确认。",
+        "creditApplicable": "待确认",
+        "creditBasis": null,
+        "creditNote": "未取得河南大学本年度第二课堂认定依据，请向学院确认。",
+        "organizationId": "",
+        "attachmentIds": [],
+        "changeType": "原通知变更",
+        "reason": "补充正式年度公告与可核对日程，保留未知字段"
+      },
+      "sources": [
+        {
+          "url": "https://www.mcm.edu.cn/html_en/node/0de2e3c659c5e64e9a2c7c3dd52e837c.html",
+          "publishedAt": "2026-03-26"
+        }
+      ],
+      "dateEvidence": [
+        {
+          "field": "contestStart",
+          "value": "2026-09-10T18:00:00+08:00",
+          "sourceUrl": "https://www.mcm.edu.cn/html_en/node/0de2e3c659c5e64e9a2c7c3dd52e837c.html",
+          "precision": "minute",
+          "timeZone": "Asia/Shanghai"
+        },
+        {
+          "field": "contestEnd",
+          "value": "2026-09-13T20:00:00+08:00",
+          "sourceUrl": "https://www.mcm.edu.cn/html_en/node/0de2e3c659c5e64e9a2c7c3dd52e837c.html",
+          "precision": "minute",
+          "timeZone": "Asia/Shanghai"
+        }
+      ],
+      "unknownFields": [
+        "regStart",
+        "regEnd"
+      ]
+    },
+    {
+      "key": "aic-8-parent",
+      "matchNames": [
+        "全球校园人工智能算法精英大赛"
+      ],
+      "organizer": "全球校园人工智能算法精英大赛组委会",
+      "request": {
+        "name": "全球校园人工智能算法精英大赛",
+        "category": "学科竞赛",
+        "scopeType": "面向河大学生的校外赛事",
+        "edition": "第八届（2026）",
+        "level": "国赛",
+        "applicableScope": {
+          "colleges": [],
+          "majors": [],
+          "grades": [],
+          "degrees": [],
+          "campuses": [],
+          "applicableNote": "具有正式学籍的高校、科研院所在校研究生、本科生和高职高专学生；不同赛道另有条件。；河南大学校内组织安排另行确认。"
+        },
+        "entryType": "团队整理",
+        "sourceTitle": "关于举办第八届全球校园人工智能算法精英大赛的通知",
+        "sourceOrg": "全球校园人工智能算法精英大赛组委会",
+        "sourceUrl": "https://www.aicomp.cn/notice/notice-1/3618.html",
+        "sourcePublishedAt": "2026-04-29",
+        "lastVerifiedAt": "2026-10-13",
+        "regStart": "2026-04-28",
+        "regEnd": null,
+        "contestStart": null,
+        "contestEnd": null,
+        "publicityTime": null,
+        "contestRequirement": "具有正式学籍的高校、科研院所在校研究生、本科生和高职高专学生；不同赛道另有条件。",
+        "reviewRules": null,
+        "awardSetting": null,
+        "material": null,
+        "entryMethod": "通过主办方官方入口办理；涉及学校统一组织时，先联系所在学院。站内不代报名、不代收费用。",
+        "contact": null,
+        "description": "大赛于2026-04-28启动报名（仅公布日期，未公布开通时刻）。赛区制省赛报名及缴费截止为2026-10-15 20:00；这一截止不适用于所有主题赛。主题赛请查看各赛道条目与2026-10-10调整公告。省赛及决赛具体时间按赛区和后续公告确定。\n信息核对日期：2026-10-13。未获得正式公告的阶段保留未知；学分、校内截止与资格由学校另行确认。",
+        "creditApplicable": "待确认",
+        "creditBasis": null,
+        "creditNote": "未取得河南大学本年度第二课堂认定依据，请向学院确认。",
+        "organizationId": "",
+        "attachmentIds": [],
+        "changeType": "原通知变更",
+        "reason": "补充正式年度公告与可核对日程，保留未知字段"
+      },
+      "sources": [
+        {
+          "url": "https://www.aicomp.cn/notice/notice-1/3618.html",
+          "publishedAt": "2026-04-29"
+        }
+      ],
+      "dateEvidence": [
+        {
+          "field": "regStart",
+          "value": "2026-04-28",
+          "sourceUrl": "https://www.aicomp.cn/notice/notice-1/3618.html",
+          "precision": "date",
+          "timeZone": null
+        }
+      ],
+      "unknownFields": [
+        "regEnd",
+        "contestStart",
+        "contestEnd"
+      ]
+    },
+    {
+      "key": "aic-8-theme-3750",
+      "matchNames": [
+        "2026第八届AIC算法主题赛·AI+场景建造"
+      ],
+      "organizer": "全球校园人工智能算法精英大赛组委会",
+      "request": {
+        "name": "2026第八届AIC算法主题赛·AI+场景建造",
+        "category": "学科竞赛",
+        "scopeType": "面向河大学生的校外赛事",
+        "edition": "第八届（2026）·算法主题赛",
+        "level": "国赛",
+        "applicableScope": {
+          "colleges": [],
+          "majors": [],
+          "grades": [],
+          "degrees": [],
+          "campuses": [],
+          "applicableNote": "面向符合该主题赛规则的在校学生；人数、专业、同校组队条件须逐条查看赛题规则。；河南大学校内组织安排另行确认。"
+        },
+        "entryType": "团队整理",
+        "sourceTitle": "第八届AIC算法主题赛赛程调整通知（2026-10-10）",
+        "sourceOrg": "全球校园人工智能算法精英大赛组委会",
+        "sourceUrl": "https://www.aicomp.cn/notice/notice-3/5435.html",
+        "sourcePublishedAt": "2026-10-10",
+        "lastVerifiedAt": "2026-10-13",
+        "regStart": null,
+        "regEnd": "2026-10-28T20:00:00+08:00",
+        "contestStart": null,
+        "contestEnd": null,
+        "publicityTime": null,
+        "contestRequirement": "面向符合该主题赛规则的在校学生；人数、专业、同校组队条件须逐条查看赛题规则。",
+        "reviewRules": null,
+        "awardSetting": null,
+        "material": null,
+        "entryMethod": "通过主办方官方入口办理；涉及学校统一组织时，先联系所在学院。站内不代报名、不代收费用。",
+        "contact": "官方赛题联络方式见调整公告对应行；报名疑问使用主办方公开渠道。",
+        "description": "这是AIC大赛下的真实主题赛道，非独立国赛。报名及缴费截止：2026-10-28 20:00（北京时间）。作品提交截止：2026-10-28 20:00（北京时间）。以2026-10-10调整公告为准，覆盖旧通知冲突时刻。该截止不是线下比赛或决赛时间；比赛起止日期仍待核实。赛题规则：https://www.aicomp.cn/tracks/tracks-5/3750.html\n信息核对日期：2026-10-13。未获得正式公告的阶段保留未知；学分、校内截止与资格由学校另行确认。",
+        "creditApplicable": "待确认",
+        "creditBasis": null,
+        "creditNote": "未取得河南大学本年度第二课堂认定依据，请向学院确认。",
+        "organizationId": "",
+        "attachmentIds": [],
+        "changeType": "原通知变更",
+        "reason": "补充正式年度公告与可核对日程，保留未知字段"
+      },
+      "sources": [
+        {
+          "url": "https://www.aicomp.cn/notice/notice-3/5435.html",
+          "publishedAt": "2026-10-10",
+          "priority": "latest-schedule"
+        },
+        {
+          "url": "https://www.aicomp.cn/tracks/tracks-5/3750.html",
+          "publishedAt": null,
+          "priority": "track-rules"
+        }
+      ],
+      "dateEvidence": [
+        {
+          "field": "regEnd",
+          "value": "2026-10-28T20:00:00+08:00",
+          "sourceUrl": "https://www.aicomp.cn/notice/notice-3/5435.html",
+          "precision": "minute",
+          "timeZone": "Asia/Shanghai"
+        }
+      ],
+      "unknownFields": [
+        "regStart",
+        "contestStart",
+        "contestEnd"
+      ],
+      "schedule": [
+        {
+          "stage": "报名及缴费截止",
+          "value": "2026-10-28T20:00:00+08:00",
+          "sourceUrl": "https://www.aicomp.cn/notice/notice-3/5435.html"
+        },
+        {
+          "stage": "作品提交截止",
+          "value": "2026-10-28T20:00:00+08:00",
+          "sourceUrl": "https://www.aicomp.cn/notice/notice-3/5435.html"
+        }
+      ]
+    },
+    {
+      "key": "aic-8-theme-3924",
+      "matchNames": [
+        "2026第八届AIC算法主题赛·AI伦理"
+      ],
+      "organizer": "全球校园人工智能算法精英大赛组委会",
+      "request": {
+        "name": "2026第八届AIC算法主题赛·AI伦理",
+        "category": "学科竞赛",
+        "scopeType": "面向河大学生的校外赛事",
+        "edition": "第八届（2026）·算法主题赛",
+        "level": "国赛",
+        "applicableScope": {
+          "colleges": [],
+          "majors": [],
+          "grades": [],
+          "degrees": [],
+          "campuses": [],
+          "applicableNote": "面向符合该主题赛规则的在校学生；人数、专业、同校组队条件须逐条查看赛题规则。；河南大学校内组织安排另行确认。"
+        },
+        "entryType": "团队整理",
+        "sourceTitle": "第八届AIC算法主题赛赛程调整通知（2026-10-10）",
+        "sourceOrg": "全球校园人工智能算法精英大赛组委会",
+        "sourceUrl": "https://www.aicomp.cn/notice/notice-3/5435.html",
+        "sourcePublishedAt": "2026-10-10",
+        "lastVerifiedAt": "2026-10-13",
+        "regStart": null,
+        "regEnd": "2026-10-30T20:00:00+08:00",
+        "contestStart": null,
+        "contestEnd": null,
+        "publicityTime": null,
+        "contestRequirement": "面向符合该主题赛规则的在校学生；人数、专业、同校组队条件须逐条查看赛题规则。",
+        "reviewRules": null,
+        "awardSetting": null,
+        "material": null,
+        "entryMethod": "通过主办方官方入口办理；涉及学校统一组织时，先联系所在学院。站内不代报名、不代收费用。",
+        "contact": "官方赛题联络方式见调整公告对应行；报名疑问使用主办方公开渠道。",
+        "description": "这是AIC大赛下的真实主题赛道，非独立国赛。报名及缴费截止：2026-10-30 20:00（北京时间）。作品提交截止：2026-10-30 20:00（北京时间）。以2026-10-10调整公告为准，覆盖旧通知冲突时刻。该截止不是线下比赛或决赛时间；比赛起止日期仍待核实。赛题规则：https://www.aicomp.cn/tracks/tracks-5/3924.html\n信息核对日期：2026-10-13。未获得正式公告的阶段保留未知；学分、校内截止与资格由学校另行确认。",
+        "creditApplicable": "待确认",
+        "creditBasis": null,
+        "creditNote": "未取得河南大学本年度第二课堂认定依据，请向学院确认。",
+        "organizationId": "",
+        "attachmentIds": [],
+        "changeType": "原通知变更",
+        "reason": "补充正式年度公告与可核对日程，保留未知字段"
+      },
+      "sources": [
+        {
+          "url": "https://www.aicomp.cn/notice/notice-3/5435.html",
+          "publishedAt": "2026-10-10",
+          "priority": "latest-schedule"
+        },
+        {
+          "url": "https://www.aicomp.cn/tracks/tracks-5/3924.html",
+          "publishedAt": null,
+          "priority": "track-rules"
+        }
+      ],
+      "dateEvidence": [
+        {
+          "field": "regEnd",
+          "value": "2026-10-30T20:00:00+08:00",
+          "sourceUrl": "https://www.aicomp.cn/notice/notice-3/5435.html",
+          "precision": "minute",
+          "timeZone": "Asia/Shanghai"
+        }
+      ],
+      "unknownFields": [
+        "regStart",
+        "contestStart",
+        "contestEnd"
+      ],
+      "schedule": [
+        {
+          "stage": "报名及缴费截止",
+          "value": "2026-10-30T20:00:00+08:00",
+          "sourceUrl": "https://www.aicomp.cn/notice/notice-3/5435.html"
+        },
+        {
+          "stage": "作品提交截止",
+          "value": "2026-10-30T20:00:00+08:00",
+          "sourceUrl": "https://www.aicomp.cn/notice/notice-3/5435.html"
+        }
+      ]
+    },
+    {
+      "key": "aic-8-theme-4047",
+      "matchNames": [
+        "2026第八届AIC算法主题赛·AI+心理健康"
+      ],
+      "organizer": "全球校园人工智能算法精英大赛组委会",
+      "request": {
+        "name": "2026第八届AIC算法主题赛·AI+心理健康",
+        "category": "学科竞赛",
+        "scopeType": "面向河大学生的校外赛事",
+        "edition": "第八届（2026）·算法主题赛",
+        "level": "国赛",
+        "applicableScope": {
+          "colleges": [],
+          "majors": [],
+          "grades": [],
+          "degrees": [],
+          "campuses": [],
+          "applicableNote": "在校研究生、本科生或高职高专学生；3名同校学生组队，指导教师不超过2人。；河南大学校内组织安排另行确认。"
+        },
+        "entryType": "团队整理",
+        "sourceTitle": "第八届AIC算法主题赛赛程调整通知（2026-10-10）",
+        "sourceOrg": "全球校园人工智能算法精英大赛组委会",
+        "sourceUrl": "https://www.aicomp.cn/notice/notice-3/5435.html",
+        "sourcePublishedAt": "2026-10-10",
+        "lastVerifiedAt": "2026-10-13",
+        "regStart": null,
+        "regEnd": "2026-10-30T20:00:00+08:00",
+        "contestStart": null,
+        "contestEnd": null,
+        "publicityTime": null,
+        "contestRequirement": "在校研究生、本科生或高职高专学生；3名同校学生组队，指导教师不超过2人。",
+        "reviewRules": null,
+        "awardSetting": null,
+        "material": "技术报告，其他附件与格式按赛题规则提交。",
+        "entryMethod": "通过主办方官方入口办理；涉及学校统一组织时，先联系所在学院。站内不代报名、不代收费用。",
+        "contact": "官方赛题联络方式见调整公告对应行；报名疑问使用主办方公开渠道。",
+        "description": "这是AIC大赛下的真实主题赛道，非独立国赛。报名及缴费截止：2026-10-30 20:00（北京时间）。作品提交截止：2026-10-30 20:00（北京时间）。以2026-10-10调整公告为准，覆盖旧通知冲突时刻。该截止不是线下比赛或决赛时间；比赛起止日期仍待核实。赛题规则：https://www.aicomp.cn/tracks/tracks-5/4047.html\n信息核对日期：2026-10-13。未获得正式公告的阶段保留未知；学分、校内截止与资格由学校另行确认。",
+        "creditApplicable": "待确认",
+        "creditBasis": null,
+        "creditNote": "未取得河南大学本年度第二课堂认定依据，请向学院确认。",
+        "organizationId": "",
+        "attachmentIds": [],
+        "changeType": "原通知变更",
+        "reason": "补充正式年度公告与可核对日程，保留未知字段"
+      },
+      "sources": [
+        {
+          "url": "https://www.aicomp.cn/notice/notice-3/5435.html",
+          "publishedAt": "2026-10-10",
+          "priority": "latest-schedule"
+        },
+        {
+          "url": "https://www.aicomp.cn/tracks/tracks-5/4047.html",
+          "publishedAt": null,
+          "priority": "track-rules"
+        }
+      ],
+      "dateEvidence": [
+        {
+          "field": "regEnd",
+          "value": "2026-10-30T20:00:00+08:00",
+          "sourceUrl": "https://www.aicomp.cn/notice/notice-3/5435.html",
+          "precision": "minute",
+          "timeZone": "Asia/Shanghai"
+        }
+      ],
+      "unknownFields": [
+        "regStart",
+        "contestStart",
+        "contestEnd"
+      ],
+      "schedule": [
+        {
+          "stage": "报名及缴费截止",
+          "value": "2026-10-30T20:00:00+08:00",
+          "sourceUrl": "https://www.aicomp.cn/notice/notice-3/5435.html"
+        },
+        {
+          "stage": "作品提交截止",
+          "value": "2026-10-30T20:00:00+08:00",
+          "sourceUrl": "https://www.aicomp.cn/notice/notice-3/5435.html"
+        }
+      ]
+    },
+    {
+      "key": "aic-8-theme-4600",
+      "matchNames": [
+        "2026第八届AIC算法主题赛·AI+力学"
+      ],
+      "organizer": "全球校园人工智能算法精英大赛组委会",
+      "request": {
+        "name": "2026第八届AIC算法主题赛·AI+力学",
+        "category": "学科竞赛",
+        "scopeType": "面向河大学生的校外赛事",
+        "edition": "第八届（2026）·算法主题赛",
+        "level": "国赛",
+        "applicableScope": {
+          "colleges": [],
+          "majors": [],
+          "grades": [],
+          "degrees": [],
+          "campuses": [],
+          "applicableNote": "力学、人工智能及相关领域在校学生；不同赛题组队人数可能不同，按所选题规则执行。；河南大学校内组织安排另行确认。"
+        },
+        "entryType": "团队整理",
+        "sourceTitle": "第八届AIC算法主题赛赛程调整通知（2026-10-10）",
+        "sourceOrg": "全球校园人工智能算法精英大赛组委会",
+        "sourceUrl": "https://www.aicomp.cn/notice/notice-3/5435.html",
+        "sourcePublishedAt": "2026-10-10",
+        "lastVerifiedAt": "2026-10-13",
+        "regStart": null,
+        "regEnd": "2026-10-28T20:00:00+08:00",
+        "contestStart": null,
+        "contestEnd": null,
+        "publicityTime": null,
+        "contestRequirement": "力学、人工智能及相关领域在校学生；不同赛题组队人数可能不同，按所选题规则执行。",
+        "reviewRules": null,
+        "awardSetting": null,
+        "material": null,
+        "entryMethod": "通过主办方官方入口办理；涉及学校统一组织时，先联系所在学院。站内不代报名、不代收费用。",
+        "contact": "官方赛题联络方式见调整公告对应行；报名疑问使用主办方公开渠道。",
+        "description": "这是AIC大赛下的真实主题赛道，非独立国赛。报名及缴费截止：2026-10-28 20:00（北京时间）。作品提交截止：2026-10-28 20:00（北京时间）。以2026-10-10调整公告为准，覆盖旧通知冲突时刻。该截止不是线下比赛或决赛时间；比赛起止日期仍待核实。赛题规则：https://www.aicomp.cn/tracks/tracks-5/4600.html\n信息核对日期：2026-10-13。未获得正式公告的阶段保留未知；学分、校内截止与资格由学校另行确认。",
+        "creditApplicable": "待确认",
+        "creditBasis": null,
+        "creditNote": "未取得河南大学本年度第二课堂认定依据，请向学院确认。",
+        "organizationId": "",
+        "attachmentIds": [],
+        "changeType": "原通知变更",
+        "reason": "补充正式年度公告与可核对日程，保留未知字段"
+      },
+      "sources": [
+        {
+          "url": "https://www.aicomp.cn/notice/notice-3/5435.html",
+          "publishedAt": "2026-10-10",
+          "priority": "latest-schedule"
+        },
+        {
+          "url": "https://www.aicomp.cn/tracks/tracks-5/4600.html",
+          "publishedAt": null,
+          "priority": "track-rules"
+        }
+      ],
+      "dateEvidence": [
+        {
+          "field": "regEnd",
+          "value": "2026-10-28T20:00:00+08:00",
+          "sourceUrl": "https://www.aicomp.cn/notice/notice-3/5435.html",
+          "precision": "minute",
+          "timeZone": "Asia/Shanghai"
+        }
+      ],
+      "unknownFields": [
+        "regStart",
+        "contestStart",
+        "contestEnd"
+      ],
+      "schedule": [
+        {
+          "stage": "报名及缴费截止",
+          "value": "2026-10-28T20:00:00+08:00",
+          "sourceUrl": "https://www.aicomp.cn/notice/notice-3/5435.html"
+        },
+        {
+          "stage": "作品提交截止",
+          "value": "2026-10-28T20:00:00+08:00",
+          "sourceUrl": "https://www.aicomp.cn/notice/notice-3/5435.html"
+        }
+      ]
+    },
+    {
+      "key": "aic-8-theme-4723",
+      "matchNames": [
+        "2026第八届AIC算法主题赛·AI+医学"
+      ],
+      "organizer": "全球校园人工智能算法精英大赛组委会",
+      "request": {
+        "name": "2026第八届AIC算法主题赛·AI+医学",
+        "category": "学科竞赛",
+        "scopeType": "面向河大学生的校外赛事",
+        "edition": "第八届（2026）·算法主题赛",
+        "level": "国赛",
+        "applicableScope": {
+          "colleges": [],
+          "majors": [],
+          "grades": [],
+          "degrees": [],
+          "campuses": [],
+          "applicableNote": "面向符合该主题赛规则的在校学生；人数、专业、同校组队条件须逐条查看赛题规则。；河南大学校内组织安排另行确认。"
+        },
+        "entryType": "团队整理",
+        "sourceTitle": "第八届AIC算法主题赛赛程调整通知（2026-10-10）",
+        "sourceOrg": "全球校园人工智能算法精英大赛组委会",
+        "sourceUrl": "https://www.aicomp.cn/notice/notice-3/5435.html",
+        "sourcePublishedAt": "2026-10-10",
+        "lastVerifiedAt": "2026-10-13",
+        "regStart": null,
+        "regEnd": "2026-10-30T20:00:00+08:00",
+        "contestStart": null,
+        "contestEnd": null,
+        "publicityTime": null,
+        "contestRequirement": "面向符合该主题赛规则的在校学生；人数、专业、同校组队条件须逐条查看赛题规则。",
+        "reviewRules": null,
+        "awardSetting": null,
+        "material": null,
+        "entryMethod": "通过主办方官方入口办理；涉及学校统一组织时，先联系所在学院。站内不代报名、不代收费用。",
+        "contact": "官方赛题联络方式见调整公告对应行；报名疑问使用主办方公开渠道。",
+        "description": "这是AIC大赛下的真实主题赛道，非独立国赛。报名及缴费截止：2026-10-30 20:00（北京时间）。作品提交截止：2026-10-30 20:00（北京时间）。以2026-10-10调整公告为准，覆盖旧通知冲突时刻。该截止不是线下比赛或决赛时间；比赛起止日期仍待核实。赛题规则：https://www.aicomp.cn/tracks/4723.html\n信息核对日期：2026-10-13。未获得正式公告的阶段保留未知；学分、校内截止与资格由学校另行确认。",
+        "creditApplicable": "待确认",
+        "creditBasis": null,
+        "creditNote": "未取得河南大学本年度第二课堂认定依据，请向学院确认。",
+        "organizationId": "",
+        "attachmentIds": [],
+        "changeType": "原通知变更",
+        "reason": "补充正式年度公告与可核对日程，保留未知字段"
+      },
+      "sources": [
+        {
+          "url": "https://www.aicomp.cn/notice/notice-3/5435.html",
+          "publishedAt": "2026-10-10",
+          "priority": "latest-schedule"
+        },
+        {
+          "url": "https://www.aicomp.cn/tracks/4723.html",
+          "publishedAt": null,
+          "priority": "track-rules"
+        }
+      ],
+      "dateEvidence": [
+        {
+          "field": "regEnd",
+          "value": "2026-10-30T20:00:00+08:00",
+          "sourceUrl": "https://www.aicomp.cn/notice/notice-3/5435.html",
+          "precision": "minute",
+          "timeZone": "Asia/Shanghai"
+        }
+      ],
+      "unknownFields": [
+        "regStart",
+        "contestStart",
+        "contestEnd"
+      ],
+      "schedule": [
+        {
+          "stage": "报名及缴费截止",
+          "value": "2026-10-30T20:00:00+08:00",
+          "sourceUrl": "https://www.aicomp.cn/notice/notice-3/5435.html"
+        },
+        {
+          "stage": "作品提交截止",
+          "value": "2026-10-30T20:00:00+08:00",
+          "sourceUrl": "https://www.aicomp.cn/notice/notice-3/5435.html"
+        }
+      ]
+    },
+    {
+      "key": "aic-8-theme-4726",
+      "matchNames": [
+        "2026第八届AIC算法主题赛·AI+能源"
+      ],
+      "organizer": "全球校园人工智能算法精英大赛组委会",
+      "request": {
+        "name": "2026第八届AIC算法主题赛·AI+能源",
+        "category": "学科竞赛",
+        "scopeType": "面向河大学生的校外赛事",
+        "edition": "第八届（2026）·算法主题赛",
+        "level": "国赛",
+        "applicableScope": {
+          "colleges": [],
+          "majors": [],
+          "grades": [],
+          "degrees": [],
+          "campuses": [],
+          "applicableNote": "面向符合该主题赛规则的在校学生；人数、专业、同校组队条件须逐条查看赛题规则。；河南大学校内组织安排另行确认。"
+        },
+        "entryType": "团队整理",
+        "sourceTitle": "第八届AIC算法主题赛赛程调整通知（2026-10-10）",
+        "sourceOrg": "全球校园人工智能算法精英大赛组委会",
+        "sourceUrl": "https://www.aicomp.cn/notice/notice-3/5435.html",
+        "sourcePublishedAt": "2026-10-10",
+        "lastVerifiedAt": "2026-10-13",
+        "regStart": null,
+        "regEnd": "2026-10-30T20:00:00+08:00",
+        "contestStart": null,
+        "contestEnd": null,
+        "publicityTime": null,
+        "contestRequirement": "面向符合该主题赛规则的在校学生；人数、专业、同校组队条件须逐条查看赛题规则。",
+        "reviewRules": null,
+        "awardSetting": null,
+        "material": null,
+        "entryMethod": "通过主办方官方入口办理；涉及学校统一组织时，先联系所在学院。站内不代报名、不代收费用。",
+        "contact": "官方赛题联络方式见调整公告对应行；报名疑问使用主办方公开渠道。",
+        "description": "这是AIC大赛下的真实主题赛道，非独立国赛。报名及缴费截止：2026-10-30 20:00（北京时间）。作品提交截止：2026-10-30 20:00（北京时间）。以2026-10-10调整公告为准，覆盖旧通知冲突时刻。该截止不是线下比赛或决赛时间；比赛起止日期仍待核实。赛题规则：https://www.aicomp.cn/tracks/4726.html\n信息核对日期：2026-10-13。未获得正式公告的阶段保留未知；学分、校内截止与资格由学校另行确认。",
+        "creditApplicable": "待确认",
+        "creditBasis": null,
+        "creditNote": "未取得河南大学本年度第二课堂认定依据，请向学院确认。",
+        "organizationId": "",
+        "attachmentIds": [],
+        "changeType": "原通知变更",
+        "reason": "补充正式年度公告与可核对日程，保留未知字段"
+      },
+      "sources": [
+        {
+          "url": "https://www.aicomp.cn/notice/notice-3/5435.html",
+          "publishedAt": "2026-10-10",
+          "priority": "latest-schedule"
+        },
+        {
+          "url": "https://www.aicomp.cn/tracks/4726.html",
+          "publishedAt": null,
+          "priority": "track-rules"
+        }
+      ],
+      "dateEvidence": [
+        {
+          "field": "regEnd",
+          "value": "2026-10-30T20:00:00+08:00",
+          "sourceUrl": "https://www.aicomp.cn/notice/notice-3/5435.html",
+          "precision": "minute",
+          "timeZone": "Asia/Shanghai"
+        }
+      ],
+      "unknownFields": [
+        "regStart",
+        "contestStart",
+        "contestEnd"
+      ],
+      "schedule": [
+        {
+          "stage": "报名及缴费截止",
+          "value": "2026-10-30T20:00:00+08:00",
+          "sourceUrl": "https://www.aicomp.cn/notice/notice-3/5435.html"
+        },
+        {
+          "stage": "作品提交截止",
+          "value": "2026-10-30T20:00:00+08:00",
+          "sourceUrl": "https://www.aicomp.cn/notice/notice-3/5435.html"
+        }
+      ]
+    },
+    {
+      "key": "aic-8-theme-4761",
+      "matchNames": [
+        "2026第八届AIC算法主题赛·AI+集成电路"
+      ],
+      "organizer": "全球校园人工智能算法精英大赛组委会",
+      "request": {
+        "name": "2026第八届AIC算法主题赛·AI+集成电路",
+        "category": "学科竞赛",
+        "scopeType": "面向河大学生的校外赛事",
+        "edition": "第八届（2026）·算法主题赛",
+        "level": "国赛",
+        "applicableScope": {
+          "colleges": [],
+          "majors": [],
+          "grades": [],
+          "degrees": [],
+          "campuses": [],
+          "applicableNote": "面向符合该主题赛规则的在校学生；人数、专业、同校组队条件须逐条查看赛题规则。；河南大学校内组织安排另行确认。"
+        },
+        "entryType": "团队整理",
+        "sourceTitle": "第八届AIC算法主题赛赛程调整通知（2026-10-10）",
+        "sourceOrg": "全球校园人工智能算法精英大赛组委会",
+        "sourceUrl": "https://www.aicomp.cn/notice/notice-3/5435.html",
+        "sourcePublishedAt": "2026-10-10",
+        "lastVerifiedAt": "2026-10-13",
+        "regStart": null,
+        "regEnd": "2026-10-30T20:00:00+08:00",
+        "contestStart": null,
+        "contestEnd": null,
+        "publicityTime": null,
+        "contestRequirement": "面向符合该主题赛规则的在校学生；人数、专业、同校组队条件须逐条查看赛题规则。",
+        "reviewRules": null,
+        "awardSetting": null,
+        "material": null,
+        "entryMethod": "通过主办方官方入口办理；涉及学校统一组织时，先联系所在学院。站内不代报名、不代收费用。",
+        "contact": "官方赛题联络方式见调整公告对应行；报名疑问使用主办方公开渠道。",
+        "description": "这是AIC大赛下的真实主题赛道，非独立国赛。报名及缴费截止：2026-10-30 20:00（北京时间）。作品提交截止：2026-10-30 20:00（北京时间）。以2026-10-10调整公告为准，覆盖旧通知冲突时刻。该截止不是线下比赛或决赛时间；比赛起止日期仍待核实。赛题规则：https://www.aicomp.cn/tracks/4761.html\n信息核对日期：2026-10-13。未获得正式公告的阶段保留未知；学分、校内截止与资格由学校另行确认。",
+        "creditApplicable": "待确认",
+        "creditBasis": null,
+        "creditNote": "未取得河南大学本年度第二课堂认定依据，请向学院确认。",
+        "organizationId": "",
+        "attachmentIds": [],
+        "changeType": "原通知变更",
+        "reason": "补充正式年度公告与可核对日程，保留未知字段"
+      },
+      "sources": [
+        {
+          "url": "https://www.aicomp.cn/notice/notice-3/5435.html",
+          "publishedAt": "2026-10-10",
+          "priority": "latest-schedule"
+        },
+        {
+          "url": "https://www.aicomp.cn/tracks/4761.html",
+          "publishedAt": null,
+          "priority": "track-rules"
+        }
+      ],
+      "dateEvidence": [
+        {
+          "field": "regEnd",
+          "value": "2026-10-30T20:00:00+08:00",
+          "sourceUrl": "https://www.aicomp.cn/notice/notice-3/5435.html",
+          "precision": "minute",
+          "timeZone": "Asia/Shanghai"
+        }
+      ],
+      "unknownFields": [
+        "regStart",
+        "contestStart",
+        "contestEnd"
+      ],
+      "schedule": [
+        {
+          "stage": "报名及缴费截止",
+          "value": "2026-10-30T20:00:00+08:00",
+          "sourceUrl": "https://www.aicomp.cn/notice/notice-3/5435.html"
+        },
+        {
+          "stage": "作品提交截止",
+          "value": "2026-10-30T20:00:00+08:00",
+          "sourceUrl": "https://www.aicomp.cn/notice/notice-3/5435.html"
+        }
+      ]
+    },
+    {
+      "key": "aic-8-theme-4769",
+      "matchNames": [
+        "2026第八届AIC算法主题赛·AI+跨境电商"
+      ],
+      "organizer": "全球校园人工智能算法精英大赛组委会",
+      "request": {
+        "name": "2026第八届AIC算法主题赛·AI+跨境电商",
+        "category": "学科竞赛",
+        "scopeType": "面向河大学生的校外赛事",
+        "edition": "第八届（2026）·算法主题赛",
+        "level": "国赛",
+        "applicableScope": {
+          "colleges": [],
+          "majors": [],
+          "grades": [],
+          "degrees": [],
+          "campuses": [],
+          "applicableNote": "高校在校学生可参加学生组；学生组3名同校学生、指导教师不超过2人。该赛道另设企业参赛规则，不与学生组混用。；河南大学校内组织安排另行确认。"
+        },
+        "entryType": "团队整理",
+        "sourceTitle": "第八届AIC算法主题赛赛程调整通知（2026-10-10）",
+        "sourceOrg": "全球校园人工智能算法精英大赛组委会",
+        "sourceUrl": "https://www.aicomp.cn/notice/notice-3/5435.html",
+        "sourcePublishedAt": "2026-10-10",
+        "lastVerifiedAt": "2026-10-13",
+        "regStart": null,
+        "regEnd": "2026-10-30T20:00:00+08:00",
+        "contestStart": null,
+        "contestEnd": null,
+        "publicityTime": null,
+        "contestRequirement": "高校在校学生可参加学生组；学生组3名同校学生、指导教师不超过2人。该赛道另设企业参赛规则，不与学生组混用。",
+        "reviewRules": null,
+        "awardSetting": null,
+        "material": null,
+        "entryMethod": "通过主办方官方入口办理；涉及学校统一组织时，先联系所在学院。站内不代报名、不代收费用。",
+        "contact": "官方赛题联络方式见调整公告对应行；报名疑问使用主办方公开渠道。",
+        "description": "这是AIC大赛下的真实主题赛道，非独立国赛。报名及缴费截止：2026-10-30 20:00（北京时间）。作品提交截止：2026-10-30 20:00（北京时间）。以2026-10-10调整公告为准，覆盖旧通知冲突时刻。该截止不是线下比赛或决赛时间；比赛起止日期仍待核实。赛题规则：https://www.aicomp.cn/tracks/4769.html\n信息核对日期：2026-10-13。未获得正式公告的阶段保留未知；学分、校内截止与资格由学校另行确认。",
+        "creditApplicable": "待确认",
+        "creditBasis": null,
+        "creditNote": "未取得河南大学本年度第二课堂认定依据，请向学院确认。",
+        "organizationId": "",
+        "attachmentIds": [],
+        "changeType": "原通知变更",
+        "reason": "补充正式年度公告与可核对日程，保留未知字段"
+      },
+      "sources": [
+        {
+          "url": "https://www.aicomp.cn/notice/notice-3/5435.html",
+          "publishedAt": "2026-10-10",
+          "priority": "latest-schedule"
+        },
+        {
+          "url": "https://www.aicomp.cn/tracks/4769.html",
+          "publishedAt": null,
+          "priority": "track-rules"
+        }
+      ],
+      "dateEvidence": [
+        {
+          "field": "regEnd",
+          "value": "2026-10-30T20:00:00+08:00",
+          "sourceUrl": "https://www.aicomp.cn/notice/notice-3/5435.html",
+          "precision": "minute",
+          "timeZone": "Asia/Shanghai"
+        }
+      ],
+      "unknownFields": [
+        "regStart",
+        "contestStart",
+        "contestEnd"
+      ],
+      "schedule": [
+        {
+          "stage": "报名及缴费截止",
+          "value": "2026-10-30T20:00:00+08:00",
+          "sourceUrl": "https://www.aicomp.cn/notice/notice-3/5435.html"
+        },
+        {
+          "stage": "作品提交截止",
+          "value": "2026-10-30T20:00:00+08:00",
+          "sourceUrl": "https://www.aicomp.cn/notice/notice-3/5435.html"
+        }
+      ]
+    },
+    {
+      "key": "aic-8-theme-4792",
+      "matchNames": [
+        "2026第八届AIC算法主题赛·智能文化"
+      ],
+      "organizer": "全球校园人工智能算法精英大赛组委会",
+      "request": {
+        "name": "2026第八届AIC算法主题赛·智能文化",
+        "category": "学科竞赛",
+        "scopeType": "面向河大学生的校外赛事",
+        "edition": "第八届（2026）·算法主题赛",
+        "level": "国赛",
+        "applicableScope": {
+          "colleges": [],
+          "majors": [],
+          "grades": [],
+          "degrees": [],
+          "campuses": [],
+          "applicableNote": "面向符合该主题赛规则的在校学生；人数、专业、同校组队条件须逐条查看赛题规则。；河南大学校内组织安排另行确认。"
+        },
+        "entryType": "团队整理",
+        "sourceTitle": "第八届AIC算法主题赛赛程调整通知（2026-10-10）",
+        "sourceOrg": "全球校园人工智能算法精英大赛组委会",
+        "sourceUrl": "https://www.aicomp.cn/notice/notice-3/5435.html",
+        "sourcePublishedAt": "2026-10-10",
+        "lastVerifiedAt": "2026-10-13",
+        "regStart": null,
+        "regEnd": "2026-10-30T20:00:00+08:00",
+        "contestStart": null,
+        "contestEnd": null,
+        "publicityTime": null,
+        "contestRequirement": "面向符合该主题赛规则的在校学生；人数、专业、同校组队条件须逐条查看赛题规则。",
+        "reviewRules": null,
+        "awardSetting": null,
+        "material": null,
+        "entryMethod": "通过主办方官方入口办理；涉及学校统一组织时，先联系所在学院。站内不代报名、不代收费用。",
+        "contact": "官方赛题联络方式见调整公告对应行；报名疑问使用主办方公开渠道。",
+        "description": "这是AIC大赛下的真实主题赛道，非独立国赛。报名及缴费截止：2026-10-30 20:00（北京时间）。作品提交截止：2026-10-30 20:00（北京时间）。以2026-10-10调整公告为准，覆盖旧通知冲突时刻。该截止不是线下比赛或决赛时间；比赛起止日期仍待核实。赛题规则：https://www.aicomp.cn/tracks/tracks-5/4792.html\n信息核对日期：2026-10-13。未获得正式公告的阶段保留未知；学分、校内截止与资格由学校另行确认。",
+        "creditApplicable": "待确认",
+        "creditBasis": null,
+        "creditNote": "未取得河南大学本年度第二课堂认定依据，请向学院确认。",
+        "organizationId": "",
+        "attachmentIds": [],
+        "changeType": "原通知变更",
+        "reason": "补充正式年度公告与可核对日程，保留未知字段"
+      },
+      "sources": [
+        {
+          "url": "https://www.aicomp.cn/notice/notice-3/5435.html",
+          "publishedAt": "2026-10-10",
+          "priority": "latest-schedule"
+        },
+        {
+          "url": "https://www.aicomp.cn/tracks/tracks-5/4792.html",
+          "publishedAt": null,
+          "priority": "track-rules"
+        }
+      ],
+      "dateEvidence": [
+        {
+          "field": "regEnd",
+          "value": "2026-10-30T20:00:00+08:00",
+          "sourceUrl": "https://www.aicomp.cn/notice/notice-3/5435.html",
+          "precision": "minute",
+          "timeZone": "Asia/Shanghai"
+        }
+      ],
+      "unknownFields": [
+        "regStart",
+        "contestStart",
+        "contestEnd"
+      ],
+      "schedule": [
+        {
+          "stage": "报名及缴费截止",
+          "value": "2026-10-30T20:00:00+08:00",
+          "sourceUrl": "https://www.aicomp.cn/notice/notice-3/5435.html"
+        },
+        {
+          "stage": "作品提交截止",
+          "value": "2026-10-30T20:00:00+08:00",
+          "sourceUrl": "https://www.aicomp.cn/notice/notice-3/5435.html"
+        }
+      ]
+    },
+    {
+      "key": "aic-8-theme-4794",
+      "matchNames": [
+        "2026第八届AIC算法主题赛·室内农业"
+      ],
+      "organizer": "全球校园人工智能算法精英大赛组委会",
+      "request": {
+        "name": "2026第八届AIC算法主题赛·室内农业",
+        "category": "学科竞赛",
+        "scopeType": "面向河大学生的校外赛事",
+        "edition": "第八届（2026）·算法主题赛",
+        "level": "国赛",
+        "applicableScope": {
+          "colleges": [],
+          "majors": [],
+          "grades": [],
+          "degrees": [],
+          "campuses": [],
+          "applicableNote": "面向符合该主题赛规则的在校学生；人数、专业、同校组队条件须逐条查看赛题规则。；河南大学校内组织安排另行确认。"
+        },
+        "entryType": "团队整理",
+        "sourceTitle": "第八届AIC算法主题赛赛程调整通知（2026-10-10）",
+        "sourceOrg": "全球校园人工智能算法精英大赛组委会",
+        "sourceUrl": "https://www.aicomp.cn/notice/notice-3/5435.html",
+        "sourcePublishedAt": "2026-10-10",
+        "lastVerifiedAt": "2026-10-13",
+        "regStart": null,
+        "regEnd": "2026-10-18T23:59:00+08:00",
+        "contestStart": null,
+        "contestEnd": null,
+        "publicityTime": null,
+        "contestRequirement": "面向符合该主题赛规则的在校学生；人数、专业、同校组队条件须逐条查看赛题规则。",
+        "reviewRules": null,
+        "awardSetting": null,
+        "material": null,
+        "entryMethod": "通过主办方官方入口办理；涉及学校统一组织时，先联系所在学院。站内不代报名、不代收费用。",
+        "contact": "官方赛题联络方式见调整公告对应行；报名疑问使用主办方公开渠道。",
+        "description": "这是AIC大赛下的真实主题赛道，非独立国赛。报名及缴费截止：2026-10-18 23:59（北京时间）。作品提交截止：2026-10-21 23:59（北京时间）。以2026-10-10调整公告为准，覆盖旧通知冲突时刻。该截止不是线下比赛或决赛时间；比赛起止日期仍待核实。赛题规则：https://www.aicomp.cn/tracks/tracks-5/4794.html\n信息核对日期：2026-10-13。未获得正式公告的阶段保留未知；学分、校内截止与资格由学校另行确认。",
+        "creditApplicable": "待确认",
+        "creditBasis": null,
+        "creditNote": "未取得河南大学本年度第二课堂认定依据，请向学院确认。",
+        "organizationId": "",
+        "attachmentIds": [],
+        "changeType": "原通知变更",
+        "reason": "补充正式年度公告与可核对日程，保留未知字段"
+      },
+      "sources": [
+        {
+          "url": "https://www.aicomp.cn/notice/notice-3/5435.html",
+          "publishedAt": "2026-10-10",
+          "priority": "latest-schedule"
+        },
+        {
+          "url": "https://www.aicomp.cn/tracks/tracks-5/4794.html",
+          "publishedAt": null,
+          "priority": "track-rules"
+        }
+      ],
+      "dateEvidence": [
+        {
+          "field": "regEnd",
+          "value": "2026-10-18T23:59:00+08:00",
+          "sourceUrl": "https://www.aicomp.cn/notice/notice-3/5435.html",
+          "precision": "minute",
+          "timeZone": "Asia/Shanghai"
+        }
+      ],
+      "unknownFields": [
+        "regStart",
+        "contestStart",
+        "contestEnd"
+      ],
+      "schedule": [
+        {
+          "stage": "报名及缴费截止",
+          "value": "2026-10-18T23:59:00+08:00",
+          "sourceUrl": "https://www.aicomp.cn/notice/notice-3/5435.html"
+        },
+        {
+          "stage": "作品提交截止",
+          "value": "2026-10-21T23:59:00+08:00",
+          "sourceUrl": "https://www.aicomp.cn/notice/notice-3/5435.html"
+        }
+      ]
+    },
+    {
+      "key": "aic-8-theme-4912",
+      "matchNames": [
+        "2026第八届AIC算法主题赛·AI+农业"
+      ],
+      "organizer": "全球校园人工智能算法精英大赛组委会",
+      "request": {
+        "name": "2026第八届AIC算法主题赛·AI+农业",
+        "category": "学科竞赛",
+        "scopeType": "面向河大学生的校外赛事",
+        "edition": "第八届（2026）·算法主题赛",
+        "level": "国赛",
+        "applicableScope": {
+          "colleges": [],
+          "majors": [],
+          "grades": [],
+          "degrees": [],
+          "campuses": [],
+          "applicableNote": "面向符合该主题赛规则的在校学生；人数、专业、同校组队条件须逐条查看赛题规则。；河南大学校内组织安排另行确认。"
+        },
+        "entryType": "团队整理",
+        "sourceTitle": "第八届AIC算法主题赛赛程调整通知（2026-10-10）",
+        "sourceOrg": "全球校园人工智能算法精英大赛组委会",
+        "sourceUrl": "https://www.aicomp.cn/notice/notice-3/5435.html",
+        "sourcePublishedAt": "2026-10-10",
+        "lastVerifiedAt": "2026-10-13",
+        "regStart": null,
+        "regEnd": "2026-10-30T20:00:00+08:00",
+        "contestStart": null,
+        "contestEnd": null,
+        "publicityTime": null,
+        "contestRequirement": "面向符合该主题赛规则的在校学生；人数、专业、同校组队条件须逐条查看赛题规则。",
+        "reviewRules": null,
+        "awardSetting": null,
+        "material": null,
+        "entryMethod": "通过主办方官方入口办理；涉及学校统一组织时，先联系所在学院。站内不代报名、不代收费用。",
+        "contact": "官方赛题联络方式见调整公告对应行；报名疑问使用主办方公开渠道。",
+        "description": "这是AIC大赛下的真实主题赛道，非独立国赛。报名及缴费截止：2026-10-30 20:00（北京时间）。作品提交截止：2026-10-30 20:00（北京时间）。以2026-10-10调整公告为准，覆盖旧通知冲突时刻。该截止不是线下比赛或决赛时间；比赛起止日期仍待核实。赛题规则：https://www.aicomp.cn/tracks/tracks-5/4912.html\n信息核对日期：2026-10-13。未获得正式公告的阶段保留未知；学分、校内截止与资格由学校另行确认。",
+        "creditApplicable": "待确认",
+        "creditBasis": null,
+        "creditNote": "未取得河南大学本年度第二课堂认定依据，请向学院确认。",
+        "organizationId": "",
+        "attachmentIds": [],
+        "changeType": "原通知变更",
+        "reason": "补充正式年度公告与可核对日程，保留未知字段"
+      },
+      "sources": [
+        {
+          "url": "https://www.aicomp.cn/notice/notice-3/5435.html",
+          "publishedAt": "2026-10-10",
+          "priority": "latest-schedule"
+        },
+        {
+          "url": "https://www.aicomp.cn/tracks/tracks-5/4912.html",
+          "publishedAt": null,
+          "priority": "track-rules"
+        }
+      ],
+      "dateEvidence": [
+        {
+          "field": "regEnd",
+          "value": "2026-10-30T20:00:00+08:00",
+          "sourceUrl": "https://www.aicomp.cn/notice/notice-3/5435.html",
+          "precision": "minute",
+          "timeZone": "Asia/Shanghai"
+        }
+      ],
+      "unknownFields": [
+        "regStart",
+        "contestStart",
+        "contestEnd"
+      ],
+      "schedule": [
+        {
+          "stage": "报名及缴费截止",
+          "value": "2026-10-30T20:00:00+08:00",
+          "sourceUrl": "https://www.aicomp.cn/notice/notice-3/5435.html"
+        },
+        {
+          "stage": "作品提交截止",
+          "value": "2026-10-30T20:00:00+08:00",
+          "sourceUrl": "https://www.aicomp.cn/notice/notice-3/5435.html"
+        }
+      ]
+    },
+    {
+      "key": "aic-8-theme-4914",
+      "matchNames": [
+        "2026第八届AIC算法主题赛·智慧气象"
+      ],
+      "organizer": "全球校园人工智能算法精英大赛组委会",
+      "request": {
+        "name": "2026第八届AIC算法主题赛·智慧气象",
+        "category": "学科竞赛",
+        "scopeType": "面向河大学生的校外赛事",
+        "edition": "第八届（2026）·算法主题赛",
+        "level": "国赛",
+        "applicableScope": {
+          "colleges": [],
+          "majors": [],
+          "grades": [],
+          "degrees": [],
+          "campuses": [],
+          "applicableNote": "面向符合该主题赛规则的在校学生；人数、专业、同校组队条件须逐条查看赛题规则。；河南大学校内组织安排另行确认。"
+        },
+        "entryType": "团队整理",
+        "sourceTitle": "第八届AIC算法主题赛赛程调整通知（2026-10-10）",
+        "sourceOrg": "全球校园人工智能算法精英大赛组委会",
+        "sourceUrl": "https://www.aicomp.cn/notice/notice-3/5435.html",
+        "sourcePublishedAt": "2026-10-10",
+        "lastVerifiedAt": "2026-10-13",
+        "regStart": null,
+        "regEnd": "2026-10-30T20:00:00+08:00",
+        "contestStart": null,
+        "contestEnd": null,
+        "publicityTime": null,
+        "contestRequirement": "面向符合该主题赛规则的在校学生；人数、专业、同校组队条件须逐条查看赛题规则。",
+        "reviewRules": null,
+        "awardSetting": null,
+        "material": null,
+        "entryMethod": "通过主办方官方入口办理；涉及学校统一组织时，先联系所在学院。站内不代报名、不代收费用。",
+        "contact": "官方赛题联络方式见调整公告对应行；报名疑问使用主办方公开渠道。",
+        "description": "这是AIC大赛下的真实主题赛道，非独立国赛。报名及缴费截止：2026-10-30 20:00（北京时间）。作品提交截止：2026-10-30 20:00（北京时间）。以2026-10-10调整公告为准，覆盖旧通知冲突时刻。该截止不是线下比赛或决赛时间；比赛起止日期仍待核实。赛题规则：https://www.aicomp.cn/tracks/tracks-5/4914.html\n信息核对日期：2026-10-13。未获得正式公告的阶段保留未知；学分、校内截止与资格由学校另行确认。",
+        "creditApplicable": "待确认",
+        "creditBasis": null,
+        "creditNote": "未取得河南大学本年度第二课堂认定依据，请向学院确认。",
+        "organizationId": "",
+        "attachmentIds": [],
+        "changeType": "原通知变更",
+        "reason": "补充正式年度公告与可核对日程，保留未知字段"
+      },
+      "sources": [
+        {
+          "url": "https://www.aicomp.cn/notice/notice-3/5435.html",
+          "publishedAt": "2026-10-10",
+          "priority": "latest-schedule"
+        },
+        {
+          "url": "https://www.aicomp.cn/tracks/tracks-5/4914.html",
+          "publishedAt": null,
+          "priority": "track-rules"
+        }
+      ],
+      "dateEvidence": [
+        {
+          "field": "regEnd",
+          "value": "2026-10-30T20:00:00+08:00",
+          "sourceUrl": "https://www.aicomp.cn/notice/notice-3/5435.html",
+          "precision": "minute",
+          "timeZone": "Asia/Shanghai"
+        }
+      ],
+      "unknownFields": [
+        "regStart",
+        "contestStart",
+        "contestEnd"
+      ],
+      "schedule": [
+        {
+          "stage": "报名及缴费截止",
+          "value": "2026-10-30T20:00:00+08:00",
+          "sourceUrl": "https://www.aicomp.cn/notice/notice-3/5435.html"
+        },
+        {
+          "stage": "作品提交截止",
+          "value": "2026-10-30T20:00:00+08:00",
+          "sourceUrl": "https://www.aicomp.cn/notice/notice-3/5435.html"
+        }
+      ]
+    },
+    {
+      "key": "aic-8-theme-4918",
+      "matchNames": [
+        "2026第八届AIC算法主题赛·智能驾驶"
+      ],
+      "organizer": "全球校园人工智能算法精英大赛组委会",
+      "request": {
+        "name": "2026第八届AIC算法主题赛·智能驾驶",
+        "category": "学科竞赛",
+        "scopeType": "面向河大学生的校外赛事",
+        "edition": "第八届（2026）·算法主题赛",
+        "level": "国赛",
+        "applicableScope": {
+          "colleges": [],
+          "majors": [],
+          "grades": [],
+          "degrees": [],
+          "campuses": [],
+          "applicableNote": "面向符合该主题赛规则的在校学生；人数、专业、同校组队条件须逐条查看赛题规则。；河南大学校内组织安排另行确认。"
+        },
+        "entryType": "团队整理",
+        "sourceTitle": "第八届AIC算法主题赛赛程调整通知（2026-10-10）",
+        "sourceOrg": "全球校园人工智能算法精英大赛组委会",
+        "sourceUrl": "https://www.aicomp.cn/notice/notice-3/5435.html",
+        "sourcePublishedAt": "2026-10-10",
+        "lastVerifiedAt": "2026-10-13",
+        "regStart": null,
+        "regEnd": "2026-10-30T20:00:00+08:00",
+        "contestStart": null,
+        "contestEnd": null,
+        "publicityTime": null,
+        "contestRequirement": "面向符合该主题赛规则的在校学生；人数、专业、同校组队条件须逐条查看赛题规则。",
+        "reviewRules": null,
+        "awardSetting": null,
+        "material": null,
+        "entryMethod": "通过主办方官方入口办理；涉及学校统一组织时，先联系所在学院。站内不代报名、不代收费用。",
+        "contact": "官方赛题联络方式见调整公告对应行；报名疑问使用主办方公开渠道。",
+        "description": "这是AIC大赛下的真实主题赛道，非独立国赛。报名及缴费截止：2026-10-30 20:00（北京时间）。作品提交截止：2026-10-30 20:00（北京时间）。以2026-10-10调整公告为准，覆盖旧通知冲突时刻。该截止不是线下比赛或决赛时间；比赛起止日期仍待核实。赛题规则：https://www.aicomp.cn/tracks/tracks-5/4918.html\n信息核对日期：2026-10-13。未获得正式公告的阶段保留未知；学分、校内截止与资格由学校另行确认。",
+        "creditApplicable": "待确认",
+        "creditBasis": null,
+        "creditNote": "未取得河南大学本年度第二课堂认定依据，请向学院确认。",
+        "organizationId": "",
+        "attachmentIds": [],
+        "changeType": "原通知变更",
+        "reason": "补充正式年度公告与可核对日程，保留未知字段"
+      },
+      "sources": [
+        {
+          "url": "https://www.aicomp.cn/notice/notice-3/5435.html",
+          "publishedAt": "2026-10-10",
+          "priority": "latest-schedule"
+        },
+        {
+          "url": "https://www.aicomp.cn/tracks/tracks-5/4918.html",
+          "publishedAt": null,
+          "priority": "track-rules"
+        }
+      ],
+      "dateEvidence": [
+        {
+          "field": "regEnd",
+          "value": "2026-10-30T20:00:00+08:00",
+          "sourceUrl": "https://www.aicomp.cn/notice/notice-3/5435.html",
+          "precision": "minute",
+          "timeZone": "Asia/Shanghai"
+        }
+      ],
+      "unknownFields": [
+        "regStart",
+        "contestStart",
+        "contestEnd"
+      ],
+      "schedule": [
+        {
+          "stage": "报名及缴费截止",
+          "value": "2026-10-30T20:00:00+08:00",
+          "sourceUrl": "https://www.aicomp.cn/notice/notice-3/5435.html"
+        },
+        {
+          "stage": "作品提交截止",
+          "value": "2026-10-30T20:00:00+08:00",
+          "sourceUrl": "https://www.aicomp.cn/notice/notice-3/5435.html"
+        }
+      ]
+    },
+    {
+      "key": "aic-8-theme-4924",
+      "matchNames": [
+        "2026第八届AIC算法主题赛·AI+开源"
+      ],
+      "organizer": "全球校园人工智能算法精英大赛组委会",
+      "request": {
+        "name": "2026第八届AIC算法主题赛·AI+开源",
+        "category": "学科竞赛",
+        "scopeType": "面向河大学生的校外赛事",
+        "edition": "第八届（2026）·算法主题赛",
+        "level": "国赛",
+        "applicableScope": {
+          "colleges": [],
+          "majors": [],
+          "grades": [],
+          "degrees": [],
+          "campuses": [],
+          "applicableNote": "面向符合该主题赛规则的在校学生；人数、专业、同校组队条件须逐条查看赛题规则。；河南大学校内组织安排另行确认。"
+        },
+        "entryType": "团队整理",
+        "sourceTitle": "第八届AIC算法主题赛赛程调整通知（2026-10-10）",
+        "sourceOrg": "全球校园人工智能算法精英大赛组委会",
+        "sourceUrl": "https://www.aicomp.cn/notice/notice-3/5435.html",
+        "sourcePublishedAt": "2026-10-10",
+        "lastVerifiedAt": "2026-10-13",
+        "regStart": null,
+        "regEnd": "2026-10-30T20:00:00+08:00",
+        "contestStart": null,
+        "contestEnd": null,
+        "publicityTime": null,
+        "contestRequirement": "面向符合该主题赛规则的在校学生；人数、专业、同校组队条件须逐条查看赛题规则。",
+        "reviewRules": null,
+        "awardSetting": null,
+        "material": null,
+        "entryMethod": "通过主办方官方入口办理；涉及学校统一组织时，先联系所在学院。站内不代报名、不代收费用。",
+        "contact": "官方赛题联络方式见调整公告对应行；报名疑问使用主办方公开渠道。",
+        "description": "这是AIC大赛下的真实主题赛道，非独立国赛。报名及缴费截止：2026-10-30 20:00（北京时间）。作品提交截止：2026-10-30 20:00（北京时间）。以2026-10-10调整公告为准，覆盖旧通知冲突时刻。该截止不是线下比赛或决赛时间；比赛起止日期仍待核实。赛题规则：https://www.aicomp.cn/tracks/tracks-5/4924.html\n信息核对日期：2026-10-13。未获得正式公告的阶段保留未知；学分、校内截止与资格由学校另行确认。",
+        "creditApplicable": "待确认",
+        "creditBasis": null,
+        "creditNote": "未取得河南大学本年度第二课堂认定依据，请向学院确认。",
+        "organizationId": "",
+        "attachmentIds": [],
+        "changeType": "原通知变更",
+        "reason": "补充正式年度公告与可核对日程，保留未知字段"
+      },
+      "sources": [
+        {
+          "url": "https://www.aicomp.cn/notice/notice-3/5435.html",
+          "publishedAt": "2026-10-10",
+          "priority": "latest-schedule"
+        },
+        {
+          "url": "https://www.aicomp.cn/tracks/tracks-5/4924.html",
+          "publishedAt": null,
+          "priority": "track-rules"
+        }
+      ],
+      "dateEvidence": [
+        {
+          "field": "regEnd",
+          "value": "2026-10-30T20:00:00+08:00",
+          "sourceUrl": "https://www.aicomp.cn/notice/notice-3/5435.html",
+          "precision": "minute",
+          "timeZone": "Asia/Shanghai"
+        }
+      ],
+      "unknownFields": [
+        "regStart",
+        "contestStart",
+        "contestEnd"
+      ],
+      "schedule": [
+        {
+          "stage": "报名及缴费截止",
+          "value": "2026-10-30T20:00:00+08:00",
+          "sourceUrl": "https://www.aicomp.cn/notice/notice-3/5435.html"
+        },
+        {
+          "stage": "作品提交截止",
+          "value": "2026-10-30T20:00:00+08:00",
+          "sourceUrl": "https://www.aicomp.cn/notice/notice-3/5435.html"
+        }
+      ]
+    },
+    {
+      "key": "aic-8-theme-5169",
+      "matchNames": [
+        "2026第八届AIC算法主题赛·智能体互联"
+      ],
+      "organizer": "全球校园人工智能算法精英大赛组委会",
+      "request": {
+        "name": "2026第八届AIC算法主题赛·智能体互联",
+        "category": "学科竞赛",
+        "scopeType": "面向河大学生的校外赛事",
+        "edition": "第八届（2026）·算法主题赛",
+        "level": "国赛",
+        "applicableScope": {
+          "colleges": [],
+          "majors": [],
+          "grades": [],
+          "degrees": [],
+          "campuses": [],
+          "applicableNote": "面向符合该主题赛规则的在校学生；人数、专业、同校组队条件须逐条查看赛题规则。；河南大学校内组织安排另行确认。"
+        },
+        "entryType": "团队整理",
+        "sourceTitle": "第八届AIC算法主题赛赛程调整通知（2026-10-10）",
+        "sourceOrg": "全球校园人工智能算法精英大赛组委会",
+        "sourceUrl": "https://www.aicomp.cn/notice/notice-3/5435.html",
+        "sourcePublishedAt": "2026-10-10",
+        "lastVerifiedAt": "2026-10-13",
+        "regStart": null,
+        "regEnd": "2026-10-30T20:00:00+08:00",
+        "contestStart": null,
+        "contestEnd": null,
+        "publicityTime": null,
+        "contestRequirement": "面向符合该主题赛规则的在校学生；人数、专业、同校组队条件须逐条查看赛题规则。",
+        "reviewRules": null,
+        "awardSetting": null,
+        "material": "可运行工程代码与技术报告；须在官方规则指定的梧桐智能体互联平台完成验证，提交对应记录。",
+        "entryMethod": "通过主办方官方入口办理；涉及学校统一组织时，先联系所在学院。站内不代报名、不代收费用。",
+        "contact": "官方赛题联络方式见调整公告对应行；报名疑问使用主办方公开渠道。",
+        "description": "这是AIC大赛下的真实主题赛道，非独立国赛。报名及缴费截止：2026-10-30 20:00（北京时间）。作品提交截止：2026-10-30 20:00（北京时间）。以2026-10-10调整公告为准，覆盖旧通知冲突时刻。该截止不是线下比赛或决赛时间；比赛起止日期仍待核实。赛题规则：https://www.aicomp.cn/tracks/tracks-5/5169.html\n信息核对日期：2026-10-13。未获得正式公告的阶段保留未知；学分、校内截止与资格由学校另行确认。",
+        "creditApplicable": "待确认",
+        "creditBasis": null,
+        "creditNote": "未取得河南大学本年度第二课堂认定依据，请向学院确认。",
+        "organizationId": "",
+        "attachmentIds": [],
+        "changeType": "原通知变更",
+        "reason": "补充正式年度公告与可核对日程，保留未知字段"
+      },
+      "sources": [
+        {
+          "url": "https://www.aicomp.cn/notice/notice-3/5435.html",
+          "publishedAt": "2026-10-10",
+          "priority": "latest-schedule"
+        },
+        {
+          "url": "https://www.aicomp.cn/tracks/tracks-5/5169.html",
+          "publishedAt": null,
+          "priority": "track-rules"
+        }
+      ],
+      "dateEvidence": [
+        {
+          "field": "regEnd",
+          "value": "2026-10-30T20:00:00+08:00",
+          "sourceUrl": "https://www.aicomp.cn/notice/notice-3/5435.html",
+          "precision": "minute",
+          "timeZone": "Asia/Shanghai"
+        }
+      ],
+      "unknownFields": [
+        "regStart",
+        "contestStart",
+        "contestEnd"
+      ],
+      "schedule": [
+        {
+          "stage": "报名及缴费截止",
+          "value": "2026-10-30T20:00:00+08:00",
+          "sourceUrl": "https://www.aicomp.cn/notice/notice-3/5435.html"
+        },
+        {
+          "stage": "作品提交截止",
+          "value": "2026-10-30T20:00:00+08:00",
+          "sourceUrl": "https://www.aicomp.cn/notice/notice-3/5435.html"
+        }
+      ]
+    },
+    {
+      "key": "aic-8-theme-5361",
+      "matchNames": [
+        "2026第八届AIC算法主题赛·数智阅读创新创意"
+      ],
+      "organizer": "全球校园人工智能算法精英大赛组委会",
+      "request": {
+        "name": "2026第八届AIC算法主题赛·数智阅读创新创意",
+        "category": "学科竞赛",
+        "scopeType": "面向河大学生的校外赛事",
+        "edition": "第八届（2026）·算法主题赛",
+        "level": "国赛",
+        "applicableScope": {
+          "colleges": [],
+          "majors": [],
+          "grades": [],
+          "degrees": [],
+          "campuses": [],
+          "applicableNote": "在校研究生、本科生或高职高专学生；3名同校学生组队，指导教师不超过2人。；河南大学校内组织安排另行确认。"
+        },
+        "entryType": "团队整理",
+        "sourceTitle": "第八届AIC算法主题赛赛程调整通知（2026-10-10）",
+        "sourceOrg": "全球校园人工智能算法精英大赛组委会",
+        "sourceUrl": "https://www.aicomp.cn/notice/notice-3/5435.html",
+        "sourcePublishedAt": "2026-10-10",
+        "lastVerifiedAt": "2026-10-13",
+        "regStart": null,
+        "regEnd": "2026-10-30T20:00:00+08:00",
+        "contestStart": null,
+        "contestEnd": null,
+        "publicityTime": null,
+        "contestRequirement": "在校研究生、本科生或高职高专学生；3名同校学生组队，指导教师不超过2人。",
+        "reviewRules": null,
+        "awardSetting": null,
+        "material": "成品内容视频和技术报告，具体格式按规则。",
+        "entryMethod": "通过主办方官方入口办理；涉及学校统一组织时，先联系所在学院。站内不代报名、不代收费用。",
+        "contact": "官方赛题联络方式见调整公告对应行；报名疑问使用主办方公开渠道。",
+        "description": "这是AIC大赛下的真实主题赛道，非独立国赛。报名及缴费截止：2026-10-30 20:00（北京时间）。作品提交截止：2026-10-30 20:00（北京时间）。以2026-10-10调整公告为准，覆盖旧通知冲突时刻。该截止不是线下比赛或决赛时间；比赛起止日期仍待核实。赛题规则：https://www.aicomp.cn/tracks/tracks-5/5361.html\n信息核对日期：2026-10-13。未获得正式公告的阶段保留未知；学分、校内截止与资格由学校另行确认。",
+        "creditApplicable": "待确认",
+        "creditBasis": null,
+        "creditNote": "未取得河南大学本年度第二课堂认定依据，请向学院确认。",
+        "organizationId": "",
+        "attachmentIds": [],
+        "changeType": "原通知变更",
+        "reason": "补充正式年度公告与可核对日程，保留未知字段"
+      },
+      "sources": [
+        {
+          "url": "https://www.aicomp.cn/notice/notice-3/5435.html",
+          "publishedAt": "2026-10-10",
+          "priority": "latest-schedule"
+        },
+        {
+          "url": "https://www.aicomp.cn/tracks/tracks-5/5361.html",
+          "publishedAt": null,
+          "priority": "track-rules"
+        }
+      ],
+      "dateEvidence": [
+        {
+          "field": "regEnd",
+          "value": "2026-10-30T20:00:00+08:00",
+          "sourceUrl": "https://www.aicomp.cn/notice/notice-3/5435.html",
+          "precision": "minute",
+          "timeZone": "Asia/Shanghai"
+        }
+      ],
+      "unknownFields": [
+        "regStart",
+        "contestStart",
+        "contestEnd"
+      ],
+      "schedule": [
+        {
+          "stage": "报名及缴费截止",
+          "value": "2026-10-30T20:00:00+08:00",
+          "sourceUrl": "https://www.aicomp.cn/notice/notice-3/5435.html"
+        },
+        {
+          "stage": "作品提交截止",
+          "value": "2026-10-30T20:00:00+08:00",
+          "sourceUrl": "https://www.aicomp.cn/notice/notice-3/5435.html"
+        }
+      ]
+    }
+  ],
+  "policy": "正式公告优先；不推测日程，不自动公开；全国安排不替代校内安排。"
+}

@@ -32,6 +32,7 @@ export function timeText(value: string | null): string {
 }
 export function fieldLabel(field: string): string {
     switch (field) {
+        case 'schedule': return '分阶段官方日程';
         case 'name': return '赛事名称';
         case 'category': return '分类';
         case 'scopeType': return '赛事归属';
@@ -124,7 +125,7 @@ export function detailSections(d: PublicContest): DetailSection[] {
     return [
         { key: 'basic', title: '基本信息', text: '主办方：' + d.organizationName + '\n赛事届次：' + displayText(p.edition) + '\n层级：' + displayText(p.level) + '\n联系方式：' + displayText(p.contact) + '\n简介：' + displayText(p.description) },
         { key: 'scope', title: '适用对象', text: '学院：' + (scope.colleges.length ? scope.colleges.join('、') : '以原通知为准') + '\n专业：' + (scope.majors.length ? scope.majors.join('、') : '以原通知为准') + '\n年级：' + (scope.grades.length ? scope.grades.join('、') : '以原通知为准') + '\n学历：' + (scope.degrees.length ? scope.degrees.join('、') : '以原通知为准') + '\n校区：' + (scope.campuses.length ? scope.campuses.join('、') : '以原通知为准') + '\n说明：' + displayText(scope.applicableNote) },
-        { key: 'schedule', title: '时间安排', text: '报名开始：' + timeText(p.regStart) + '\n报名截止：' + timeText(p.regEnd) + '\n比赛开始：' + timeText(p.contestStart) + '\n比赛结束：' + timeText(p.contestEnd) + '\n公示时间：' + timeText(p.publicityTime) },
+        { key: 'schedule', title: '时间安排', text: (p.schedule || []).map((s) => s.stage + '：' + timeText(s.value) + '（北京时间）\n来源：' + s.sourceUrl).join('\n') + ((p.schedule || []).length ? '\n\n' : '') + '报名开始：' + timeText(p.regStart) + '\n报名截止：' + timeText(p.regEnd) + '\n比赛开始：' + timeText(p.contestStart) + '\n比赛结束：' + timeText(p.contestEnd) + '\n公示时间：' + timeText(p.publicityTime) },
         { key: 'requirement', title: '参赛要求', text: displayText(p.contestRequirement) + '\n\n材料要求：' + displayText(p.material) + (p.attachmentIds.length ? '\n通知附件请查看原通知。' : '') },
         { key: 'rules', title: '评审规则', text: displayText(p.reviewRules) },
         { key: 'award', title: '奖项与第二课堂', text: displayText(p.awardSetting) + '\n\n第二课堂成绩单（到梦空间）\n是否适用：' + p.creditApplicable + '\n依据：' + displayText(p.creditBasis) + '\n说明：' + displayText(p.creditNote) + '\n以主办方最终认定为准，平台不作加分承诺。' },

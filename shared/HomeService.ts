@@ -14,6 +14,7 @@ export interface HomeConfig {
     schoolName: string;
     primaryColor: string;
     demo: boolean;
+    datedOnly?: boolean;
     now: string;
 }
 export const demoHomeConfig: HomeConfig = { title: '竞知', schoolName: '河南大学', primaryColor: '#2C7BE5', demo: true, now: '2026-10-10T10:00:00+08:00' };
@@ -57,9 +58,11 @@ export class HomeService {
         const latestFilter: ContestFilter = { keyword: query.keyword.trim(), page: 1, pageSize: 4, sort: '-updatedAt' };
         if (query.category !== null)
             latestFilter.category = query.category;
-        const urgentFilter: ContestFilter = { keyword: query.keyword.trim(), contestStatus: ContestStatus.Value1, page: 1, pageSize: 100, sort: 'regEnd' };
+        if (this.config.datedOnly !== undefined) latestFilter.datedOnly = this.config.datedOnly;
+        const urgentFilter: ContestFilter = { keyword: query.keyword.trim(), page: 1, pageSize: 100, sort: 'regEnd' };
         if (query.category !== null)
             urgentFilter.category = query.category;
+        if (this.config.datedOnly !== undefined) urgentFilter.datedOnly = this.config.datedOnly;
         const latest = await this.repository.listPublished(latestFilter);
         const urgent: ContestSummary[] = [];
         let page = 1;
