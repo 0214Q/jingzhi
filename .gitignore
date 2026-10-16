@@ -24,3 +24,8 @@ Thumbs.db
 
 # 本地备份目录
 catalog-ui-backup-*/
+
+# Local OCR runtime and private configuration backups
+.venv-ocr/
+__pycache__/
+.env.*.bak

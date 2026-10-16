@@ -11,7 +11,8 @@ async function wait(url){for(let i=0;i<100;i++){if(stopping)throw Error('Startup
  const db=path.join(root,'backend/data/jingzhi.sqlite');if(!fs.existsSync(db))throw Error('Missing backend/data/jingzhi.sqlite. Restore the supplied database; do not seed demo data.');
  await portFree(8787);await portFree(5173);
  const web=path.join(root,'admin-web');if(!fs.existsSync(path.join(web,'node_modules/typescript/lib/typescript.js'))||!fs.existsSync(path.join(web,'node_modules/vite/bin/vite.js'))){console.log('Installing admin-web dependencies (first run)...');await run('npm',fs.existsSync(path.join(web,'package-lock.json'))?['ci']:['install'],web);}
- await run('node',['scripts/build.cjs'],path.join(root,'backend'));
+ const api=path.join(root,'backend');if(!fs.existsSync(path.join(api,'node_modules/pdfjs-dist/package.json'))||!fs.existsSync(path.join(api,'node_modules/sharp/package.json'))||!fs.existsSync(path.join(api,'node_modules/yauzl/package.json'))||!fs.existsSync(path.join(api,'node_modules/@napi-rs/canvas/package.json'))){console.log('Installing backend file-import dependencies (first run)...');await run('npm',fs.existsSync(path.join(api,'package-lock.json'))?['ci']:['install'],api);}
+ await run('node',['scripts/build.cjs'],api);
  const backend=spawn(process.execPath,['src/server.cjs'],{cwd:path.join(root,'backend'),stdio:'inherit',env:{...process.env,HOST:'0.0.0.0',PORT:'8787',DB_PATH:db,CORS_ORIGINS:'http://localhost:5173,http://127.0.0.1:5173'}});children.push(backend);
  const frontend=spawn(process.execPath,[path.join(web,'node_modules/vite/bin/vite.js'),'--host','0.0.0.0','--port','5173','--strictPort'],{cwd:web,stdio:'inherit',env:{...process.env,VITE_API_BASE_URL:'http://127.0.0.1:8787'}});children.push(frontend);
  for(const c of children){c.once('error',e=>{console.error(e.message);stop(1);});c.once('exit',code=>{if(!stopping){console.error('A project service exited: '+code);stop(1);}});}
