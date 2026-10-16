@@ -1,0 +1,1259 @@
+{
+  "version": "2.1.0-step11",
+  "enums": {
+    "Role": [
+      "学生",
+      "信息整理人员",
+      "主办方",
+      "管理员"
+    ],
+    "VersionStatus": [
+      "草稿",
+      "待审核",
+      "已发布",
+      "驳回"
+    ],
+    "ContestStatus": [
+      "未开始",
+      "报名中",
+      "报名截止",
+      "比赛中",
+      "评审中",
+      "公示中",
+      "已结束"
+    ],
+    "ChangeType": [
+      "原通知变更",
+      "平台纠错"
+    ],
+    "Category": [
+      "学科竞赛",
+      "创新创业",
+      "文体活动",
+      "技能竞赛",
+      "综合"
+    ],
+    "ScopeType": [
+      "校内赛事",
+      "校内选拔赛",
+      "面向河大学生的校外赛事"
+    ],
+    "EntryType": [
+      "团队整理",
+      "主办方填报"
+    ],
+    "Completeness": [
+      "完整",
+      "待补充"
+    ],
+    "ContestLevel": [
+      "校赛",
+      "省赛",
+      "国赛",
+      "国际赛"
+    ],
+    "CreditApplicable": [
+      "是",
+      "否",
+      "待确认"
+    ],
+    "Visibility": [
+      "public",
+      "internal"
+    ],
+    "FeedbackStatus": [
+      "待处理",
+      "处理中",
+      "已处理",
+      "已驳回"
+    ],
+    "PublicityType": [
+      "获奖名单",
+      "评审办法",
+      "评分标准"
+    ],
+    "NotificationType": [
+      "新发布",
+      "即将截止",
+      "公示",
+      "反馈处理"
+    ],
+    "MonthMode": [
+      "reg",
+      "contest"
+    ],
+    "ReviewResult": [
+      "通过",
+      "驳回"
+    ],
+    "ImportState": [
+      "已上传",
+      "已校验",
+      "已预览",
+      "已提交",
+      "失败"
+    ],
+    "PublicVisibility": [
+      "public"
+    ],
+    "TakedownScope": [
+      "全部",
+      "仅公示"
+    ],
+    "CampusRole": [
+      "平台管理员",
+      "校级管理员",
+      "学院负责人"
+    ],
+    "CampusStatus": [
+      "启用",
+      "停用"
+    ],
+    "CampusCapability": [
+      "管理高校",
+      "管理学院",
+      "管理负责人",
+      "分配赛事",
+      "查看维护赛事",
+      "编辑赛事草稿",
+      "提交赛事审核",
+      "审核赛事",
+      "下架赛事",
+      "处理赛事反馈",
+      "管理校级管理员",
+      "管理平台管理员"
+    ],
+    "CampusAuditAction": [
+      "创建高校",
+      "修改高校",
+      "创建学院",
+      "修改学院",
+      "授权成员",
+      "修改成员",
+      "分配赛事"
+    ],
+    "StudentSchoolState": [
+      "默认所属高校",
+      "已选择高校",
+      "需重新选择"
+    ],
+    "ImportMediaType": [
+      "application/pdf",
+      "application/vnd.openxmlformats-officedocument.wordprocessingml.document",
+      "image/jpeg",
+      "image/png",
+      "image/webp"
+    ],
+    "ImportUploadStatus": [
+      "待上传",
+      "已接收",
+      "拒绝",
+      "已过期",
+      "已删除"
+    ],
+    "ImportJobStatus": [
+      "排队中",
+      "识别中",
+      "待确认",
+      "已转草稿",
+      "失败",
+      "已取消",
+      "已过期"
+    ],
+    "ImportDatePrecision": [
+      "未知",
+      "仅月份",
+      "仅日期",
+      "精确时刻"
+    ],
+    "ImportIssueSeverity": [
+      "提示",
+      "需确认",
+      "阻断"
+    ],
+    "ImportIssueCode": [
+      "未公布",
+      "低置信度",
+      "文本模糊",
+      "年份缺失",
+      "时区缺失",
+      "时间冲突",
+      "来源冲突",
+      "疑似重复",
+      "材料不安全",
+      "识别失败"
+    ],
+    "ImportDecisionKind": [
+      "采用识别",
+      "人工填写",
+      "保留未知"
+    ],
+    "ImportDuplicateDecision": [
+      "创建新赛事",
+      "补充已有赛事"
+    ],
+    "ImportFieldKey": [
+      "name",
+      "category",
+      "scopeType",
+      "edition",
+      "level",
+      "regStart",
+      "regEnd",
+      "contestStart",
+      "contestEnd",
+      "publicityTime",
+      "contestRequirement",
+      "reviewRules",
+      "awardSetting",
+      "material",
+      "entryMethod",
+      "contact",
+      "description",
+      "sourceTitle",
+      "sourceOrg",
+      "sourceUrl",
+      "sourcePublishedAt",
+      "lastVerifiedAt",
+      "stageDate"
+    ],
+    "ImportFailureCode": [
+      "格式不支持",
+      "文件过大",
+      "文件损坏",
+      "材料不安全",
+      "文件已过期",
+      "任务超时",
+      "识别服务不可用",
+      "识别服务失败",
+      "无可识别文本",
+      "内部错误"
+    ]
+  },
+  "models": {
+    "ApplicableScope": {
+      "colleges": "string[]",
+      "majors": "string[]",
+      "grades": "string[]",
+      "degrees": "string[]",
+      "campuses": "string[]",
+      "applicableNote": "string"
+    },
+    "ContestPayload": {
+      "name": "string",
+      "category": "Category",
+      "scopeType": "ScopeType",
+      "edition": "string | null",
+      "level": "ContestLevel | null",
+      "applicableScope": "ApplicableScope",
+      "entryType": "EntryType",
+      "sourceTitle": "string | null",
+      "sourceOrg": "string | null",
+      "sourceUrl": "string | null",
+      "sourcePublishedAt": "string | null",
+      "collectedAt": "string",
+      "lastVerifiedAt": "string",
+      "completeness": "Completeness",
+      "regStart": "string | null",
+      "regEnd": "string | null",
+      "contestStart": "string | null",
+      "contestEnd": "string | null",
+      "publicityTime": "string | null",
+      "contestRequirement": "string | null",
+      "reviewRules": "string | null",
+      "awardSetting": "string | null",
+      "material": "string | null",
+      "entryMethod": "string",
+      "contact": "string | null",
+      "description": "string | null",
+      "creditApplicable": "CreditApplicable",
+      "creditBasis": "string | null",
+      "creditNote": "string | null",
+      "organizationId": "string",
+      "attachmentIds": "string[]",
+      "schedule?": "ContestScheduleItem[]"
+    },
+    "Takedown": {
+      "reason": "string",
+      "at": "string",
+      "by": "string"
+    },
+    "Contest": {
+      "contestId": "string",
+      "schoolId": "string",
+      "publishedVersionId": "string | null",
+      "contestStatus": "ContestStatus",
+      "takedown": "Takedown | null",
+      "createdBy": "string",
+      "updatedAt": "string"
+    },
+    "ContestVersion": {
+      "versionId": "string",
+      "contestId": "string",
+      "versionNo": "number",
+      "status": "VersionStatus",
+      "etag": "string",
+      "isCurrent": "boolean",
+      "payload": "ContestPayload",
+      "operator": "string",
+      "operatorRole": "Role",
+      "entryType": "EntryType",
+      "changeType": "ChangeType | null",
+      "reason": "string",
+      "createdAt": "string",
+      "submittedAt": "string | null",
+      "reviewedAt": "string | null",
+      "reviewNote": "string | null",
+      "updatedAt": "string"
+    },
+    "AuditLog": {
+      "id": "string",
+      "contestId": "string",
+      "versionId": "string",
+      "operator": "string",
+      "time": "string",
+      "field": "string",
+      "oldValue": "string | null",
+      "newValue": "string | null",
+      "reason": "string",
+      "changeType": "ChangeType",
+      "visibility": "Visibility"
+    },
+    "Publicity": {
+      "id": "string",
+      "contestId": "string",
+      "type": "PublicityType",
+      "reviewStatus": "VersionStatus",
+      "versionNo": "number",
+      "content": "string | PublicityContent",
+      "operator": "string",
+      "etag": "string",
+      "reason": "string",
+      "reviewNote": "string | null",
+      "publishedAt": "string | null"
+    },
+    "Attachment": {
+      "id": "string",
+      "contestId": "string",
+      "type": "string",
+      "name": "string",
+      "url": "string",
+      "uploader": "string",
+      "time": "string"
+    },
+    "Favorite": {
+      "userId": "string",
+      "contestId": "string",
+      "createdAt": "string",
+      "available": "boolean"
+    },
+    "Notification": {
+      "id": "string",
+      "userId": "string",
+      "type": "NotificationType",
+      "title": "string",
+      "content": "string",
+      "read": "boolean",
+      "link": "string",
+      "createdAt": "string"
+    },
+    "NotificationSetting": {
+      "userId": "string",
+      "subscribedCategories": "Category[]",
+      "enabledTypes": "NotificationType[]",
+      "pushEnabled": "boolean"
+    },
+    "Feedback": {
+      "id": "string",
+      "userId": "string",
+      "contestId": "string | null",
+      "type": "string",
+      "desc": "string",
+      "status": "FeedbackStatus",
+      "handler": "string | null",
+      "note": "string | null",
+      "time": "string",
+      "schoolId?": "string"
+    },
+    "User": {
+      "id": "string",
+      "role": "Role",
+      "schoolId": "string",
+      "openid": "string | null",
+      "subscribes": "Category[]",
+      "devices": "string[]"
+    },
+    "Organization": {
+      "id": "string",
+      "schoolId": "string",
+      "name": "string",
+      "type": "string",
+      "contact": "string | null",
+      "intro": "string | null",
+      "owners": "string[]"
+    },
+    "School": {
+      "id": "string",
+      "name": "string",
+      "config": "SchoolConfig"
+    },
+    "ImportError": {
+      "row": "number",
+      "field": "string",
+      "msg": "string"
+    },
+    "ReviewRecord": {
+      "id": "string",
+      "contestId": "string",
+      "versionId": "string",
+      "reviewer": "string",
+      "time": "string",
+      "result": "ReviewResult",
+      "rejectReason": "string | null"
+    },
+    "SchoolConfig": {
+      "title": "string",
+      "primaryColor": "string",
+      "defaultApplicableNote": "string"
+    },
+    "SourceBlock": {
+      "sourceTitle": "string | null",
+      "sourceOrg": "string | null",
+      "sourceUrl": "string | null",
+      "sourcePublishedAt": "string | null",
+      "collectedAt": "string",
+      "lastVerifiedAt": "string"
+    },
+    "Winner": {
+      "name": "string",
+      "award": "string",
+      "workTitle": "string | null",
+      "organizationName": "string | null"
+    },
+    "PublicityContent": {
+      "text": "string | null",
+      "winners": "Winner[]"
+    },
+    "PublishedPublicity": {
+      "id": "string",
+      "contestId": "string",
+      "type": "PublicityType",
+      "versionNo": "number",
+      "content": "string | PublicityContent",
+      "publishedAt": "string"
+    },
+    "CurrentPublicity": {
+      "winners": "Winner[]",
+      "rule": "string | null",
+      "standard": "string | null"
+    },
+    "PublicityResult": {
+      "current": "CurrentPublicity | null",
+      "history": "PublishedPublicity[]"
+    },
+    "PublicAuditLog": {
+      "id": "string",
+      "contestId": "string",
+      "versionId": "string",
+      "operator": "string",
+      "time": "string",
+      "field": "string",
+      "oldValue": "string | null",
+      "newValue": "string | null",
+      "reason": "string",
+      "changeType": "ChangeType",
+      "visibility": "PublicVisibility"
+    },
+    "ContestSummary": {
+      "contestId": "string",
+      "name": "string",
+      "category": "Category",
+      "scopeType": "ScopeType",
+      "contestStatus": "ContestStatus",
+      "regEnd": "string | null",
+      "regEndHasTime": "boolean",
+      "organizationName": "string",
+      "applicableScope": "ApplicableScope",
+      "completeness": "Completeness",
+      "level": "ContestLevel | null",
+      "edition?": "string | null",
+      "scheduleCaption?": "string | null"
+    },
+    "PublicContest": {
+      "contestId": "string",
+      "schoolId": "string",
+      "publishedVersionId": "string",
+      "contestStatus": "ContestStatus",
+      "takedown": "Takedown | null",
+      "data": "ContestPayload",
+      "source": "SourceBlock",
+      "publicity": "PublicityResult",
+      "auditLogs": "PublicAuditLog[]",
+      "completeness": "Completeness",
+      "incompleteFields": "string[]",
+      "regEndHasTime": "boolean",
+      "organizationName": "string",
+      "updatedAt": "string"
+    },
+    "ManagedContest": {
+      "contest": "Contest",
+      "workingVersion": "ContestVersion | null",
+      "publishedVersion": "ContestVersion | null"
+    },
+    "ContestFilter": {
+      "keyword?": "string",
+      "category?": "Category",
+      "scopeType?": "ScopeType",
+      "entryType?": "EntryType",
+      "contestStatus?": "ContestStatus",
+      "year?": "number",
+      "month?": "string",
+      "monthMode?": "MonthMode",
+      "page?": "number",
+      "pageSize?": "number",
+      "sort?": "string",
+      "datedOnly?": "boolean"
+    },
+    "LoginRequest": {
+      "account?": "string",
+      "password?": "string",
+      "agcToken?": "string"
+    },
+    "LoginResult": {
+      "token": "string",
+      "tokenType": "string",
+      "expiresAt": "string",
+      "user": "User"
+    },
+    "CreateDraftRequest": {
+      "name?": "string",
+      "category?": "Category",
+      "scopeType?": "ScopeType",
+      "edition?": "string | null",
+      "level?": "ContestLevel | null",
+      "applicableScope?": "ApplicableScope",
+      "entryType?": "EntryType",
+      "sourceTitle?": "string | null",
+      "sourceOrg?": "string | null",
+      "sourceUrl?": "string | null",
+      "sourcePublishedAt?": "string | null",
+      "collectedAt?": "string",
+      "lastVerifiedAt?": "string",
+      "completeness?": "Completeness",
+      "regStart?": "string | null",
+      "regEnd?": "string | null",
+      "contestStart?": "string | null",
+      "contestEnd?": "string | null",
+      "publicityTime?": "string | null",
+      "contestRequirement?": "string | null",
+      "reviewRules?": "string | null",
+      "awardSetting?": "string | null",
+      "material?": "string | null",
+      "entryMethod?": "string",
+      "contact?": "string | null",
+      "description?": "string | null",
+      "creditApplicable?": "CreditApplicable",
+      "creditBasis?": "string | null",
+      "creditNote?": "string | null",
+      "organizationId?": "string",
+      "attachmentIds?": "string[]",
+      "changeType": "ChangeType",
+      "reason": "string",
+      "schedule?": "ContestScheduleItem[]"
+    },
+    "UpdateDraftRequest": {
+      "name?": "string",
+      "category?": "Category",
+      "scopeType?": "ScopeType",
+      "edition?": "string | null",
+      "level?": "ContestLevel | null",
+      "applicableScope?": "ApplicableScope",
+      "entryType?": "EntryType",
+      "sourceTitle?": "string | null",
+      "sourceOrg?": "string | null",
+      "sourceUrl?": "string | null",
+      "sourcePublishedAt?": "string | null",
+      "collectedAt?": "string",
+      "lastVerifiedAt?": "string",
+      "completeness?": "Completeness",
+      "regStart?": "string | null",
+      "regEnd?": "string | null",
+      "contestStart?": "string | null",
+      "contestEnd?": "string | null",
+      "publicityTime?": "string | null",
+      "contestRequirement?": "string | null",
+      "reviewRules?": "string | null",
+      "awardSetting?": "string | null",
+      "material?": "string | null",
+      "entryMethod?": "string",
+      "contact?": "string | null",
+      "description?": "string | null",
+      "creditApplicable?": "CreditApplicable",
+      "creditBasis?": "string | null",
+      "creditNote?": "string | null",
+      "organizationId?": "string",
+      "attachmentIds?": "string[]",
+      "changeType": "ChangeType",
+      "reason": "string",
+      "schedule?": "ContestScheduleItem[]"
+    },
+    "DraftResult": {
+      "contestId": "string",
+      "versionId": "string",
+      "versionNo": "number",
+      "status": "VersionStatus",
+      "etag": "string"
+    },
+    "SubmitReviewResult": {
+      "versionId": "string",
+      "status": "VersionStatus"
+    },
+    "DeriveVersionRequest": {
+      "changeType": "ChangeType",
+      "reason": "string"
+    },
+    "ApproveReviewRequest": {
+      "versionId": "string",
+      "etag": "string"
+    },
+    "RejectReviewRequest": {
+      "versionId": "string",
+      "etag": "string",
+      "rejectReason": "string"
+    },
+    "ApproveReviewResult": {
+      "publishedVersionId": "string",
+      "contestStatus": "ContestStatus",
+      "previousVersionId": "string | null",
+      "previousIsCurrent": "boolean"
+    },
+    "RejectReviewResult": {
+      "versionId": "string",
+      "status": "VersionStatus",
+      "publishedVersionId": "string | null"
+    },
+    "ConcurrencyHeaders": {
+      "ifMatch": "string"
+    },
+    "CreatePublicityRequest": {
+      "contestId": "string",
+      "type": "PublicityType",
+      "content": "string | PublicityContent",
+      "reason": "string"
+    },
+    "CreateFeedbackRequest": {
+      "contestId": "string | null",
+      "type": "string",
+      "desc": "string"
+    },
+    "CreateFavoriteRequest": {
+      "contestId": "string"
+    },
+    "RegisterDeviceRequest": {
+      "deviceToken": "string",
+      "platform": "string"
+    },
+    "FieldError": {
+      "field": "string",
+      "message": "string"
+    },
+    "FieldDifference": {
+      "field": "string",
+      "oldValue": "string | null",
+      "newValue": "string | null"
+    },
+    "ImportDuplicate": {
+      "row": "number",
+      "contestId": "string",
+      "name": "string",
+      "differences": "FieldDifference[]"
+    },
+    "ImportTask": {
+      "taskId": "string",
+      "ownerId": "string",
+      "schoolId": "string",
+      "state": "ImportState",
+      "rowCount": "number",
+      "contentFrozen": "boolean",
+      "errors": "ImportError[]",
+      "createdAt": "string",
+      "submittedAt": "string | null"
+    },
+    "ImportUploadResult": {
+      "taskId": "string",
+      "rows": "number",
+      "errors": "ImportError[]"
+    },
+    "ImportPreviewResult": {
+      "taskId": "string",
+      "add": "number",
+      "skip": "number",
+      "duplicates": "ImportDuplicate[]"
+    },
+    "ImportSubmitResult": {
+      "taskId": "string",
+      "imported": "number"
+    },
+    "ImportReportRow": {
+      "row": "number",
+      "contestId": "string | null",
+      "success": "boolean",
+      "message": "string"
+    },
+    "ImportReport": {
+      "taskId": "string",
+      "rows": "ImportReportRow[]"
+    },
+    "ApiErrorData": {
+      "fieldErrors?": "Record<string, string>",
+      "currentEtag?": "string",
+      "differences?": "FieldDifference[]"
+    },
+    "ContestPage": {
+      "list": "ContestSummary[]",
+      "total": "number",
+      "page": "number",
+      "pageSize": "number"
+    },
+    "VersionPage": {
+      "list": "ContestVersion[]",
+      "total": "number",
+      "page": "number",
+      "pageSize": "number"
+    },
+    "FeedbackPage": {
+      "list": "Feedback[]",
+      "total": "number",
+      "page": "number",
+      "pageSize": "number"
+    },
+    "NotificationPage": {
+      "list": "Notification[]",
+      "total": "number",
+      "page": "number",
+      "pageSize": "number"
+    },
+    "PageQuery": {
+      "page?": "number",
+      "pageSize?": "number"
+    },
+    "ManagedContestPage": {
+      "list": "ManagedContest[]",
+      "total": "number",
+      "page": "number",
+      "pageSize": "number"
+    },
+    "PendingReviewItem": {
+      "contestId": "string",
+      "name": "string",
+      "organizationName": "string",
+      "versionId": "string",
+      "etag": "string",
+      "submittedAt": "string",
+      "incompleteFields": "string[]"
+    },
+    "PendingReviewPage": {
+      "list": "PendingReviewItem[]",
+      "total": "number",
+      "page": "number",
+      "pageSize": "number"
+    },
+    "ReasonRequest": {
+      "reason": "string"
+    },
+    "RejectReasonRequest": {
+      "rejectReason": "string"
+    },
+    "UpdatePublicityRequest": {
+      "content": "string | PublicityContent",
+      "reason": "string"
+    },
+    "FavoritePage": {
+      "list": "Favorite[]",
+      "total": "number",
+      "page": "number",
+      "pageSize": "number"
+    },
+    "FeedbackFilter": {
+      "status?": "FeedbackStatus",
+      "page?": "number",
+      "pageSize?": "number"
+    },
+    "HandleFeedbackRequest": {
+      "status": "FeedbackStatus",
+      "note": "string"
+    },
+    "NotificationFilter": {
+      "type?": "NotificationType",
+      "page?": "number",
+      "pageSize?": "number"
+    },
+    "UpdateNotificationSettings": {
+      "subscribedCategories": "Category[]",
+      "enabledTypes": "NotificationType[]",
+      "pushEnabled": "boolean"
+    },
+    "UploadFile": {
+      "name": "string",
+      "mimeType": "string",
+      "bytes": "ArrayBuffer"
+    },
+    "FileResource": {
+      "name": "string",
+      "mimeType": "string",
+      "bytes": "ArrayBuffer"
+    },
+    "TakedownRequest": {
+      "reason": "string",
+      "scope": "TakedownScope"
+    },
+    "PublicityPage": {
+      "list": "Publicity[]",
+      "total": "number",
+      "page": "number",
+      "pageSize": "number"
+    },
+    "CampusSchool": {
+      "id": "string",
+      "name": "string",
+      "code": "string",
+      "status": "CampusStatus",
+      "etag": "string",
+      "createdAt": "string",
+      "updatedAt": "string"
+    },
+    "CampusCollege": {
+      "id": "string",
+      "schoolId": "string",
+      "name": "string",
+      "code": "string",
+      "status": "CampusStatus",
+      "etag": "string",
+      "createdAt": "string",
+      "updatedAt": "string"
+    },
+    "CampusMember": {
+      "id": "string",
+      "userId": "string",
+      "schoolId": "string | null",
+      "collegeId": "string | null",
+      "role": "CampusRole",
+      "displayName": "string",
+      "duty": "string | null",
+      "status": "CampusStatus",
+      "etag": "string",
+      "createdAt": "string",
+      "updatedAt": "string"
+    },
+    "ContestMaintenance": {
+      "contestId": "string",
+      "schoolId": "string",
+      "collegeId": "string",
+      "responsibleMemberId": "string",
+      "etag": "string",
+      "assignedBy": "string",
+      "assignedAt": "string"
+    },
+    "CampusActor": {
+      "userId": "string",
+      "accountSchoolId": "string"
+    },
+    "CampusPermissionTarget": {
+      "schoolId": "string | null",
+      "collegeId": "string | null",
+      "contestId": "string | null"
+    },
+    "CampusPermissionDecision": {
+      "allowed": "boolean",
+      "reason": "string"
+    },
+    "CampusPermissionSnapshot": {
+      "schools": "CampusSchool[]",
+      "colleges": "CampusCollege[]",
+      "members": "CampusMember[]",
+      "maintenance": "ContestMaintenance[]"
+    },
+    "CampusFilter": {
+      "schoolId?": "string",
+      "collegeId?": "string",
+      "keyword?": "string",
+      "status?": "CampusStatus",
+      "page?": "number",
+      "pageSize?": "number"
+    },
+    "CampusSchoolPage": {
+      "list": "CampusSchool[]",
+      "total": "number",
+      "page": "number",
+      "pageSize": "number"
+    },
+    "CampusCollegePage": {
+      "list": "CampusCollege[]",
+      "total": "number",
+      "page": "number",
+      "pageSize": "number"
+    },
+    "CampusMemberPage": {
+      "list": "CampusMember[]",
+      "total": "number",
+      "page": "number",
+      "pageSize": "number"
+    },
+    "CreateCampusSchoolRequest": {
+      "name": "string",
+      "code": "string"
+    },
+    "UpdateCampusSchoolRequest": {
+      "name": "string",
+      "code": "string",
+      "status": "CampusStatus"
+    },
+    "CreateCampusCollegeRequest": {
+      "schoolId": "string",
+      "name": "string",
+      "code": "string"
+    },
+    "UpdateCampusCollegeRequest": {
+      "name": "string",
+      "code": "string",
+      "status": "CampusStatus"
+    },
+    "CreateCampusMemberRequest": {
+      "userId": "string",
+      "schoolId": "string | null",
+      "collegeId": "string | null",
+      "role": "CampusRole",
+      "displayName": "string",
+      "duty": "string | null"
+    },
+    "UpdateCampusMemberRequest": {
+      "displayName": "string",
+      "duty": "string | null",
+      "status": "CampusStatus"
+    },
+    "AssignContestMaintenanceRequest": {
+      "schoolId": "string",
+      "collegeId": "string",
+      "responsibleMemberId": "string"
+    },
+    "CampusSchoolTree": {
+      "school": "CampusSchool",
+      "colleges": "CampusCollegeTree[]"
+    },
+    "CampusCollegeTree": {
+      "college": "CampusCollege",
+      "responsibleMembers": "CampusMember[]"
+    },
+    "CampusAssignmentLock": {
+      "expectedEtag": "string | null"
+    },
+    "CampusAuditLog": {
+      "id": "string",
+      "actorUserId": "string",
+      "schoolId": "string | null",
+      "collegeId": "string | null",
+      "entityId": "string",
+      "action": "CampusAuditAction",
+      "beforeJson": "string | null",
+      "afterJson": "string | null",
+      "createdAt": "string"
+    },
+    "CampusSession": {
+      "userId": "string",
+      "schoolId": "string",
+      "members": "CampusMember[]",
+      "schools": "CampusSchool[]"
+    },
+    "CampusAccountSummary": {
+      "id": "string",
+      "schoolId": "string"
+    },
+    "CampusAccountPage": {
+      "list": "CampusAccountSummary[]",
+      "total": "number",
+      "page": "number",
+      "pageSize": "number"
+    },
+    "CreateCampusAccountRequest": {
+      "account": "string",
+      "password": "string",
+      "schoolId": "string"
+    },
+    "CampusMaintenanceItem": {
+      "contestId": "string",
+      "schoolId": "string",
+      "name": "string",
+      "publishedVersionId": "string | null",
+      "takedown": "boolean",
+      "maintenance": "ContestMaintenance | null"
+    },
+    "CampusMaintenancePage": {
+      "list": "CampusMaintenanceItem[]",
+      "total": "number",
+      "page": "number",
+      "pageSize": "number"
+    },
+    "CampusMaintenanceResult": {
+      "maintenance": "ContestMaintenance | null"
+    },
+    "StudentSchool": {
+      "id": "string",
+      "name": "string",
+      "code": "string",
+      "status": "CampusStatus"
+    },
+    "StudentSchoolQuery": {
+      "keyword?": "string",
+      "page?": "number",
+      "pageSize?": "number"
+    },
+    "StudentSchoolPage": {
+      "list": "StudentSchool[]",
+      "total": "number",
+      "page": "number",
+      "pageSize": "number"
+    },
+    "StudentSchoolContext": {
+      "homeSchoolId": "string",
+      "homeSchool": "StudentSchool | null",
+      "selectedSchoolId": "string | null",
+      "selectedSchool": "StudentSchool | null",
+      "state": "StudentSchoolState",
+      "etag": "string"
+    },
+    "SelectStudentSchoolRequest": {
+      "schoolId": "string",
+      "expectedEtag": "string"
+    },
+    "ContestScheduleItem": {
+      "stage": "string",
+      "value": "string",
+      "sourceUrl": "string"
+    },
+    "ImportFile": {
+      "fileId": "string",
+      "schoolId": "string",
+      "uploadedBy": "string",
+      "originalName": "string",
+      "detectedMediaType": "ImportMediaType | null",
+      "byteSize": "number",
+      "sha256": "string",
+      "pageCount": "number | null",
+      "status": "ImportUploadStatus",
+      "createdAt": "string",
+      "expiresAt": "string",
+      "targetContestId": "string | null",
+      "pageLabel?": "string",
+      "requiresOcr?": "boolean"
+    },
+    "CreateImportUploadRequest": {
+      "schoolId": "string",
+      "targetContestId": "string | null",
+      "originalName": "string",
+      "declaredMediaType": "ImportMediaType",
+      "byteSize": "number",
+      "sha256": "string",
+      "idempotencyKey": "string"
+    },
+    "ImportUploadTicket": {
+      "fileId": "string",
+      "uploadPath": "string",
+      "expiresAt": "string",
+      "maxBytes": "number"
+    },
+    "CompleteImportUploadRequest": {
+      "expectedSha256": "string",
+      "expectedByteSize": "number"
+    },
+    "CreateImportJobRequest": {
+      "schoolId": "string",
+      "targetContestId": "string | null",
+      "fileIds": "string[]",
+      "idempotencyKey": "string",
+      "allowExternalOcr?": "boolean"
+    },
+    "ImportJob": {
+      "jobId": "string",
+      "schoolId": "string",
+      "createdBy": "string",
+      "targetContestId": "string | null",
+      "fileIds": "string[]",
+      "status": "ImportJobStatus",
+      "etag": "string",
+      "attempt": "number",
+      "engineName": "string | null",
+      "engineVersion": "string | null",
+      "createdAt": "string",
+      "updatedAt": "string",
+      "expiresAt": "string",
+      "failureCode": "ImportFailureCode | null",
+      "failureMessage": "string | null",
+      "draftLink": "ImportDraftLink | null",
+      "allowExternalOcr?": "boolean"
+    },
+    "ImportEvidence": {
+      "evidenceId": "string",
+      "jobId": "string",
+      "fileId": "string",
+      "pageNumber": "number",
+      "snippet": "string",
+      "locator": "string | null",
+      "textOrigin?": "string"
+    },
+    "ImportFieldCandidate": {
+      "candidateId": "string",
+      "field": "ImportFieldKey",
+      "value": "string | null",
+      "rawText": "string",
+      "confidence": "number | null",
+      "datePrecision": "ImportDatePrecision | null",
+      "sourceTimeZone": "string | null",
+      "evidenceIds": "string[]",
+      "stage?": "string | null"
+    },
+    "ImportIssue": {
+      "issueId": "string",
+      "code": "ImportIssueCode",
+      "severity": "ImportIssueSeverity",
+      "field": "ImportFieldKey | null",
+      "candidateIds": "string[]",
+      "message": "string"
+    },
+    "ImportDuplicateMatch": {
+      "contestId": "string",
+      "schoolId": "string",
+      "name": "string",
+      "edition": "string | null",
+      "publishedVersionId": "string | null",
+      "publishedEtag": "string | null",
+      "workingVersionId": "string | null",
+      "matchReason": "string"
+    },
+    "ImportRecognitionResult": {
+      "jobId": "string",
+      "schoolId": "string",
+      "jobEtag": "string",
+      "candidates": "ImportFieldCandidate[]",
+      "evidence": "ImportEvidence[]",
+      "issues": "ImportIssue[]",
+      "duplicates": "ImportDuplicateMatch[]"
+    },
+    "ImportFieldConfirmation": {
+      "field": "ImportFieldKey",
+      "decision": "ImportDecisionKind",
+      "candidateId": "string | null",
+      "value": "string | null",
+      "evidenceIds": "string[]",
+      "note": "string | null"
+    },
+    "ImportIssueResolution": {
+      "issueId": "string",
+      "note": "string"
+    },
+    "ConfirmImportDraftRequest": {
+      "expectedJobEtag": "string",
+      "idempotencyKey": "string",
+      "duplicateDecision": "ImportDuplicateDecision",
+      "targetContestId": "string | null",
+      "expectedPublishedEtag": "string | null",
+      "duplicateNote": "string | null",
+      "draft": "CreateDraftRequest",
+      "confirmations": "ImportFieldConfirmation[]",
+      "issueResolutions": "ImportIssueResolution[]",
+      "stageConfirmations": "ImportStageConfirmation[]"
+    },
+    "ImportDraftLink": {
+      "jobId": "string",
+      "contestId": "string",
+      "versionId": "string",
+      "versionNo": "number",
+      "draftEtag": "string",
+      "createdBy": "string",
+      "createdAt": "string"
+    },
+    "ImportDraftOrigin": {
+      "jobId": "string",
+      "schoolId": "string",
+      "fileIds": "string[]",
+      "evidenceIds": "string[]",
+      "decisions": "ImportFieldConfirmation[]",
+      "issueResolutions": "ImportIssueResolution[]",
+      "stageDecisions": "ImportStageConfirmation[]"
+    },
+    "ImportDraftPreparation": {
+      "draft": "CreateDraftRequest",
+      "origin": "ImportDraftOrigin"
+    },
+    "ImportJobQuery": {
+      "schoolId": "string",
+      "page?": "number",
+      "pageSize?": "number",
+      "status?": "ImportJobStatus"
+    },
+    "ImportJobPage": {
+      "list": "ImportJob[]",
+      "total": "number",
+      "page": "number",
+      "pageSize": "number"
+    },
+    "ImportJobLock": {
+      "expectedEtag": "string"
+    },
+    "ImportDraftTargetState": {
+      "contestId": "string",
+      "schoolId": "string",
+      "publishedVersionId": "string | null",
+      "publishedEtag": "string | null",
+      "workingVersionId": "string | null",
+      "takedown": "boolean"
+    },
+    "ImportRuleContext": {
+      "actor": "CampusActor",
+      "permissions": "CampusPermissionSnapshot",
+      "now": "string",
+      "organizationId": "string",
+      "target": "ImportDraftTargetState | null",
+      "confirmedAt": "string"
+    },
+    "ImportStageConfirmation": {
+      "stage": "string",
+      "decision": "ImportDecisionKind",
+      "candidateId": "string | null",
+      "value": "string | null",
+      "evidenceIds": "string[]",
+      "note": "string | null",
+      "sourceUrl": "string | null"
+    },
+    "ImportCapabilitiesQuery": {
+      "schoolId": "string"
+    },
+    "ImportCapabilities": {
+      "schoolId": "string",
+      "formats": "ImportMediaType[]",
+      "maxFileBytes": "number",
+      "maxJobBytes": "number",
+      "maxFiles": "number",
+      "maxPages": "number",
+      "externalOcrEnabled": "boolean",
+      "ocrModel": "string | null",
+      "needsExplicitExternalConsent": "boolean"
+    },
+    "ImportFilePage": {
+      "fileId": "string",
+      "pageNumber": "number",
+      "text": "string",
+      "pageLabel": "string"
+    },
+    "ImportDraftReview": {
+      "link": "ImportDraftLink",
+      "origin": "ImportDraftOrigin",
+      "result": "ImportRecognitionResult",
+      "files": "ImportFile[]"
+    }
+  },
+  "extends": {
+    "ContestFilter": "PageQuery",
+    "FeedbackFilter": "PageQuery",
+    "UpdateDraftRequest": "CreateDraftRequest"
+  }
+}
