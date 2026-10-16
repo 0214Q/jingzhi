@@ -1,11 +1,12 @@
 <script setup lang="ts">
-import { ref, computed, onMounted, onBeforeUnmount } from 'vue';
+import { ref, computed, onMounted, onBeforeUnmount, watch } from 'vue';
 import { ElMessage, ElMessageBox } from 'element-plus';
 import { adminServices } from '../services/AdminServices';
 import { RepositoryError } from '../repository/RepositoryError';
 import type { CatalogItem, CatalogFilter } from '../repository/CatalogRepository';
 import { Category, ContestLevel, CreditApplicable, ChangeType, VersionStatus, type ContestPayload, type ContestVersion, type UpdateDraftRequest } from '../models/contracts';
-const emit=defineEmits<{ 'session-expired':[] }>();
+const props=defineProps<{openContestId?:string}>();
+const emit=defineEmits<{ 'session-expired':[];'import-file':[contestId:string] }>();
 const repo=adminServices.getCatalog(),session=adminServices.getSession();
 const rows=ref<CatalogItem[]>([]),keyword=ref(''),level=ref<ContestLevel|''>(''),state=ref<VersionStatus|''>(''),page=ref(1),total=ref(0),loading=ref(false),error=ref('');
 const opened=ref(false),busy=ref(false),item=ref<CatalogItem|null>(null),form=ref<ContestPayload|null>(null),organizer=ref(''),reason=ref('目录资料补充'),changeType=ref(ChangeType.Value1),editorError=ref(''),fieldErrors=ref<Record<string,string>>({}),baseline=ref('');
@@ -38,6 +39,7 @@ async function derive(){if(busy.value||!item.value?.publishedVersion||item.value
 async function save(){if(busy.value||!editable.value||!item.value?.workingVersion||!form.value)return;if(!reason.value.trim()||!form.value.name.trim()||!organizer.value.trim()){editorError.value='赛事名称、主办方和修改原因必填';return;}busy.value=true;fieldErrors.value={};try{if(!await guard())return;const id=item.value.contest.contestId,v=item.value.workingVersion;const draft:UpdateDraftRequest={...copy(form.value),changeType:changeType.value,reason:reason.value.trim()};await repo.save(id,v.versionId,{draft,organizerName:organizer.value.trim()},{ifMatch:v.etag});install(await repo.get(id));ElMessage.success('草稿已保存，尚未改变学生端公开内容');await load(page.value);}catch(e){showFailure(e);}finally{busy.value=false;}}
 async function submit(){if(busy.value||!editable.value||!item.value?.workingVersion)return;if(dirty.value){editorError.value='请先保存草稿，再提交审核';return;}try{await ElMessageBox.confirm('提交后草稿将只读；审核通过前学生端继续显示原版本。','提交目录审核');}catch{return;}busy.value=true;try{if(!await guard())return;const id=item.value.contest.contestId,v=item.value.workingVersion;await repo.submit(id,{versionId:v.versionId,etag:v.etag});install(await repo.get(id));ElMessage.success('已提交，请在赛事审核中查看并审核');await load(page.value);}catch(e){showFailure(e);}finally{busy.value=false;}}
 onMounted(()=>load());
+watch(()=>props.openContestId,async id=>{if(!id)return;try{const row=await repo.get(id);if(alive)await open(row);}catch(e){error.value=errorText(e);}},{immediate:true});
 </script>
 <template>
  <section class="catalog-panel">
@@ -45,7 +47,7 @@ onMounted(()=>load());
   <div class="catalog-toolbar"><el-input v-model="keyword" placeholder="搜索目录赛事名称" clearable @keyup.enter="load()" /><el-select v-model="level" placeholder="全部层级" clearable @change="load()"><el-option label="国家级" :value="ContestLevel.Value2"/><el-option label="省级" :value="ContestLevel.Value1"/></el-select><el-select v-model="state" placeholder="全部版本状态" clearable @change="load()"><el-option v-for="s in Object.values(VersionStatus)" :key="s" :label="s" :value="s"/></el-select><el-button @click="load(page)" :loading="loading">查询 / 刷新</el-button><span>共 {{total}} 条</span></div>
   <el-alert v-if="error" :title="error" type="error" :closable="false" />
   <el-table :data="rows" v-loading="loading" empty-text="暂无可维护赛事；负责人需先由校级管理员分配赛事">
-   <el-table-column label="赛事" min-width="230"><template #default="{row}">{{payload(row)?.name}}</template></el-table-column><el-table-column label="层级" width="85"><template #default="{row}">{{payload(row)?.level}}</template></el-table-column><el-table-column prop="organizationName" label="主办方" min-width="190"/><el-table-column label="状态" width="110"><template #default="{row}">{{(row.workingVersion||row.publishedVersion)?.status}}</template></el-table-column><el-table-column label="公开版本" width="100"><template #default="{row}">{{row.publishedVersion ? 'v'+row.publishedVersion.versionNo : '未公开'}}</template></el-table-column><el-table-column label="资料" width="95"><template #default="{row}">{{payload(row)?.completeness}}</template></el-table-column><el-table-column label="操作" width="100"><template #default="{row}"><el-button link type="primary" @click="open(row)">查看 / 编辑</el-button></template></el-table-column>
+   <el-table-column label="赛事" min-width="230"><template #default="{row}">{{payload(row)?.name}}</template></el-table-column><el-table-column label="层级" width="85"><template #default="{row}">{{payload(row)?.level}}</template></el-table-column><el-table-column prop="organizationName" label="主办方" min-width="190"/><el-table-column label="状态" width="110"><template #default="{row}">{{(row.workingVersion||row.publishedVersion)?.status}}</template></el-table-column><el-table-column label="公开版本" width="100"><template #default="{row}">{{row.publishedVersion ? 'v'+row.publishedVersion.versionNo : '未公开'}}</template></el-table-column><el-table-column label="资料" width="95"><template #default="{row}">{{payload(row)?.completeness}}</template></el-table-column><el-table-column label="操作" width="210"><template #default="{row}"><el-button link type="primary" @click="open(row)">查看 / 编辑</el-button><el-button link type="primary" :disabled="!!row.workingVersion||!row.publishedVersion||!!row.contest.takedown" @click="emit('import-file',row.contest.contestId)">从文件补充</el-button></template></el-table-column>
   </el-table>
   <el-pagination class="catalog-space" background layout="prev, pager, next, total" :total="total" :page-size="20" :current-page="page" :disabled="loading" @current-change="load" />
   <el-dialog :model-value="opened" @update:model-value="close" title="赛事资料维护" width="min(1050px,94%)" :close-on-click-modal="false" :close-on-press-escape="false" :show-close="!busy">

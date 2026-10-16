@@ -1,3 +1,5 @@
+import { HttpImportRepository } from './repository/HttpImportRepository';
+import { ImportFileService } from './services/ImportFileService';
 import { HttpCampusRepository } from './repository/HttpCampusRepository';
 import { HttpCatalogRepository } from './repository/HttpCatalogRepository';
 import { createApp } from 'vue';
@@ -15,4 +17,6 @@ const transport=new FetchTransport(import.meta.env.VITE_API_BASE_URL || 'http://
 const session=new SessionService(new HttpAuthRepository(transport),Object.values(Role));
 adminServices.configure(new HttpContestRepository(transport),new HttpFeedbackRepository(transport),new HttpPublicityRepository(transport),session,new HttpCatalogRepository(transport));
 adminServices.configureCampus(new HttpCampusRepository(transport));
+const imports=new HttpImportRepository(transport);
+adminServices.configureImports(imports,new ImportFileService(import.meta.env.VITE_API_BASE_URL || 'http://127.0.0.1:8787',()=>session.authorizationHeader(),()=>adminServices.getManagementSchool(),imports));
 createApp(App).use(router).use(ElementPlus).mount('#app');

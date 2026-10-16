@@ -1,8 +1,15 @@
+import type { ImportRepository } from '../repository/ImportRepository';
+import type { ImportFileService } from './ImportFileService';
 import type { CampusRepository } from '../repository/CampusRepository';
 import type { CatalogRepository } from '../repository/CatalogRepository';
 import { ContestRepository, FeedbackRepository, PublicityRepository } from '../repository/Repositories';
 import { SessionService } from './SessionService';
 class AdminServices {
+ private imports:ImportRepository|null=null;
+ private importFiles:ImportFileService|null=null;
+ configureImports(repository:ImportRepository,files:ImportFileService):void{this.imports=repository;this.importFiles=files;}
+ getImports():ImportRepository{if(!this.imports)throw new Error('文件导入服务未配置');return this.imports;}
+ getImportFiles():ImportFileService{if(!this.importFiles)throw new Error('文件接收服务未配置');return this.importFiles;}
  private managementSchool:string|null=null;
  setManagementSchool(id:string|null):void{this.managementSchool=id;}
  getManagementSchool():string|null{return this.managementSchool;}

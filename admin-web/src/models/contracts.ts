@@ -159,6 +159,108 @@ export enum StudentSchoolState {
   Value2 = "需重新选择",
 }
 
+export enum ImportMediaType {
+  Value0 = "application/pdf",
+  Value1 = "application/vnd.openxmlformats-officedocument.wordprocessingml.document",
+  Value2 = "image/jpeg",
+  Value3 = "image/png",
+  Value4 = "image/webp",
+}
+
+export enum ImportUploadStatus {
+  Value0 = "待上传",
+  Value1 = "已接收",
+  Value2 = "拒绝",
+  Value3 = "已过期",
+  Value4 = "已删除",
+}
+
+export enum ImportJobStatus {
+  Value0 = "排队中",
+  Value1 = "识别中",
+  Value2 = "待确认",
+  Value3 = "已转草稿",
+  Value4 = "失败",
+  Value5 = "已取消",
+  Value6 = "已过期",
+}
+
+export enum ImportDatePrecision {
+  Value0 = "未知",
+  Value1 = "仅月份",
+  Value2 = "仅日期",
+  Value3 = "精确时刻",
+}
+
+export enum ImportIssueSeverity {
+  Value0 = "提示",
+  Value1 = "需确认",
+  Value2 = "阻断",
+}
+
+export enum ImportIssueCode {
+  Value0 = "未公布",
+  Value1 = "低置信度",
+  Value2 = "文本模糊",
+  Value3 = "年份缺失",
+  Value4 = "时区缺失",
+  Value5 = "时间冲突",
+  Value6 = "来源冲突",
+  Value7 = "疑似重复",
+  Value8 = "材料不安全",
+  Value9 = "识别失败",
+}
+
+export enum ImportDecisionKind {
+  Value0 = "采用识别",
+  Value1 = "人工填写",
+  Value2 = "保留未知",
+}
+
+export enum ImportDuplicateDecision {
+  Value0 = "创建新赛事",
+  Value1 = "补充已有赛事",
+}
+
+export enum ImportFieldKey {
+  Value0 = "name",
+  Value1 = "category",
+  Value2 = "scopeType",
+  Value3 = "edition",
+  Value4 = "level",
+  Value5 = "regStart",
+  Value6 = "regEnd",
+  Value7 = "contestStart",
+  Value8 = "contestEnd",
+  Value9 = "publicityTime",
+  Value10 = "contestRequirement",
+  Value11 = "reviewRules",
+  Value12 = "awardSetting",
+  Value13 = "material",
+  Value14 = "entryMethod",
+  Value15 = "contact",
+  Value16 = "description",
+  Value17 = "sourceTitle",
+  Value18 = "sourceOrg",
+  Value19 = "sourceUrl",
+  Value20 = "sourcePublishedAt",
+  Value21 = "lastVerifiedAt",
+  Value22 = "stageDate",
+}
+
+export enum ImportFailureCode {
+  Value0 = "格式不支持",
+  Value1 = "文件过大",
+  Value2 = "文件损坏",
+  Value3 = "材料不安全",
+  Value4 = "文件已过期",
+  Value5 = "任务超时",
+  Value6 = "识别服务不可用",
+  Value7 = "识别服务失败",
+  Value8 = "无可识别文本",
+  Value9 = "内部错误",
+}
+
 export interface ApplicableScope {
   colleges: string[];
   majors: string[];
@@ -1067,6 +1169,254 @@ export interface ContestScheduleItem {
   stage: string;
   value: string;
   sourceUrl: string;
+}
+
+export interface ImportFile {
+  fileId: string;
+  schoolId: string;
+  uploadedBy: string;
+  originalName: string;
+  detectedMediaType: ImportMediaType | null;
+  byteSize: number;
+  sha256: string;
+  pageCount: number | null;
+  status: ImportUploadStatus;
+  createdAt: string;
+  expiresAt: string;
+  targetContestId: string | null;
+  pageLabel?: string;
+  requiresOcr?: boolean;
+}
+
+export interface CreateImportUploadRequest {
+  schoolId: string;
+  targetContestId: string | null;
+  originalName: string;
+  declaredMediaType: ImportMediaType;
+  byteSize: number;
+  sha256: string;
+  idempotencyKey: string;
+}
+
+export interface ImportUploadTicket {
+  fileId: string;
+  uploadPath: string;
+  expiresAt: string;
+  maxBytes: number;
+}
+
+export interface CompleteImportUploadRequest {
+  expectedSha256: string;
+  expectedByteSize: number;
+}
+
+export interface CreateImportJobRequest {
+  schoolId: string;
+  targetContestId: string | null;
+  fileIds: string[];
+  idempotencyKey: string;
+  allowExternalOcr?: boolean;
+}
+
+export interface ImportJob {
+  jobId: string;
+  schoolId: string;
+  createdBy: string;
+  targetContestId: string | null;
+  fileIds: string[];
+  status: ImportJobStatus;
+  etag: string;
+  attempt: number;
+  engineName: string | null;
+  engineVersion: string | null;
+  createdAt: string;
+  updatedAt: string;
+  expiresAt: string;
+  failureCode: ImportFailureCode | null;
+  failureMessage: string | null;
+  draftLink: ImportDraftLink | null;
+  allowExternalOcr?: boolean;
+}
+
+export interface ImportEvidence {
+  evidenceId: string;
+  jobId: string;
+  fileId: string;
+  pageNumber: number;
+  snippet: string;
+  locator: string | null;
+  textOrigin?: string;
+}
+
+export interface ImportFieldCandidate {
+  candidateId: string;
+  field: ImportFieldKey;
+  value: string | null;
+  rawText: string;
+  confidence: number | null;
+  datePrecision: ImportDatePrecision | null;
+  sourceTimeZone: string | null;
+  evidenceIds: string[];
+  stage?: string | null;
+}
+
+export interface ImportIssue {
+  issueId: string;
+  code: ImportIssueCode;
+  severity: ImportIssueSeverity;
+  field: ImportFieldKey | null;
+  candidateIds: string[];
+  message: string;
+}
+
+export interface ImportDuplicateMatch {
+  contestId: string;
+  schoolId: string;
+  name: string;
+  edition: string | null;
+  publishedVersionId: string | null;
+  publishedEtag: string | null;
+  workingVersionId: string | null;
+  matchReason: string;
+}
+
+export interface ImportRecognitionResult {
+  jobId: string;
+  schoolId: string;
+  jobEtag: string;
+  candidates: ImportFieldCandidate[];
+  evidence: ImportEvidence[];
+  issues: ImportIssue[];
+  duplicates: ImportDuplicateMatch[];
+}
+
+export interface ImportFieldConfirmation {
+  field: ImportFieldKey;
+  decision: ImportDecisionKind;
+  candidateId: string | null;
+  value: string | null;
+  evidenceIds: string[];
+  note: string | null;
+}
+
+export interface ImportIssueResolution {
+  issueId: string;
+  note: string;
+}
+
+export interface ConfirmImportDraftRequest {
+  expectedJobEtag: string;
+  idempotencyKey: string;
+  duplicateDecision: ImportDuplicateDecision;
+  targetContestId: string | null;
+  expectedPublishedEtag: string | null;
+  duplicateNote: string | null;
+  draft: CreateDraftRequest;
+  confirmations: ImportFieldConfirmation[];
+  issueResolutions: ImportIssueResolution[];
+  stageConfirmations: ImportStageConfirmation[];
+}
+
+export interface ImportDraftLink {
+  jobId: string;
+  contestId: string;
+  versionId: string;
+  versionNo: number;
+  draftEtag: string;
+  createdBy: string;
+  createdAt: string;
+}
+
+export interface ImportDraftOrigin {
+  jobId: string;
+  schoolId: string;
+  fileIds: string[];
+  evidenceIds: string[];
+  decisions: ImportFieldConfirmation[];
+  issueResolutions: ImportIssueResolution[];
+  stageDecisions: ImportStageConfirmation[];
+}
+
+export interface ImportDraftPreparation {
+  draft: CreateDraftRequest;
+  origin: ImportDraftOrigin;
+}
+
+export interface ImportJobQuery {
+  schoolId: string;
+  page?: number;
+  pageSize?: number;
+  status?: ImportJobStatus;
+}
+
+export interface ImportJobPage {
+  list: ImportJob[];
+  total: number;
+  page: number;
+  pageSize: number;
+}
+
+export interface ImportJobLock {
+  expectedEtag: string;
+}
+
+export interface ImportDraftTargetState {
+  contestId: string;
+  schoolId: string;
+  publishedVersionId: string | null;
+  publishedEtag: string | null;
+  workingVersionId: string | null;
+  takedown: boolean;
+}
+
+export interface ImportRuleContext {
+  actor: CampusActor;
+  permissions: CampusPermissionSnapshot;
+  now: string;
+  organizationId: string;
+  target: ImportDraftTargetState | null;
+  confirmedAt: string;
+}
+
+export interface ImportStageConfirmation {
+  stage: string;
+  decision: ImportDecisionKind;
+  candidateId: string | null;
+  value: string | null;
+  evidenceIds: string[];
+  note: string | null;
+  sourceUrl: string | null;
+}
+
+export interface ImportCapabilitiesQuery {
+  schoolId: string;
+}
+
+export interface ImportCapabilities {
+  schoolId: string;
+  formats: ImportMediaType[];
+  maxFileBytes: number;
+  maxJobBytes: number;
+  maxFiles: number;
+  maxPages: number;
+  localOcrEnabled?: boolean;
+  externalOcrEnabled: boolean;
+  ocrModel: string | null;
+  needsExplicitExternalConsent: boolean;
+}
+
+export interface ImportFilePage {
+  fileId: string;
+  pageNumber: number;
+  text: string;
+  pageLabel: string;
+}
+
+export interface ImportDraftReview {
+  link: ImportDraftLink;
+  origin: ImportDraftOrigin;
+  result: ImportRecognitionResult;
+  files: ImportFile[];
 }
 
 export interface ApiResponse<T> {
