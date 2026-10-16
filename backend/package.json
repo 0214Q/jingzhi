@@ -13,5 +13,11 @@
     "seed:demo": "node src/cli.cjs seed-demo",
     "user:add": "node src/cli.cjs user-add",
     "backup": "node src/cli.cjs backup"
+  },
+  "dependencies": {
+    "@napi-rs/canvas": "1.0.11",
+    "pdfjs-dist": "6.4.299",
+    "sharp": "0.35.5",
+    "yauzl": "3.4.0"
   }
 }

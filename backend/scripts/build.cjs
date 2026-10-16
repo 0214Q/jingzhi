@@ -2,7 +2,7 @@ const fs=require('node:fs'),path=require('node:path');
 const ts=require('../../admin-web/node_modules/typescript');
 const root=path.resolve(__dirname,'../..'),dir=path.join(root,'backend/build');fs.mkdirSync(dir,{recursive:true});
 const renames={MockStore:'DomainStore',MockContext:'RequestContext',MockRules:'DomainRules',MockSeeds:'DemoSeeds',MockContestRepository:'ContestService',MockPublicityRepository:'PublicityService',MockInteractionRepository:'InteractionRepository',MockFavoriteRepository:'FavoriteService',MockFeedbackRepository:'FeedbackService'};
-for(const name of ['contracts','CampusPermissions','Repositories','RepositoryError','MockRules','MockSeeds','MockContestRepository','MockPublicityRepository','MockInteractionRepository']){
+for(const name of ['contracts','CampusPermissions','ImportDraftRules','Repositories','RepositoryError','MockRules','MockSeeds','MockContestRepository','MockPublicityRepository','MockInteractionRepository']){
  let source=fs.readFileSync(path.join(root,'shared',name+'.ts'),'utf8');
  for(const [a,b] of Object.entries(renames))source=source.replace(new RegExp('\\b'+a+'\\b','g'),b);
  if(name==='MockContestRepository'){source="import { validatePublication } from './CatalogRules';\n"+source;source=source.replaceAll('validate(v.payload, true);','validatePublication(this.store, v);');}
