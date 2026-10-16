@@ -136,6 +136,98 @@
       "默认所属高校",
       "已选择高校",
       "需重新选择"
+    ],
+    "ImportMediaType": [
+      "application/pdf",
+      "application/vnd.openxmlformats-officedocument.wordprocessingml.document",
+      "image/jpeg",
+      "image/png",
+      "image/webp"
+    ],
+    "ImportUploadStatus": [
+      "待上传",
+      "已接收",
+      "拒绝",
+      "已过期",
+      "已删除"
+    ],
+    "ImportJobStatus": [
+      "排队中",
+      "识别中",
+      "待确认",
+      "已转草稿",
+      "失败",
+      "已取消",
+      "已过期"
+    ],
+    "ImportDatePrecision": [
+      "未知",
+      "仅月份",
+      "仅日期",
+      "精确时刻"
+    ],
+    "ImportIssueSeverity": [
+      "提示",
+      "需确认",
+      "阻断"
+    ],
+    "ImportIssueCode": [
+      "未公布",
+      "低置信度",
+      "文本模糊",
+      "年份缺失",
+      "时区缺失",
+      "时间冲突",
+      "来源冲突",
+      "疑似重复",
+      "材料不安全",
+      "识别失败"
+    ],
+    "ImportDecisionKind": [
+      "采用识别",
+      "人工填写",
+      "保留未知"
+    ],
+    "ImportDuplicateDecision": [
+      "创建新赛事",
+      "补充已有赛事"
+    ],
+    "ImportFieldKey": [
+      "name",
+      "category",
+      "scopeType",
+      "edition",
+      "level",
+      "regStart",
+      "regEnd",
+      "contestStart",
+      "contestEnd",
+      "publicityTime",
+      "contestRequirement",
+      "reviewRules",
+      "awardSetting",
+      "material",
+      "entryMethod",
+      "contact",
+      "description",
+      "sourceTitle",
+      "sourceOrg",
+      "sourceUrl",
+      "sourcePublishedAt",
+      "lastVerifiedAt",
+      "stageDate"
+    ],
+    "ImportFailureCode": [
+      "格式不支持",
+      "文件过大",
+      "文件损坏",
+      "材料不安全",
+      "文件已过期",
+      "任务超时",
+      "识别服务不可用",
+      "识别服务失败",
+      "无可识别文本",
+      "内部错误"
     ]
   },
   "models": {
@@ -937,6 +1029,227 @@
       "stage": "string",
       "value": "string",
       "sourceUrl": "string"
+    },
+    "ImportFile": {
+      "fileId": "string",
+      "schoolId": "string",
+      "uploadedBy": "string",
+      "originalName": "string",
+      "detectedMediaType": "ImportMediaType | null",
+      "byteSize": "number",
+      "sha256": "string",
+      "pageCount": "number | null",
+      "status": "ImportUploadStatus",
+      "createdAt": "string",
+      "expiresAt": "string",
+      "targetContestId": "string | null",
+      "pageLabel?": "string",
+      "requiresOcr?": "boolean"
+    },
+    "CreateImportUploadRequest": {
+      "schoolId": "string",
+      "targetContestId": "string | null",
+      "originalName": "string",
+      "declaredMediaType": "ImportMediaType",
+      "byteSize": "number",
+      "sha256": "string",
+      "idempotencyKey": "string"
+    },
+    "ImportUploadTicket": {
+      "fileId": "string",
+      "uploadPath": "string",
+      "expiresAt": "string",
+      "maxBytes": "number"
+    },
+    "CompleteImportUploadRequest": {
+      "expectedSha256": "string",
+      "expectedByteSize": "number"
+    },
+    "CreateImportJobRequest": {
+      "schoolId": "string",
+      "targetContestId": "string | null",
+      "fileIds": "string[]",
+      "idempotencyKey": "string",
+      "allowExternalOcr?": "boolean"
+    },
+    "ImportJob": {
+      "jobId": "string",
+      "schoolId": "string",
+      "createdBy": "string",
+      "targetContestId": "string | null",
+      "fileIds": "string[]",
+      "status": "ImportJobStatus",
+      "etag": "string",
+      "attempt": "number",
+      "engineName": "string | null",
+      "engineVersion": "string | null",
+      "createdAt": "string",
+      "updatedAt": "string",
+      "expiresAt": "string",
+      "failureCode": "ImportFailureCode | null",
+      "failureMessage": "string | null",
+      "draftLink": "ImportDraftLink | null",
+      "allowExternalOcr?": "boolean"
+    },
+    "ImportEvidence": {
+      "evidenceId": "string",
+      "jobId": "string",
+      "fileId": "string",
+      "pageNumber": "number",
+      "snippet": "string",
+      "locator": "string | null",
+      "textOrigin?": "string"
+    },
+    "ImportFieldCandidate": {
+      "candidateId": "string",
+      "field": "ImportFieldKey",
+      "value": "string | null",
+      "rawText": "string",
+      "confidence": "number | null",
+      "datePrecision": "ImportDatePrecision | null",
+      "sourceTimeZone": "string | null",
+      "evidenceIds": "string[]",
+      "stage?": "string | null"
+    },
+    "ImportIssue": {
+      "issueId": "string",
+      "code": "ImportIssueCode",
+      "severity": "ImportIssueSeverity",
+      "field": "ImportFieldKey | null",
+      "candidateIds": "string[]",
+      "message": "string"
+    },
+    "ImportDuplicateMatch": {
+      "contestId": "string",
+      "schoolId": "string",
+      "name": "string",
+      "edition": "string | null",
+      "publishedVersionId": "string | null",
+      "publishedEtag": "string | null",
+      "workingVersionId": "string | null",
+      "matchReason": "string"
+    },
+    "ImportRecognitionResult": {
+      "jobId": "string",
+      "schoolId": "string",
+      "jobEtag": "string",
+      "candidates": "ImportFieldCandidate[]",
+      "evidence": "ImportEvidence[]",
+      "issues": "ImportIssue[]",
+      "duplicates": "ImportDuplicateMatch[]"
+    },
+    "ImportFieldConfirmation": {
+      "field": "ImportFieldKey",
+      "decision": "ImportDecisionKind",
+      "candidateId": "string | null",
+      "value": "string | null",
+      "evidenceIds": "string[]",
+      "note": "string | null"
+    },
+    "ImportIssueResolution": {
+      "issueId": "string",
+      "note": "string"
+    },
+    "ConfirmImportDraftRequest": {
+      "expectedJobEtag": "string",
+      "idempotencyKey": "string",
+      "duplicateDecision": "ImportDuplicateDecision",
+      "targetContestId": "string | null",
+      "expectedPublishedEtag": "string | null",
+      "duplicateNote": "string | null",
+      "draft": "CreateDraftRequest",
+      "confirmations": "ImportFieldConfirmation[]",
+      "issueResolutions": "ImportIssueResolution[]",
+      "stageConfirmations": "ImportStageConfirmation[]"
+    },
+    "ImportDraftLink": {
+      "jobId": "string",
+      "contestId": "string",
+      "versionId": "string",
+      "versionNo": "number",
+      "draftEtag": "string",
+      "createdBy": "string",
+      "createdAt": "string"
+    },
+    "ImportDraftOrigin": {
+      "jobId": "string",
+      "schoolId": "string",
+      "fileIds": "string[]",
+      "evidenceIds": "string[]",
+      "decisions": "ImportFieldConfirmation[]",
+      "issueResolutions": "ImportIssueResolution[]",
+      "stageDecisions": "ImportStageConfirmation[]"
+    },
+    "ImportDraftPreparation": {
+      "draft": "CreateDraftRequest",
+      "origin": "ImportDraftOrigin"
+    },
+    "ImportJobQuery": {
+      "schoolId": "string",
+      "page?": "number",
+      "pageSize?": "number",
+      "status?": "ImportJobStatus"
+    },
+    "ImportJobPage": {
+      "list": "ImportJob[]",
+      "total": "number",
+      "page": "number",
+      "pageSize": "number"
+    },
+    "ImportJobLock": {
+      "expectedEtag": "string"
+    },
+    "ImportDraftTargetState": {
+      "contestId": "string",
+      "schoolId": "string",
+      "publishedVersionId": "string | null",
+      "publishedEtag": "string | null",
+      "workingVersionId": "string | null",
+      "takedown": "boolean"
+    },
+    "ImportRuleContext": {
+      "actor": "CampusActor",
+      "permissions": "CampusPermissionSnapshot",
+      "now": "string",
+      "organizationId": "string",
+      "target": "ImportDraftTargetState | null",
+      "confirmedAt": "string"
+    },
+    "ImportStageConfirmation": {
+      "stage": "string",
+      "decision": "ImportDecisionKind",
+      "candidateId": "string | null",
+      "value": "string | null",
+      "evidenceIds": "string[]",
+      "note": "string | null",
+      "sourceUrl": "string | null"
+    },
+    "ImportCapabilitiesQuery": {
+      "schoolId": "string"
+    },
+    "ImportCapabilities": {
+      "schoolId": "string",
+      "formats": "ImportMediaType[]",
+      "maxFileBytes": "number",
+      "maxJobBytes": "number",
+      "maxFiles": "number",
+      "maxPages": "number",
+      "localOcrEnabled?": "boolean",
+      "externalOcrEnabled": "boolean",
+      "ocrModel": "string | null",
+      "needsExplicitExternalConsent": "boolean"
+    },
+    "ImportFilePage": {
+      "fileId": "string",
+      "pageNumber": "number",
+      "text": "string",
+      "pageLabel": "string"
+    },
+    "ImportDraftReview": {
+      "link": "ImportDraftLink",
+      "origin": "ImportDraftOrigin",
+      "result": "ImportRecognitionResult",
+      "files": "ImportFile[]"
     }
   },
   "extends": {
